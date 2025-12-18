@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logoAltocloud from "@/assets/logo-altocloud.png";
 
 const services = [
   { name: "Sales Cloud", path: "/servicios/sales-cloud" },
@@ -28,11 +29,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-hero-gradient flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">S</span>
-            </div>
+            <img src={logoAltocloud} alt="Altocloud Consulting" className="w-10 h-10 object-contain" />
             <span className="font-serif text-xl font-semibold text-foreground">
-              SF Consulting
+              Altocloud Consulting
             </span>
           </Link>
 

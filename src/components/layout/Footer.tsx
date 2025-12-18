@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import logoAltocloud from "@/assets/logo-altocloud.png";
 
 const Footer = () => {
   return (
@@ -9,10 +10,8 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">S</span>
-              </div>
-              <span className="font-serif text-xl font-semibold">SF Consulting</span>
+              <img src={logoAltocloud} alt="Altocloud Consulting" className="w-10 h-10 object-contain" />
+              <span className="font-serif text-xl font-semibold">Altocloud Consulting</span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md">
               Consultores especializados en Salesforce. Ayudamos a empresas a transformar 
@@ -73,7 +72,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-8 pt-8 text-center text-sm text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} SF Consulting. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Altocloud Consulting. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
