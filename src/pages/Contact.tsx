@@ -11,13 +11,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   Form,
   FormControl,
   FormField,
@@ -33,7 +26,6 @@ const contactSchema = z.object({
   email: z.string().email("Introduce un email válido"),
   telefono: z.string().optional(),
   empresa: z.string().optional(),
-  servicio: z.string().optional(),
   mensaje: z.string().optional(),
   privacyAccepted: z.boolean().refine((val) => val === true, {
     message: "Debes aceptar la política de privacidad",
@@ -41,14 +33,6 @@ const contactSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
-
-const services = [
-  { value: "sales-cloud", label: "Sales Cloud" },
-  { value: "service-cloud", label: "Service Cloud" },
-  { value: "nonprofit-cloud", label: "Nonprofit Cloud" },
-  { value: "starter-pro-suite", label: "Starter & Pro Suite" },
-  { value: "otro", label: "Otro / No estoy seguro" },
-];
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,7 +45,6 @@ const Contact = () => {
       email: "",
       telefono: "",
       empresa: "",
-      servicio: "",
       mensaje: "",
       privacyAccepted: false,
     },
@@ -69,16 +52,47 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
     
-    toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto.",
-    });
-    
-    form.reset();
+    try {
+      // Create form data for Salesforce Web-to-Lead
+      const formData = new FormData();
+      
+      // Hidden fields
+      formData.append("oid", "00DWV00000GKmiP");
+      formData.append("retURL", window.location.origin);
+      
+      // Form fields
+      formData.append("first_name", data.nombre);
+      formData.append("email", data.email);
+      formData.append("phone", data.telefono || "");
+      formData.append("company", data.empresa || "");
+      formData.append("description", data.mensaje || "");
+      formData.append("00NWV000008Pzmr", data.privacyAccepted ? "1" : ""); // Acepta Política Privacidad
+      formData.append("00NWV0000088Qn7", "Web"); // Plataforma
+      formData.append("lead_source", "Web"); // Origen del candidato
+
+      // Submit to Salesforce Web-to-Lead
+      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      });
+
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Hubo un error al enviar el formulario. Inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -162,7 +176,7 @@ const Contact = () => {
                           <FormItem>
                             <FormLabel>Nombre *</FormLabel>
                             <FormControl>
-                              <Input placeholder="Tu nombre" {...field} />
+                              <Input placeholder="Tu nombre" maxLength={40} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -175,7 +189,7 @@ const Contact = () => {
                           <FormItem>
                             <FormLabel>Email *</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="tu@email.com" {...field} />
+                              <Input type="email" placeholder="tu@email.com" maxLength={80} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -191,7 +205,7 @@ const Contact = () => {
                           <FormItem>
                             <FormLabel>Teléfono</FormLabel>
                             <FormControl>
-                              <Input placeholder="+34 600 000 000" {...field} />
+                              <Input placeholder="+34 600 000 000" maxLength={40} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -204,38 +218,13 @@ const Contact = () => {
                           <FormItem>
                             <FormLabel>Empresa</FormLabel>
                             <FormControl>
-                              <Input placeholder="Nombre de tu empresa" {...field} />
+                              <Input placeholder="Nombre de tu empresa" maxLength={40} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
                     </div>
-
-                    <FormField
-                      control={form.control}
-                      name="servicio"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Servicio de interés</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Selecciona un servicio" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="bg-card border border-border z-50">
-                              {services.map((service) => (
-                                <SelectItem key={service.value} value={service.value}>
-                                  {service.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
 
                     <FormField
                       control={form.control}
