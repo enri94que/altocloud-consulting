@@ -419,9 +419,11 @@ const Precios = () => {
             Como consultor certificado de Salesforce, te ayudo a elegir la licencia que mejor se adapte 
             a las necesidades de tu negocio y presupuesto.
           </p>
-          <Button size="lg" variant="secondary" asChild>
-            <a href="/#contacto">Solicitar asesoramiento gratuito</a>
-          </Button>
+          <ContactFormDialog variant="contact">
+            <Button size="lg" variant="secondary">
+              Solicitar asesoramiento gratuito
+            </Button>
+          </ContactFormDialog>
         </div>
       </section>
     </Layout>
