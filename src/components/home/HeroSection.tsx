@@ -27,13 +27,7 @@ const HeroSection = () => {
             con las soluciones CRM líderes del mercado.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <ContactFormDialog variant="demo">
-              <Button size="lg" variant="default">
-                Solicitar Demo
-                <ArrowRight className="h-4 w-4 ml-1" />
-              </Button>
-            </ContactFormDialog>
+          <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <ContactFormDialog variant="contact">
               <Button size="lg" variant="hero">
                 Contactar
