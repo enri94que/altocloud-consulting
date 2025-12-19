@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <img src={logoAltocloud} alt="Altocloud" className="h-8 object-contain" />
+              <img src={logoAltocloud} alt="Altocloud" className="h-12 object-contain" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md">
               Consultores especializados en Salesforce. Ayudamos a empresas a transformar 

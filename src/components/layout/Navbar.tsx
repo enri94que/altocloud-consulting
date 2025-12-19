@@ -39,8 +39,8 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2">
             <img
               alt="Altocloud Consulting"
-              className="w-10 h-10 object-contain"
-              src="https://res.cloudinary.com/dxw7yodru/image/upload/v1766136416/Logo_Altocloud_ki6tke.png"
+              className="h-12 md:h-14 object-contain"
+              src={logoAltocloud}
             />
           </Link>
 
