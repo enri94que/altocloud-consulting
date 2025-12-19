@@ -43,6 +43,8 @@ const contactSchema = z.object({
   privacidad: z.boolean().refine((val) => val === true, {
     message: "Debes aceptar la política de privacidad",
   }),
+  valoracion: z.string().optional(),
+  origenCandidato: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -52,7 +54,26 @@ const services = [
   { value: "service-cloud", label: "Service Cloud" },
   { value: "nonprofit-cloud", label: "Nonprofit Cloud" },
   { value: "starter-pro-suite", label: "Starter & Pro Suite" },
-  { value: "otro", label: "Otro / No estoy seguro" },
+  { value: "otro", label: "Otro" },
+];
+
+const valoraciones = [
+  { value: "caliente", label: "Caliente" },
+  { value: "templada", label: "Templada" },
+  { value: "fria", label: "Fría" },
+];
+
+const origenes = [
+  { value: "boca-a-boca", label: "Boca a boca" },
+  { value: "fiverr", label: "Fiverr" },
+  { value: "infojobs", label: "Infojobs" },
+  { value: "jobleads", label: "JobLeads" },
+  { value: "linkedin", label: "Linkedin" },
+  { value: "otros", label: "Otros" },
+  { value: "partner", label: "Partner" },
+  { value: "shakers", label: "Shakers" },
+  { value: "upwork", label: "Upwork" },
+  { value: "web", label: "Web" },
 ];
 
 interface ContactFormDialogProps {
@@ -75,6 +96,8 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
       servicio: "",
       mensaje: "",
       privacidad: false,
+      valoracion: "",
+      origenCandidato: "",
     },
   });
 
@@ -198,7 +221,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               name="mensaje"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Mensaje</FormLabel>
+                  <FormLabel>Descripción</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Cuéntanos sobre tu proyecto..."
@@ -210,6 +233,57 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
                 </FormItem>
               )}
             />
+
+            <div className="grid grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="valoracion"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Valoración</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="bg-card border border-border z-50">
+                        {valoraciones.map((val) => (
+                          <SelectItem key={val.value} value={val.value}>
+                            {val.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="origenCandidato"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Origen del candidato</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="bg-card border border-border z-50">
+                        {origenes.map((origen) => (
+                          <SelectItem key={origen.value} value={origen.value}>
+                            {origen.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
 
             <FormField
               control={form.control}
