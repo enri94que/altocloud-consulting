@@ -300,8 +300,13 @@ const Precios = () => {
       {/* Pricing Tables */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="sales" className="w-full">
+          <Tabs defaultValue="starter" className="w-full">
             <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 h-auto">
+              <TabsTrigger value="starter" className="flex items-center gap-2 py-3">
+                <Building2 className="w-4 h-4" />
+                <span className="hidden sm:inline">Starter & Pro</span>
+                <span className="sm:hidden">Starter</span>
+              </TabsTrigger>
               <TabsTrigger value="sales" className="flex items-center gap-2 py-3">
                 <Briefcase className="w-4 h-4" />
                 <span className="hidden sm:inline">Sales Cloud</span>
@@ -317,12 +322,19 @@ const Precios = () => {
                 <span className="hidden sm:inline">Nonprofit</span>
                 <span className="sm:hidden">Nonprofit</span>
               </TabsTrigger>
-              <TabsTrigger value="starter" className="flex items-center gap-2 py-3">
-                <Building2 className="w-4 h-4" />
-                <span className="hidden sm:inline">Starter & Pro</span>
-                <span className="sm:hidden">Starter</span>
-              </TabsTrigger>
             </TabsList>
+
+            <TabsContent value="starter" className="mt-0">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl font-bold mb-2">Starter & Pro Suite</h2>
+                <p className="text-muted-foreground">Soluciones todo en uno perfectas para pymes</p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {starterProPlans.map((plan, i) => (
+                  <PricingCard key={i} plan={plan} />
+                ))}
+              </div>
+            </TabsContent>
 
             <TabsContent value="sales" className="mt-0">
               <div className="text-center mb-10">
@@ -369,17 +381,6 @@ const Precios = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="starter" className="mt-0">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl font-bold mb-2">Starter & Pro Suite</h2>
-                <p className="text-muted-foreground">Soluciones todo en uno perfectas para pymes</p>
-              </div>
-              <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {starterProPlans.map((plan, i) => (
-                  <PricingCard key={i} plan={plan} />
-                ))}
-              </div>
-            </TabsContent>
           </Tabs>
         </div>
       </section>
