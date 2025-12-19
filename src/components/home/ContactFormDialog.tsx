@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -34,17 +34,17 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, Play } from "lucide-react";
 
 const contactSchema = z.object({
-  nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  first_name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
   email: z.string().email("Introduce un email válido"),
-  telefono: z.string().optional(),
-  empresa: z.string().optional(),
+  phone: z.string().optional(),
+  company: z.string().optional(),
   servicio: z.string().optional(),
-  mensaje: z.string().optional(),
+  description: z.string().optional(),
   privacidad: z.boolean().refine((val) => val === true, {
     message: "Debes aceptar la política de privacidad",
   }),
-  valoracion: z.string().optional(),
-  origenCandidato: z.string().optional(),
+  rating: z.string().optional(),
+  lead_source: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -85,20 +85,19 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
-  const formRef = useRef<HTMLFormElement>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      nombre: "",
+      first_name: "",
       email: "",
-      telefono: "",
-      empresa: "",
+      phone: "",
+      company: "",
       servicio: "",
-      mensaje: "",
+      description: "",
       privacidad: false,
-      valoracion: "",
-      origenCandidato: "",
+      rating: "",
+      lead_source: "Web",
     },
   });
 
@@ -106,19 +105,27 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
     setIsSubmitting(true);
     
     try {
+      // Create form data for Salesforce Web-to-Lead
       const formData = new FormData();
-      formData.append("title", data.nombre);
-      formData.append("property-aRcG", data.email);
-      formData.append("property-VCmf", data.telefono || "");
-      formData.append("property-LmWL", data.empresa || "");
-      formData.append("property-lhRz", data.servicio || "");
-      formData.append("property-QFMJ", data.mensaje || "");
-      formData.append("property-YI%5CF", data.privacidad ? "true" : "");
-      formData.append("property-d%60Oo", "---"); // Plataforma (hidden)
-      formData.append("property-FToX", data.valoracion || "");
-      formData.append("property-mFM%7D", data.origenCandidato || "");
+      
+      // Hidden fields
+      formData.append("oid", "00DWV00000GKmiP");
+      formData.append("retURL", window.location.origin);
+      
+      // Visible fields
+      formData.append("first_name", data.first_name);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone || "");
+      formData.append("company", data.company || "");
+      formData.append("00NWV000008Pzzl", data.servicio || ""); // Servicio de interés
+      formData.append("description", data.description || "");
+      formData.append("00NWV000008Pzmr", data.privacidad ? "1" : ""); // Acepta Política Privacidad
+      formData.append("00NWV0000088Qn7", "Web"); // Plataforma
+      formData.append("rating", data.rating || ""); // Valoración
+      formData.append("lead_source", data.lead_source || "Web"); // Origen del candidato
 
-      const response = await fetch("https://form.notion.so/f/2ce6f3afb09680b39cc4c93a1a779075", {
+      // Submit to Salesforce Web-to-Lead
+      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP", {
         method: "POST",
         body: formData,
         mode: "no-cors",
@@ -158,16 +165,16 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
-                name="nombre"
+                name="first_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Nombre *</FormLabel>
                     <FormControl>
-                      <Input placeholder="Tu nombre" {...field} />
+                      <Input placeholder="Tu nombre" maxLength={40} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -178,9 +185,9 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email *</FormLabel>
+                    <FormLabel>Correo electrónico *</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="tu@email.com" {...field} />
+                      <Input type="email" placeholder="tu@email.com" maxLength={80} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -191,12 +198,12 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
-                name="telefono"
+                name="phone"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Teléfono</FormLabel>
                     <FormControl>
-                      <Input placeholder="+34 600 000 000" {...field} />
+                      <Input placeholder="+34 600 000 000" maxLength={40} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -204,12 +211,12 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               />
               <FormField
                 control={form.control}
-                name="empresa"
+                name="company"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Empresa</FormLabel>
+                    <FormLabel>Compañía</FormLabel>
                     <FormControl>
-                      <Input placeholder="Tu empresa" {...field} />
+                      <Input placeholder="Tu empresa" maxLength={40} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -244,7 +251,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
 
             <FormField
               control={form.control}
-              name="mensaje"
+              name="description"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Descripción</FormLabel>
@@ -263,7 +270,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
-                name="valoracion"
+                name="rating"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Valoración</FormLabel>
@@ -287,7 +294,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               />
               <FormField
                 control={form.control}
-                name="origenCandidato"
+                name="lead_source"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Origen del candidato</FormLabel>
