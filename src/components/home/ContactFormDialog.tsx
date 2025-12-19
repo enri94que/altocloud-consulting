@@ -59,10 +59,12 @@ const services = [
 
 const numEmpleadosOptions = [
   { value: "1-10", label: "1-10" },
-  { value: "11-50", label: "11-50" },
-  { value: "51-200", label: "51-200" },
-  { value: "201-500", label: "201-500" },
-  { value: "500+", label: "Más de 500" },
+  { value: "10-20", label: "10-20" },
+  { value: "20-50", label: "20-50" },
+  { value: "50-100", label: "50-100" },
+  { value: "100-200", label: "100-200" },
+  { value: "200-500", label: "200-500" },
+  { value: "+500", label: "+500" },
 ];
 
 interface ContactFormDialogProps {
@@ -106,7 +108,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
       formData.append("email", data.email);
       formData.append("phone", data.phone || "");
       formData.append("company", data.company || "");
-      formData.append("NumberOfEmployees", data.num_empleados || ""); // Número de empleados
+      formData.append("00NWV000008Q0Hp", data.num_empleados || ""); // N_de_empleados__c - Número de empleados
       formData.append("title", data.puesto || ""); // Puesto en la empresa
       formData.append("00NWV000008Pzzl", data.servicio || ""); // Servicio de interés
       formData.append("description", data.description || "");
