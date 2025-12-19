@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -50,30 +50,30 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const services = [
-  { value: "sales-cloud", label: "Sales Cloud" },
-  { value: "service-cloud", label: "Service Cloud" },
-  { value: "nonprofit-cloud", label: "Nonprofit Cloud" },
-  { value: "starter-pro-suite", label: "Starter & Pro Suite" },
-  { value: "otro", label: "Otro" },
+  { value: "Sales Cloud", label: "Sales Cloud" },
+  { value: "Service Cloud", label: "Service Cloud" },
+  { value: "Nonprofit Cloud", label: "Nonprofit Cloud" },
+  { value: "Starter and Pro Suite", label: "Starter & Pro Suite" },
+  { value: "Otro", label: "Otro" },
 ];
 
 const valoraciones = [
-  { value: "caliente", label: "Caliente" },
-  { value: "templada", label: "Templada" },
-  { value: "fria", label: "Fría" },
+  { value: "Caliente", label: "Caliente" },
+  { value: "Templada", label: "Templada" },
+  { value: "Fría", label: "Fría" },
 ];
 
 const origenes = [
-  { value: "boca-a-boca", label: "Boca a boca" },
-  { value: "fiverr", label: "Fiverr" },
-  { value: "infojobs", label: "Infojobs" },
-  { value: "jobleads", label: "JobLeads" },
-  { value: "linkedin", label: "Linkedin" },
-  { value: "otros", label: "Otros" },
-  { value: "partner", label: "Partner" },
-  { value: "shakers", label: "Shakers" },
-  { value: "upwork", label: "Upwork" },
-  { value: "web", label: "Web" },
+  { value: "Boca a boca", label: "Boca a boca" },
+  { value: "Fiverr", label: "Fiverr" },
+  { value: "Infojobs", label: "Infojobs" },
+  { value: "JobLeads", label: "JobLeads" },
+  { value: "Linkedin", label: "Linkedin" },
+  { value: "Otros", label: "Otros" },
+  { value: "Partner", label: "Partner" },
+  { value: "Shakers", label: "Shakers" },
+  { value: "Upwork", label: "Upwork" },
+  { value: "Web", label: "Web" },
 ];
 
 interface ContactFormDialogProps {
@@ -85,6 +85,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -103,17 +104,42 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
     
-    toast({
-      title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto.",
-    });
-    
-    form.reset();
-    setIsOpen(false);
+    try {
+      const formData = new FormData();
+      formData.append("title", data.nombre);
+      formData.append("property-aRcG", data.email);
+      formData.append("property-VCmf", data.telefono || "");
+      formData.append("property-LmWL", data.empresa || "");
+      formData.append("property-lhRz", data.servicio || "");
+      formData.append("property-QFMJ", data.mensaje || "");
+      formData.append("property-YI%5CF", data.privacidad ? "true" : "");
+      formData.append("property-d%60Oo", "---"); // Plataforma (hidden)
+      formData.append("property-FToX", data.valoracion || "");
+      formData.append("property-mFM%7D", data.origenCandidato || "");
+
+      const response = await fetch("https://form.notion.so/f/2ce6f3afb09680b39cc4c93a1a779075", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      });
+
+      toast({
+        title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      
+      form.reset();
+      setIsOpen(false);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Hubo un error al enviar el formulario. Inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const title = variant === "demo" ? "Solicitar Demo" : "Contactar";
@@ -132,7 +158,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
+          <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
