@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -31,6 +33,9 @@ const contactSchema = z.object({
   empresa: z.string().optional(),
   servicio: z.string().optional(),
   mensaje: z.string().optional(),
+  privacyAccepted: z.boolean().refine((val) => val === true, {
+    message: "Debes aceptar la política de privacidad",
+  }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -56,6 +61,7 @@ const Contact = () => {
       empresa: "",
       servicio: "",
       mensaje: "",
+      privacyAccepted: false,
     },
   });
 
@@ -232,6 +238,35 @@ const Contact = () => {
                             />
                           </FormControl>
                           <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="privacyAccepted"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                          <div className="space-y-1 leading-none">
+                            <FormLabel className="text-sm font-normal cursor-pointer">
+                              He leído y acepto la{" "}
+                              <Link
+                                to="/politica-privacidad"
+                                target="_blank"
+                                className="text-primary hover:underline"
+                              >
+                                Política de Privacidad
+                              </Link>{" "}
+                              *
+                            </FormLabel>
+                            <FormMessage />
+                          </div>
                         </FormItem>
                       )}
                     />
