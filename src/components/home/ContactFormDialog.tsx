@@ -38,13 +38,13 @@ const contactSchema = z.object({
   email: z.string().email("Introduce un email válido"),
   phone: z.string().optional(),
   company: z.string().optional(),
+  num_empleados: z.string().optional(),
+  puesto: z.string().optional(),
   servicio: z.string().optional(),
   description: z.string().optional(),
   privacidad: z.boolean().refine((val) => val === true, {
     message: "Debes aceptar la política de privacidad",
   }),
-  rating: z.string().optional(),
-  lead_source: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -57,7 +57,13 @@ const services = [
   { value: "Otro", label: "Otro" },
 ];
 
-// Campos internos: valoración y origen del candidato no se muestran al usuario
+const numEmpleadosOptions = [
+  { value: "1-10", label: "1-10" },
+  { value: "11-50", label: "11-50" },
+  { value: "51-200", label: "51-200" },
+  { value: "201-500", label: "201-500" },
+  { value: "500+", label: "Más de 500" },
+];
 
 interface ContactFormDialogProps {
   variant: "demo" | "contact";
@@ -76,11 +82,11 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
       email: "",
       phone: "",
       company: "",
+      num_empleados: "",
+      puesto: "",
       servicio: "",
       description: "",
       privacidad: false,
-      rating: "",
-      lead_source: "Web",
     },
   });
 
@@ -100,12 +106,16 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
       formData.append("email", data.email);
       formData.append("phone", data.phone || "");
       formData.append("company", data.company || "");
+      formData.append("NumberOfEmployees", data.num_empleados || ""); // Número de empleados
+      formData.append("title", data.puesto || ""); // Puesto en la empresa
       formData.append("00NWV000008Pzzl", data.servicio || ""); // Servicio de interés
       formData.append("description", data.description || "");
       formData.append("00NWV000008Pzmr", data.privacidad ? "1" : ""); // Acepta Política Privacidad
-      formData.append("00NWV0000088Qn7", "Web"); // Plataforma
-      formData.append("rating", data.rating || ""); // Valoración
-      formData.append("lead_source", data.lead_source || "Web"); // Origen del candidato
+      
+      // Campos ocultos con valores por defecto según Notion
+      formData.append("00NWV0000088Qn7", "Lovable"); // Plataforma
+      formData.append("rating", "Caliente"); // Valoración
+      formData.append("lead_source", "Web"); // Origen del candidato
 
       // Submit to Salesforce Web-to-Lead
       await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP", {
@@ -197,7 +207,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
                 name="company"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Compañía</FormLabel>
+                    <FormLabel>Empresa</FormLabel>
                     <FormControl>
                       <Input placeholder="Tu empresa" maxLength={40} {...field} />
                     </FormControl>
@@ -207,32 +217,74 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               />
             </div>
 
-            {/* Campo Servicio de interés solo visible en formulario de Demo */}
+            {/* Campos adicionales solo visibles en formulario de Demo */}
             {variant === "demo" && (
-              <FormField
-                control={form.control}
-                name="servicio"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Servicio de interés</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona un servicio" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent className="bg-card border border-border z-50">
-                        {services.map((service) => (
-                          <SelectItem key={service.value} value={service.value}>
-                            {service.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <>
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="num_empleados"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Número de empleados</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Selecciona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-card border border-border z-50">
+                            {numEmpleadosOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="puesto"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Puesto en tu empresa</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Tu cargo" maxLength={40} {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="servicio"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Servicio de interés</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona un servicio" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-card border border-border z-50">
+                          {services.map((service) => (
+                            <SelectItem key={service.value} value={service.value}>
+                              {service.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
             )}
 
             <FormField
@@ -240,7 +292,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Descripción</FormLabel>
+                  <FormLabel>Mensaje</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Cuéntanos sobre tu proyecto..."
@@ -252,8 +304,6 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
                 </FormItem>
               )}
             />
-
-            {/* Campos internos ocultos: rating y lead_source se envían con valores por defecto */}
 
             <FormField
               control={form.control}
