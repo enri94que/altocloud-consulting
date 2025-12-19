@@ -68,11 +68,12 @@ const numEmpleadosOptions = [
 ];
 
 interface ContactFormDialogProps {
-  variant: "demo" | "contact";
+  variant: "demo" | "contact" | "pricing";
   children: React.ReactNode;
+  defaultService?: string;
 }
 
-const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
+const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDialogProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
@@ -86,7 +87,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
       company: "",
       num_empleados: "",
       puesto: "",
-      servicio: "",
+      servicio: defaultService || "",
       description: "",
       privacidad: false,
     },
@@ -144,10 +145,14 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
     }
   };
 
-  const title = variant === "demo" ? "Solicitar Demo" : "Contactar";
+  const title = variant === "demo" ? "Solicitar Demo" : variant === "pricing" ? "Solicitar Información" : "Contactar";
   const description = variant === "demo" 
     ? "Rellena el formulario y te contactaremos para programar una demostración personalizada."
+    : variant === "pricing"
+    ? "Rellena el formulario y te enviaremos información detallada sobre precios y licencias."
     : "Rellena el formulario y nos pondremos en contacto contigo.";
+  
+  const showExtraFields = variant === "demo" || variant === "pricing";
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -219,8 +224,8 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               />
             </div>
 
-            {/* Campos adicionales solo visibles en formulario de Demo */}
-            {variant === "demo" && (
+            {/* Campos adicionales para Demo y Pricing */}
+            {showExtraFields && (
               <>
                 <div className="grid grid-cols-2 gap-4">
                   <FormField

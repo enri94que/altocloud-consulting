@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/seo/SEO";
+import ContactFormDialog from "@/components/home/ContactFormDialog";
 import { Check, ExternalLink, Users, Building2, Heart, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -226,7 +227,7 @@ const Precios = () => {
     }
   ];
 
-  const PricingCard = ({ plan, showBadge = true }: { plan: typeof salesCloudPlans[0], showBadge?: boolean }) => (
+  const PricingCard = ({ plan, showBadge = true, serviceName }: { plan: typeof salesCloudPlans[0], showBadge?: boolean, serviceName: string }) => (
     <Card className={`relative flex flex-col h-full transition-all duration-300 hover:shadow-xl ${
       plan.highlighted 
         ? 'border-salesforce-blue border-2 shadow-lg scale-[1.02]' 
@@ -255,17 +256,18 @@ const Precios = () => {
             </li>
           ))}
         </ul>
-        <Button 
-          className={`w-full mt-6 ${
-            plan.highlighted 
-              ? 'bg-salesforce-blue hover:bg-salesforce-blue/90' 
-              : ''
-          }`}
-          variant={plan.highlighted ? "default" : "outline"}
-          asChild
-        >
-          <a href="/#contacto">Solicitar información</a>
-        </Button>
+        <ContactFormDialog variant="pricing" defaultService={serviceName}>
+          <Button 
+            className={`w-full mt-6 ${
+              plan.highlighted 
+                ? 'bg-salesforce-blue hover:bg-salesforce-blue/90' 
+                : ''
+            }`}
+            variant={plan.highlighted ? "default" : "outline"}
+          >
+            Solicitar información
+          </Button>
+        </ContactFormDialog>
       </CardContent>
     </Card>
   );
@@ -331,7 +333,7 @@ const Precios = () => {
               </div>
               <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {starterProPlans.map((plan, i) => (
-                  <PricingCard key={i} plan={plan} />
+                  <PricingCard key={i} plan={plan} serviceName="Starter and Pro Suite" />
                 ))}
               </div>
             </TabsContent>
@@ -343,7 +345,7 @@ const Precios = () => {
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {salesCloudPlans.map((plan, i) => (
-                  <PricingCard key={i} plan={plan} />
+                  <PricingCard key={i} plan={plan} serviceName="Sales Cloud" />
                 ))}
               </div>
             </TabsContent>
@@ -355,7 +357,7 @@ const Precios = () => {
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {serviceCloudPlans.map((plan, i) => (
-                  <PricingCard key={i} plan={plan} />
+                  <PricingCard key={i} plan={plan} serviceName="Service Cloud" />
                 ))}
               </div>
             </TabsContent>
@@ -367,7 +369,7 @@ const Precios = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 {nonprofitCloudPlans.map((plan, i) => (
-                  <PricingCard key={i} plan={plan} />
+                  <PricingCard key={i} plan={plan} serviceName="Nonprofit Cloud" />
                 ))}
               </div>
               <div className="mt-8 text-center">
