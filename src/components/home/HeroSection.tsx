@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const HeroSection = () => {
   return (
@@ -28,23 +28,25 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <Button asChild size="lg" variant="hero">
-              <Link to="/contacto">
+            <ContactFormDialog variant="demo">
+              <Button size="lg" variant="hero">
                 Solicitar Demo
                 <Play className="h-4 w-4 ml-1" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="heroOutline">
-              <Link to="/contacto">
+              </Button>
+            </ContactFormDialog>
+            <ContactFormDialog variant="contact">
+              <Button size="lg" variant="heroOutline">
                 Contactar
                 <ArrowRight className="h-4 w-4 ml-1" />
-              </Link>
-            </Button>
+              </Button>
+            </ContactFormDialog>
           </div>
 
           {/* Trust badges */}
           <div className="mt-16 pt-8 border-t border-primary-foreground/10 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-            <p className="text-primary-foreground/60 text-sm mb-4">Experto en soluciones empresariales</p>
+            <p className="text-primary-foreground/80 text-base mb-4">
+              Soy <span className="font-semibold">Enrique</span>, experto en soluciones empresariales Salesforce
+            </p>
             <div className="flex flex-wrap justify-center gap-8 text-primary-foreground/40">
               <span className="text-sm font-medium">✓ Consultor Certificado</span>
               <span className="text-sm font-medium">✓ +5 años de experiencia</span>
