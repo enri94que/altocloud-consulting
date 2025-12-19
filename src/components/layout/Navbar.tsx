@@ -27,9 +27,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img alt="Altocloud Consulting" className="w-10 h-10 object-contain" src="https://res.cloudinary.com/dxw7yodru/image/upload/v1766135502/ChatGPT_Image_Nov_17_2025_12_47_27_PM_xgjdk8.png" />
-            <span className="font-serif text-xl font-semibold text-foreground">
-              Altocloud Consulting
-            </span>
+            
           </Link>
 
           {/* Desktop Navigation */}
