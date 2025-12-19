@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import logoAltocloud from "@/assets/logo-altocloud.png";
+import ContactFormDialog from "@/components/home/ContactFormDialog";
 const services = [
   {
     name: "Sales Cloud",
@@ -78,11 +79,9 @@ const Navbar = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button asChild>
-              <Link to="/contacto">Solicitar Demo</Link>
-            </Button>
-          </div>
+          <ContactFormDialog variant="demo">
+            <Button>Solicitar Demo</Button>
+          </ContactFormDialog>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
@@ -121,11 +120,9 @@ const Navbar = () => {
               >
                 Contacto
               </Link>
-              <Button asChild className="mt-2">
-                <Link to="/contacto" onClick={() => setIsOpen(false)}>
-                  Solicitar Demo
-                </Link>
-              </Button>
+              <ContactFormDialog variant="demo">
+                <Button className="mt-2 w-full">Solicitar Demo</Button>
+              </ContactFormDialog>
             </div>
           </div>
         )}
