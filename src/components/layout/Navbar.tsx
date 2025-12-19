@@ -28,11 +28,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logoAltocloud} alt="Altocloud Consulting" className="w-10 h-10 object-contain" />
-            <span className="font-serif text-xl font-semibold text-foreground">
-              Altocloud Consulting
-            </span>
+          <Link to="/" className="flex items-center">
+            <img src={logoAltocloud} alt="Altocloud" className="h-8 md:h-10 object-contain" />
           </Link>
 
           {/* Desktop Navigation */}

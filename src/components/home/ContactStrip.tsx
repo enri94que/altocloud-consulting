@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const ContactStrip = () => {
   return (
@@ -16,18 +16,18 @@ const ContactStrip = () => {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" variant="hero">
-              <Link to="/contacto">
+            <ContactFormDialog variant="contact">
+              <Button size="lg" variant="hero">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Contactar ahora
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="heroOutline">
-              <Link to="/contacto">
+              </Button>
+            </ContactFormDialog>
+            <ContactFormDialog variant="demo">
+              <Button size="lg" variant="heroOutline">
                 Solicitar Demo
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
-            </Button>
+              </Button>
+            </ContactFormDialog>
           </div>
         </div>
       </div>

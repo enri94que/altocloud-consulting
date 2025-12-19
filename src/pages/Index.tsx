@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import ServicesCarousel from "@/components/home/ServicesCarousel";
+import ServicesGrid from "@/components/home/ServicesGrid";
 import WhySalesforce from "@/components/home/WhySalesforce";
 import ContactStrip from "@/components/home/ContactStrip";
 
@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <ServicesCarousel />
+      <ServicesGrid />
       <WhySalesforce />
       <ContactStrip />
     </Layout>
