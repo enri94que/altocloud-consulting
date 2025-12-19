@@ -2,6 +2,8 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Heart, Users, DollarSign, Calendar, Zap, CheckCircle2, ArrowRight } from "lucide-react";
+import SEO from "@/components/seo/SEO";
+import StructuredData from "@/components/seo/StructuredData";
 
 const benefits = [
   {
@@ -38,6 +40,17 @@ const features = [
 const NonprofitCloud = () => {
   return (
     <Layout>
+      <SEO
+        title="Nonprofit Cloud"
+        description="Potencia tu ONG con Nonprofit Cloud. Gestión de donantes, voluntarios y programas para maximizar tu impacto social."
+        canonical="/servicios/nonprofit-cloud"
+      />
+      <StructuredData
+        type="service"
+        name="Nonprofit Cloud"
+        description="Implementación y consultoría de Salesforce Nonprofit Cloud para organizaciones sin ánimo de lucro."
+        url="/servicios/nonprofit-cloud"
+      />
       {/* Hero */}
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4">

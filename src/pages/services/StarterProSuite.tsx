@@ -2,6 +2,8 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Zap, Rocket, DollarSign, Clock, Settings, CheckCircle2, ArrowRight } from "lucide-react";
+import SEO from "@/components/seo/SEO";
+import StructuredData from "@/components/seo/StructuredData";
 
 const benefits = [
   {
@@ -38,6 +40,17 @@ const features = [
 const StarterProSuite = () => {
   return (
     <Layout>
+      <SEO
+        title="Starter & Pro Suite"
+        description="CRM para PYMEs con Starter y Pro Suite. Implementación rápida, precio accesible y toda la potencia de Salesforce."
+        canonical="/servicios/starter-pro-suite"
+      />
+      <StructuredData
+        type="service"
+        name="Starter & Pro Suite"
+        description="Implementación de Salesforce Starter y Pro Suite para pequeñas y medianas empresas."
+        url="/servicios/starter-pro-suite"
+      />
       {/* Hero */}
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4">
