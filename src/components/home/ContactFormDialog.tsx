@@ -207,30 +207,33 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               />
             </div>
 
-            <FormField
-              control={form.control}
-              name="servicio"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Servicio de interés</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecciona un servicio" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent className="bg-card border border-border z-50">
-                      {services.map((service) => (
-                        <SelectItem key={service.value} value={service.value}>
-                          {service.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            {/* Campo Servicio de interés solo visible en formulario de Demo */}
+            {variant === "demo" && (
+              <FormField
+                control={form.control}
+                name="servicio"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Servicio de interés</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona un servicio" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="bg-card border border-border z-50">
+                        {services.map((service) => (
+                          <SelectItem key={service.value} value={service.value}>
+                            {service.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
 
             <FormField
               control={form.control}
