@@ -57,24 +57,7 @@ const services = [
   { value: "Otro", label: "Otro" },
 ];
 
-const valoraciones = [
-  { value: "Caliente", label: "Caliente" },
-  { value: "Templada", label: "Templada" },
-  { value: "Fría", label: "Fría" },
-];
-
-const origenes = [
-  { value: "Boca a boca", label: "Boca a boca" },
-  { value: "Fiverr", label: "Fiverr" },
-  { value: "Infojobs", label: "Infojobs" },
-  { value: "JobLeads", label: "JobLeads" },
-  { value: "Linkedin", label: "Linkedin" },
-  { value: "Otros", label: "Otros" },
-  { value: "Partner", label: "Partner" },
-  { value: "Shakers", label: "Shakers" },
-  { value: "Upwork", label: "Upwork" },
-  { value: "Web", label: "Web" },
-];
+// Campos internos: valoración y origen del candidato no se muestran al usuario
 
 interface ContactFormDialogProps {
   variant: "demo" | "contact";
@@ -267,56 +250,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
               )}
             />
 
-            <div className="grid grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="rating"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Valoración</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent className="bg-card border border-border z-50">
-                        {valoraciones.map((val) => (
-                          <SelectItem key={val.value} value={val.value}>
-                            {val.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="lead_source"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Origen del candidato</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent className="bg-card border border-border z-50">
-                        {origenes.map((origen) => (
-                          <SelectItem key={origen.value} value={origen.value}>
-                            {origen.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+            {/* Campos internos ocultos: rating y lead_source se envían con valores por defecto */}
 
             <FormField
               control={form.control}
