@@ -12,6 +12,10 @@ import logoAltocloud from "@/assets/logo-altocloud.png";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
 const services = [
   {
+    name: "Starter & Pro Suite",
+    path: "/servicios/starter-pro-suite",
+  },
+  {
     name: "Sales Cloud",
     path: "/servicios/sales-cloud",
   },
@@ -22,10 +26,6 @@ const services = [
   {
     name: "Nonprofit Cloud",
     path: "/servicios/nonprofit-cloud",
-  },
-  {
-    name: "Starter & Pro Suite",
-    path: "/servicios/starter-pro-suite",
   },
 ];
 const Navbar = () => {
