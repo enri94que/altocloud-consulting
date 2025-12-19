@@ -51,11 +51,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@sfconsulting.es</span>
+                <a href="mailto:enrique_arrufat@altocloud-consulting.com" className="hover:text-primary-foreground transition-colors">
+                  enrique_arrufat@altocloud-consulting.com
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+34 600 000 000</span>
+                <a href="tel:+34681229933" className="hover:text-primary-foreground transition-colors">
+                  +34 681 22 99 33
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
@@ -63,7 +67,7 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
-              <a href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+              <a href="https://www.linkedin.com/in/enrique-arrufat" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
