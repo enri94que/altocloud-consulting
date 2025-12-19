@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ContactFormDialog from "./ContactFormDialog";
 
 const HeroSection = () => {
@@ -27,15 +27,9 @@ const HeroSection = () => {
             con las soluciones CRM líderes del mercado.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <ContactFormDialog variant="demo">
-              <Button size="lg" variant="hero">
-                Solicitar Demo
-                <Play className="h-4 w-4 ml-1" />
-              </Button>
-            </ContactFormDialog>
+          <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <ContactFormDialog variant="contact">
-              <Button size="lg" variant="heroOutline">
+              <Button size="lg" variant="hero">
                 Contactar
                 <ArrowRight className="h-4 w-4 ml-1" />
               </Button>
