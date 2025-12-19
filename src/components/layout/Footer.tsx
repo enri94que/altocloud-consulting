@@ -71,7 +71,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-8 pt-8 text-center text-sm text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} Altocloud Consulting. Todos los derechos reservados.</p>
+          <p className="mb-2">© {new Date().getFullYear()} Altocloud Consulting. Todos los derechos reservados.</p>
+          <Link to="/politica-privacidad" className="hover:text-primary-foreground transition-colors">
+            Política de Privacidad
+          </Link>
         </div>
       </div>
     </footer>

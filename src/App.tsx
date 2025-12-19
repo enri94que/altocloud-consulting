@@ -9,6 +9,7 @@ import SalesCloud from "./pages/services/SalesCloud";
 import ServiceCloud from "./pages/services/ServiceCloud";
 import NonprofitCloud from "./pages/services/NonprofitCloud";
 import StarterProSuite from "./pages/services/StarterProSuite";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/servicios/service-cloud" element={<ServiceCloud />} />
           <Route path="/servicios/nonprofit-cloud" element={<NonprofitCloud />} />
           <Route path="/servicios/starter-pro-suite" element={<StarterProSuite />} />
+          <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
