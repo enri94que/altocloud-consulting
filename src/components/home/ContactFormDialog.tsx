@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -29,7 +31,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Play, ArrowRight } from "lucide-react";
+import { Send, Play } from "lucide-react";
 
 const contactSchema = z.object({
   nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -38,6 +40,9 @@ const contactSchema = z.object({
   empresa: z.string().optional(),
   servicio: z.string().optional(),
   mensaje: z.string().optional(),
+  privacidad: z.boolean().refine((val) => val === true, {
+    message: "Debes aceptar la política de privacidad",
+  }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -69,6 +74,7 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
       empresa: "",
       servicio: "",
       mensaje: "",
+      privacidad: false,
     },
   });
 
@@ -201,6 +207,35 @@ const ContactFormDialog = ({ variant, children }: ContactFormDialogProps) => {
                     />
                   </FormControl>
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="privacidad"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel className="text-sm font-normal">
+                      He leído y acepto la{" "}
+                      <Link
+                        to="/politica-privacidad"
+                        target="_blank"
+                        className="text-primary hover:underline"
+                      >
+                        política de privacidad
+                      </Link>{" "}
+                      *
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
                 </FormItem>
               )}
             />
