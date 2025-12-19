@@ -2,6 +2,8 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Headphones, MessageSquare, Clock, Smile, Zap, CheckCircle2, ArrowRight } from "lucide-react";
+import SEO from "@/components/seo/SEO";
+import StructuredData from "@/components/seo/StructuredData";
 
 const benefits = [
   {
@@ -38,6 +40,17 @@ const features = [
 const ServiceCloud = () => {
   return (
     <Layout>
+      <SEO
+        title="Service Cloud"
+        description="Mejora tu atención al cliente con Service Cloud. Soporte omnicanal, gestión de casos y automatización para aumentar la satisfacción."
+        canonical="/servicios/service-cloud"
+      />
+      <StructuredData
+        type="service"
+        name="Service Cloud"
+        description="Implementación y consultoría de Salesforce Service Cloud para atención al cliente omnicanal."
+        url="/servicios/service-cloud"
+      />
       {/* Hero */}
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4">

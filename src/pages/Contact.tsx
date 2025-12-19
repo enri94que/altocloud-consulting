@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import SEO from "@/components/seo/SEO";
+import StructuredData from "@/components/seo/StructuredData";
 import {
   Select,
   SelectContent,
@@ -81,6 +83,17 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contacto"
+        description="Contacta con AltoCloud para consultoría Salesforce. Solicita información sobre Sales Cloud, Service Cloud, Nonprofit Cloud o Starter Suite."
+        canonical="/contacto"
+      />
+      <StructuredData
+        type="webpage"
+        name="Contacto"
+        description="Formulario de contacto para consultoría Salesforce."
+        url="/contacto"
+      />
       {/* Hero */}
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4 text-center">

@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/seo/SEO";
 
 const PrivacyPolicy = () => {
   return (
     <Layout>
+      <SEO
+        title="Política de Privacidad"
+        description="Política de privacidad de AltoCloud. Información sobre el tratamiento de datos personales según el RGPD."
+        canonical="/politica-privacidad"
+        noindex={true}
+      />
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <h1 className="font-serif text-4xl font-bold text-foreground mb-8">
           Política de Privacidad

@@ -2,6 +2,8 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { TrendingUp, Target, BarChart3, Users, Zap, CheckCircle2, ArrowRight } from "lucide-react";
+import SEO from "@/components/seo/SEO";
+import StructuredData from "@/components/seo/StructuredData";
 
 const benefits = [
   {
@@ -38,6 +40,17 @@ const features = [
 const SalesCloud = () => {
   return (
     <Layout>
+      <SEO
+        title="Sales Cloud"
+        description="Acelera tus ventas con Sales Cloud. Gestión de leads, automatización comercial y previsiones de ventas con la plataforma CRM #1 del mundo."
+        canonical="/servicios/sales-cloud"
+      />
+      <StructuredData
+        type="service"
+        name="Sales Cloud"
+        description="Implementación y consultoría de Salesforce Sales Cloud para gestión comercial y automatización de ventas."
+        url="/servicios/sales-cloud"
+      />
       {/* Hero */}
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4">
