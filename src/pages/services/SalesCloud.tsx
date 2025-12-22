@@ -158,9 +158,11 @@ const SalesCloud = () => {
           <p className="text-primary-foreground/80 mb-8">
             Agenda una demostración personalizada de Sales Cloud.
           </p>
-          <Button asChild size="lg" variant="hero">
-            <Link to="/contacto">Solicitar Demo Gratuita</Link>
-          </Button>
+          <ContactFormDialog variant="demo" defaultService="Sales Cloud">
+            <Button size="lg" variant="hero">
+              Solicitar Demo Gratuita
+            </Button>
+          </ContactFormDialog>
         </div>
       </section>
     </Layout>
