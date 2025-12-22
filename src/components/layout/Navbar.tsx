@@ -38,11 +38,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img
-              alt="Altocloud Consulting"
-              className="h-12 md:h-14 object-contain"
-              src={logoAltocloud}
-            />
+            <img alt="Altocloud Consulting" className="h-12 md:h-14 object-contain" src={logoAltocloud} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,7 +70,7 @@ const Navbar = () => {
               to="/precios"
               className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/precios") ? "text-primary" : "text-muted-foreground"}`}
             >
-              Precios
+              Licencias
             </Link>
 
             <Link
