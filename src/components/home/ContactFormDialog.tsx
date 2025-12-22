@@ -157,21 +157,22 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="oid" value="00DWV00000GKmiP" />
         <input type="hidden" name="retURL" value={window.location.origin} />
         
-        {/* Visible fields mapped to Salesforce API names */}
-        <input type="hidden" name="name" value={formValues.name || ""} />
+        {/* Standard Salesforce Lead fields */}
+        <input type="hidden" name="first_name" value={formValues.name?.split(' ')[0] || ""} />
+        <input type="hidden" name="last_name" value={formValues.name?.split(' ').slice(1).join(' ') || formValues.name || ""} />
         <input type="hidden" name="email" value={formValues.email || ""} />
         <input type="hidden" name="phone" value={formValues.phone || ""} />
         <input type="hidden" name="company" value={formValues.company || ""} />
         <input type="hidden" name="title" value={formValues.puesto || ""} />
         <input type="hidden" name="description" value={formValues.description || ""} />
         
-        {/* Custom fields - using API names from Notion */}
-        <input type="hidden" name="N_de_empleados__c" value={formValues.num_empleados || ""} />
-        <input type="hidden" name="Servicio_de_inter_s__c" value={formValues.servicio || ""} />
-        <input type="hidden" name="Acepta_la_P_de_Privacidad__c" value={formValues.privacidad ? "true" : ""} />
+        {/* Custom fields - using exact API names from Notion */}
+        <input type="hidden" name="00NWV00000K6q7G" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="00NWV00000K6q7L" value={formValues.servicio || ""} />
+        <input type="hidden" name="00NWV00000K6q7B" value={formValues.privacidad ? "1" : "0"} />
+        <input type="hidden" name="00NWV00000K6q7Q" value="Lovable" />
         
         {/* Hidden fields with default values */}
-        <input type="hidden" name="Plataforma__c" value="Lovable" />
         <input type="hidden" name="rating" value="Caliente" />
         <input type="hidden" name="lead_source" value="Web" />
       </form>
