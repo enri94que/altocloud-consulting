@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -77,6 +77,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -96,56 +97,22 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
-    try {
-      // Build form data for Salesforce Web-to-Lead
-      const formData = new FormData();
-      formData.append("oid", "00DWV00000GKmiP");
-      formData.append("retURL", window.location.origin);
-      
-      // Standard fields
-      const nameParts = data.name.split(' ');
-      formData.append("first_name", nameParts[0] || "");
-      formData.append("last_name", nameParts.slice(1).join(' ') || data.name);
-      formData.append("email", data.email);
-      formData.append("phone", data.phone || "");
-      formData.append("company", data.company || "");
-      formData.append("title", data.puesto || "");
-      formData.append("description", data.description || "");
-      
-      // Custom fields with Salesforce Field IDs
-      formData.append("00NWV000008PzZy", data.num_empleados || "");
-      formData.append("00NWV000008Pzzl", data.servicio || "");
-      formData.append("00NWV000008Pzmr", data.privacidad ? "1" : "");
-      formData.append("00NWV0000088Qn7", "Lovable");
-      
-      // Default values
-      formData.append("rating", "Caliente");
-      formData.append("lead_source", "Web");
-      
-      // Submit to Salesforce (no-cors mode, we won't get response but lead is created)
-      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8", {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      });
-      
-      // Success - Salesforce doesn't return response in no-cors, but lead is created
+    // Submit the hidden Salesforce form
+    if (formRef.current) {
+      formRef.current.submit();
+    }
+    
+    // Since Salesforce doesn't support CORS, we use a timeout to show success
+    // The form submits to an iframe, so we can't detect actual completion
+    setTimeout(() => {
+      setIsSubmitting(false);
       toast({
         title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
         description: "Nos pondremos en contacto contigo pronto.",
       });
       form.reset();
       setIsOpen(false);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        title: "Error al enviar",
-        description: "Por favor, inténtalo de nuevo.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    }, 1500);
   };
 
   const title = variant === "demo" ? "Solicitar Demo" : variant === "pricing" ? "Solicitar Información" : "Contactar";
@@ -157,11 +124,58 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   
   const showExtraFields = variant === "demo" || variant === "pricing";
 
+  const formValues = form.watch();
+
+  // Split name into first and last
+  const nameParts = (formValues.name || "").split(" ");
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts.slice(1).join(" ") || firstName;
+
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+    <>
+      {/* Hidden iframe target for form submission */}
+      <iframe
+        name="salesforce_submit_frame"
+        style={{ display: "none" }}
+        title="Salesforce form target"
+      />
+      
+      {/* Hidden Salesforce Web-to-Lead form - this is the actual form that submits */}
+      <form
+        ref={formRef}
+        method="POST"
+        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+        target="salesforce_submit_frame"
+        style={{ display: "none" }}
+      >
+        {/* Organization ID - REQUIRED */}
+        <input type="hidden" name="oid" value="00DWV00000GKmiP" />
+        <input type="hidden" name="retURL" value={window.location.href} />
+        
+        {/* Standard Salesforce Lead fields - using exact API names */}
+        <input type="hidden" name="first_name" value={firstName} />
+        <input type="hidden" name="last_name" value={lastName} />
+        <input type="hidden" name="email" value={formValues.email || ""} />
+        <input type="hidden" name="phone" value={formValues.phone || ""} />
+        <input type="hidden" name="company" value={formValues.company || ""} />
+        <input type="hidden" name="title" value={formValues.puesto || ""} />
+        <input type="hidden" name="description" value={formValues.description || ""} />
+        
+        {/* Custom fields - using exact Field IDs from Salesforce Web-to-Lead generator */}
+        <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
+        <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
+        <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
+        
+        {/* Hidden fields with default values - using exact Salesforce API Names */}
+        <input type="hidden" name="rating" value="Caliente" />
+        <input type="hidden" name="lead_source" value="Web" />
+      </form>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogTrigger asChild>
+          {children}
+        </DialogTrigger>
         <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl">{title}</DialogTitle>
@@ -350,8 +364,9 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
               </Button>
             </form>
           </Form>
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
