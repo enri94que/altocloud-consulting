@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Zap, Rocket, DollarSign, Clock, Settings, CheckCircle2, ArrowRight } from "lucide-react";
+import ContactFormDialog from "@/components/home/ContactFormDialog";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
 
@@ -65,14 +66,11 @@ const StarterProSuite = () => {
               La solución perfecta para pequeñas y medianas empresas. Toda la potencia 
               de Salesforce con una implementación rápida y un precio accesible.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" variant="hero">
-                <Link to="/contacto">Solicitar Demo</Link>
+            <ContactFormDialog variant="contact" defaultService="Starter & Pro Suite">
+              <Button size="lg" variant="hero">
+                Contactar
               </Button>
-              <Button asChild size="lg" variant="heroOutline">
-                <Link to="/contacto">Contactar</Link>
-              </Button>
-            </div>
+            </ContactFormDialog>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { TrendingUp, Target, BarChart3, Users, Zap, CheckCircle2, ArrowRight } from "lucide-react";
+import ContactFormDialog from "@/components/home/ContactFormDialog";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
 
@@ -65,14 +66,11 @@ const SalesCloud = () => {
               Acelera tus ventas con la plataforma CRM #1 del mundo. Sales Cloud te ayuda 
               a gestionar leads, cerrar más negocios y hacer crecer tus ingresos.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" variant="hero">
-                <Link to="/contacto">Solicitar Demo</Link>
+            <ContactFormDialog variant="contact" defaultService="Sales Cloud">
+              <Button size="lg" variant="hero">
+                Contactar
               </Button>
-              <Button asChild size="lg" variant="heroOutline">
-                <Link to="/contacto">Contactar</Link>
-              </Button>
-            </div>
+            </ContactFormDialog>
           </div>
         </div>
       </section>
