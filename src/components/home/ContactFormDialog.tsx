@@ -166,14 +166,14 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="title" value={formValues.puesto || ""} />
         <input type="hidden" name="description" value={formValues.description || ""} />
         
-        {/* Custom fields - using exact API names from Notion */}
-        <input type="hidden" name="00NWV00000K6q7G" value={formValues.num_empleados || ""} />
-        <input type="hidden" name="00NWV00000K6q7L" value={formValues.servicio || ""} />
-        <input type="hidden" name="00NWV00000K6q7B" value={formValues.privacidad ? "1" : "0"} />
-        <input type="hidden" name="00NWV00000K6q7Q" value="Lovable" />
+        {/* Custom fields - using exact IDs from Salesforce Web-to-Lead */}
+        <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
+        <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
+        <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
         
-        {/* Hidden fields with default values */}
-        <input type="hidden" name="rating" value="Caliente" />
+        {/* Hidden fields with default values - using Salesforce picklist values */}
+        <input type="hidden" name="rating" value="Hot" />
         <input type="hidden" name="lead_source" value="Web" />
       </form>
 
