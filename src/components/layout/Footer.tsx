@@ -13,8 +13,8 @@ const Footer = () => {
               <img src={logoAltocloud} alt="Altocloud" className="h-12 object-contain" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md">
-              Consultores especializados en Salesforce. Ayudamos a empresas a transformar 
-              sus procesos de negocio con las mejores soluciones CRM del mercado.
+              Consultores especializados en Salesforce. Ayudamos a empresas a transformar sus procesos de negocio con
+              las mejores soluciones CRM del mercado.
             </p>
           </div>
 
@@ -51,8 +51,11 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:enrique_arrufat@altocloud-consulting.com" className="hover:text-primary-foreground transition-colors">
-                  enrique_arrufat@altocloud-consulting.com
+                <a
+                  href="mailto:enrique_arrufat@altocloud-consulting.com"
+                  className="hover:text-primary-foreground transition-colors"
+                >
+                  enrique_alto@altocloud-consulting.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -67,7 +70,12 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
-              <a href="https://www.linkedin.com/in/enrique-arrufat" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+              <a
+                href="https://www.linkedin.com/in/enrique-arrufat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
