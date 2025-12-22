@@ -62,8 +62,8 @@ const numEmpleadosOptions = [
   { value: "10-20", label: "10-20" },
   { value: "20-50", label: "20-50" },
   { value: "50-100", label: "50-100" },
-  { value: "100-250", label: "100-250" },
-  { value: "250-500", label: "250-500" },
+  { value: "100-200", label: "100-200" },
+  { value: "200-500", label: "200-500" },
   { value: "+500", label: "+500" },
 ];
 
@@ -144,28 +144,28 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
       <form
         ref={formRef}
         method="POST"
-        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd100000AI8ar"
+        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP"
         target="salesforce_submit_frame"
         style={{ display: "none" }}
       >
         {/* Organization ID - REQUIRED */}
-        <input type="hidden" name="oid" value="00Dd100000AI8ar" />
+        <input type="hidden" name="oid" value="00DWV00000GKmiP" />
         <input type="hidden" name="retURL" value={window.location.href} />
         
         {/* Standard Salesforce Lead fields - using exact API names */}
-        <input type="hidden" name="first_name" value={firstName} />
-        <input type="hidden" name="last_name" value={lastName} />
+        <input type="hidden" name="first_name" value={formValues.name || ""} />
+        <input type="hidden" name="last_name" value={formValues.name || ""} />
         <input type="hidden" name="email" value={formValues.email || ""} />
-        <input type="hidden" name="phone" value={formValues.phone || ""} />
         <input type="hidden" name="company" value={formValues.company || ""} />
+        <input type="hidden" name="phone" value={formValues.phone || ""} />
         <input type="hidden" name="title" value={formValues.puesto || ""} />
         <input type="hidden" name="description" value={formValues.description || ""} />
         
         {/* Custom fields - using exact Field IDs from your Salesforce org */}
-        <input type="hidden" name="00Nd1000007soqD" value={formValues.num_empleados || ""} />
-        <input type="hidden" name="00Nd1000007soob" value={formValues.servicio || ""} />
-        <input type="hidden" name="00Nd1000007sobh" value={formValues.privacidad ? "1" : ""} />
-        <input type="hidden" name="00Nd1000007solN" value="Lovable" />
+        <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
+        <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
+        <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
         
         {/* Hidden fields with default values - using exact Salesforce API Names */}
         <input type="hidden" name="rating" value="Hot" />
