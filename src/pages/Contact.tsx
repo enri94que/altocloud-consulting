@@ -57,8 +57,8 @@ const Contact = () => {
       // Create form data for Salesforce Web-to-Lead
       const formData = new FormData();
       
-      // Hidden fields
-      formData.append("oid", "00DWV00000GKmiP");
+      // Hidden fields - using correct org ID
+      formData.append("oid", "00Dd100000AI8ar");
       formData.append("retURL", window.location.origin);
       
       // Form fields
@@ -67,12 +67,13 @@ const Contact = () => {
       formData.append("phone", data.telefono || "");
       formData.append("company", data.empresa || "");
       formData.append("description", data.mensaje || "");
-      formData.append("00NWV000008Pzmr", data.privacyAccepted ? "1" : ""); // Acepta Política Privacidad
-      formData.append("00NWV0000088Qn7", "Web"); // Plataforma
+      formData.append("00Nd1000007sobh", data.privacyAccepted ? "1" : ""); // Acepta Política Privacidad
+      formData.append("00Nd1000007solN", "Web"); // Plataforma
       formData.append("lead_source", "Web"); // Origen del candidato
+      formData.append("rating", "Hot"); // Rating
 
       // Submit to Salesforce Web-to-Lead
-      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP", {
+      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd100000AI8ar", {
         method: "POST",
         body: formData,
         mode: "no-cors",
