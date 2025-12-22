@@ -172,8 +172,8 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
         <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
         
-        {/* Hidden fields with default values - using Salesforce picklist values */}
-        <input type="hidden" name="rating" value="Hot" />
+        {/* Hidden fields with default values - from Notion spec */}
+        <input type="hidden" name="rating" value="Caliente" />
         <input type="hidden" name="lead_source" value="Web" />
       </form>
 
