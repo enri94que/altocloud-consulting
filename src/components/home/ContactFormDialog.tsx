@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -77,8 +77,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
-  const formRef = useRef<HTMLFormElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -95,33 +93,58 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
     },
   });
 
-  // Handle iframe load to detect form submission completion
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-
-    const handleLoad = () => {
-      if (isSubmitting) {
-        setIsSubmitting(false);
-        toast({
-          title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
-          description: "Nos pondremos en contacto contigo pronto.",
-        });
-        form.reset();
-        setIsOpen(false);
-      }
-    };
-
-    iframe.addEventListener("load", handleLoad);
-    return () => iframe.removeEventListener("load", handleLoad);
-  }, [isSubmitting, toast, variant, form]);
-
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
-    // Submit the hidden form
-    if (formRef.current) {
-      formRef.current.submit();
+    try {
+      // Build form data for Salesforce Web-to-Lead
+      const formData = new FormData();
+      formData.append("oid", "00DWV00000GKmiP");
+      formData.append("retURL", window.location.origin);
+      
+      // Standard fields
+      const nameParts = data.name.split(' ');
+      formData.append("first_name", nameParts[0] || "");
+      formData.append("last_name", nameParts.slice(1).join(' ') || data.name);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone || "");
+      formData.append("company", data.company || "");
+      formData.append("title", data.puesto || "");
+      formData.append("description", data.description || "");
+      
+      // Custom fields with Salesforce Field IDs
+      formData.append("00NWV000008PzZy", data.num_empleados || "");
+      formData.append("00NWV000008Pzzl", data.servicio || "");
+      formData.append("00NWV000008Pzmr", data.privacidad ? "1" : "");
+      formData.append("00NWV0000088Qn7", "Lovable");
+      
+      // Default values
+      formData.append("rating", "Caliente");
+      formData.append("lead_source", "Web");
+      
+      // Submit to Salesforce (no-cors mode, we won't get response but lead is created)
+      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      });
+      
+      // Success - Salesforce doesn't return response in no-cors, but lead is created
+      toast({
+        title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      form.reset();
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error al enviar",
+        description: "Por favor, inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -134,53 +157,11 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   
   const showExtraFields = variant === "demo" || variant === "pricing";
 
-  const formValues = form.watch();
-
   return (
-    <>
-      {/* Hidden iframe for form submission */}
-      <iframe
-        ref={iframeRef}
-        name="salesforce_hidden_frame"
-        style={{ display: "none" }}
-        title="Hidden form target"
-      />
-      
-      {/* Hidden Salesforce Web-to-Lead form */}
-      <form
-        ref={formRef}
-        method="POST"
-        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
-        target="salesforce_hidden_frame"
-        style={{ display: "none" }}
-      >
-        <input type="hidden" name="oid" value="00DWV00000GKmiP" />
-        <input type="hidden" name="retURL" value={window.location.origin} />
-        
-        {/* Standard Salesforce Lead fields */}
-        <input type="hidden" name="first_name" value={formValues.name?.split(' ')[0] || ""} />
-        <input type="hidden" name="last_name" value={formValues.name?.split(' ').slice(1).join(' ') || formValues.name || ""} />
-        <input type="hidden" name="email" value={formValues.email || ""} />
-        <input type="hidden" name="phone" value={formValues.phone || ""} />
-        <input type="hidden" name="company" value={formValues.company || ""} />
-        <input type="hidden" name="title" value={formValues.puesto || ""} />
-        <input type="hidden" name="description" value={formValues.description || ""} />
-        
-        {/* Custom fields - using exact IDs from Salesforce Web-to-Lead */}
-        <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
-        <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
-        <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
-        <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
-        
-        {/* Hidden fields with default values - from Notion spec */}
-        <input type="hidden" name="rating" value="Caliente" />
-        <input type="hidden" name="lead_source" value="Web" />
-      </form>
-
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger asChild>
-          {children}
-        </DialogTrigger>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
+        {children}
+      </DialogTrigger>
         <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl">{title}</DialogTitle>
@@ -369,9 +350,8 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
               </Button>
             </form>
           </Form>
-        </DialogContent>
-      </Dialog>
-    </>
+      </DialogContent>
+    </Dialog>
   );
 };
 
