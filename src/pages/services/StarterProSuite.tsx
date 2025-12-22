@@ -158,9 +158,11 @@ const StarterProSuite = () => {
           <p className="text-primary-foreground/80 mb-8">
             Agenda una demostración personalizada de Starter & Pro Suite.
           </p>
-          <Button asChild size="lg" variant="hero">
-            <Link to="/contacto">Solicitar Demo Gratuita</Link>
-          </Button>
+          <ContactFormDialog variant="demo" defaultService="Starter & Pro Suite">
+            <Button size="lg" variant="hero">
+              Solicitar Demo Gratuita
+            </Button>
+          </ContactFormDialog>
         </div>
       </section>
     </Layout>
