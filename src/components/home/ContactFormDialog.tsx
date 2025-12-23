@@ -209,5 +209,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   );
 };
 
+            
+          </Form>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
 
 export default ContactFormDialog;
