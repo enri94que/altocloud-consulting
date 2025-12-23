@@ -61,16 +61,17 @@ const Contact = () => {
       formData.append("oid", "00DWV00000GKmiP");
       formData.append("retURL", window.location.origin);
       
-      // Form fields
+      // Form fields - using Salesforce API Names per Notion spec
       formData.append("first_name", data.nombre);
       formData.append("last_name", data.nombre);
+      formData.append("email", data.email);
       formData.append("phone", data.telefono || "");
       formData.append("company", data.empresa || "");
       formData.append("description", data.mensaje || "");
-      formData.append("00NWV000008Pzmr", data.privacyAccepted ? "1" : ""); // Acepta Política Privacidad
-      formData.append("00NWV0000088Qn7", "Web"); // Plataforma
-      formData.append("lead_source", "Web"); // Origen del candidato
-      formData.append("rating", "Hot"); // Rating
+      formData.append("Acepta_la_P_de_Privacidad__c", data.privacyAccepted ? "1" : "");
+      formData.append("Plataforma__c", "Lovable");
+      formData.append("lead_source", "Web");
+      formData.append("rating", "Caliente");
 
       // Submit to Salesforce Web-to-Lead
       await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP", {
