@@ -145,15 +145,15 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="title" value={formValues.puesto || ""} />
         <input type="hidden" name="description" value={formValues.description || ""} />
 
-        {/* Custom fields - using exact Field IDs from your Salesforce org */}
-        <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
-        <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
-        <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
-        <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
+        {/* Custom fields - using exact API Names from Notion specification */}
+        <input type="hidden" name="N_de_empleados__c" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="Servicio_de_inter_s__c" value={formValues.servicio || ""} />
+        <input type="hidden" name="Acepta_la_P_de_Privacidad__c" value={formValues.privacidad ? "1" : ""} />
+        <input type="hidden" name="Plataforma__c" value="Lovable" />
 
         {/* Hidden fields with default values - using exact Salesforce API Names */}
-        <input type="hidden" name="rating" value="Caliente" />
-        <input type="hidden" name="lead_source" value="Web" />
+        <input type="hidden" name="Rating" value="Caliente" />
+        <input type="hidden" name="LeadSource" value="Web" />
       </form>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
