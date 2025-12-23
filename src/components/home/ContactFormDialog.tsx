@@ -37,21 +37,21 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const services = [
-  { value: "Sales_Cloud", label: "Sales Cloud" },
-  { value: "Service_Cloud", label: "Service Cloud" },
-  { value: "Nonprofit_Cloud", label: "Nonprofit Cloud" },
-  { value: "Starter_and_Pro_Suite", label: "Starter and Pro Suite" },
+  { value: "Sales Cloud", label: "Sales Cloud" },
+  { value: "Service Cloud", label: "Service Cloud" },
+  { value: "Nonprofit Cloud", label: "Nonprofit Cloud" },
+  { value: "Starter and Pro Suite", label: "Starter & Pro Suite" },
   { value: "Otro", label: "Otro" },
 ];
 
 const numEmpleadosOptions = [
   { value: "1_10", label: "1-10" },
-  { value: "10_20", label: "10-20" },
-  { value: "20_50", label: "20-50" },
-  { value: "50_100", label: "50-100" },
-  { value: "100_200", label: "100-200" },
-  { value: "200_500", label: "200-500" },
-  { value: "_500", label: "+500" },
+  { value: "10-20", label: "10-20" },
+  { value: "20-50", label: "20-50" },
+  { value: "50-100", label: "50-100" },
+  { value: "100-200", label: "100-200" },
+  { value: "200-500", label: "200-500" },
+  { value: "+500", label: "+500" },
 ];
 
 interface ContactFormDialogProps {
