@@ -146,7 +146,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="Plataforma__c" value="Lovable" />
 
         {/* Hidden fields with default values - using exact Salesforce API Names */}
-        <input type="hidden" name="rating" value="Caliente" />
+        <input type="hidden" name="rating" value="Hot" />
         <input type="hidden" name="lead_source" value="Web" />
       </form>
 
