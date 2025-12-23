@@ -7,21 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import {
   Dialog,
   DialogContent,
@@ -96,12 +83,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     // Submit the hidden Salesforce form
     if (formRef.current) {
       formRef.current.submit();
     }
-    
+
     // Since Salesforce doesn't support CORS, we use a timeout to show success
     // The form submits to an iframe, so we can't detect actual completion
     setTimeout(() => {
@@ -116,12 +103,13 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   };
 
   const title = variant === "demo" ? "Solicitar Demo" : variant === "pricing" ? "Solicitar Información" : "Contactar";
-  const description = variant === "demo" 
-    ? "Rellena el formulario y te contactaremos para programar una demostración personalizada."
-    : variant === "pricing"
-    ? "Rellena el formulario y te enviaremos información detallada sobre precios y licencias."
-    : "Rellena el formulario y nos pondremos en contacto contigo.";
-  
+  const description =
+    variant === "demo"
+      ? "Rellena el formulario y te contactaremos para programar una demostración personalizada."
+      : variant === "pricing"
+        ? "Rellena el formulario y te enviaremos información detallada sobre precios y licencias."
+        : "Rellena el formulario y nos pondremos en contacto contigo.";
+
   const showExtraFields = variant === "demo" || variant === "pricing";
 
   const formValues = form.watch();
@@ -134,12 +122,8 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   return (
     <>
       {/* Hidden iframe target for form submission */}
-      <iframe
-        name="salesforce_submit_frame"
-        style={{ display: "none" }}
-        title="Salesforce form target"
-      />
-      
+      <iframe name="salesforce_submit_frame" style={{ display: "none" }} title="Salesforce form target" />
+
       {/* Hidden Salesforce Web-to-Lead form - this is the actual form that submits */}
       <form
         ref={formRef}
@@ -151,31 +135,28 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         {/* Organization ID - REQUIRED */}
         <input type="hidden" name="oid" value="00DWV00000GKmiP" />
         <input type="hidden" name="retURL" value={window.location.href} />
-        
+
         {/* Standard Salesforce Lead fields - using exact API names */}
-        <input type="hidden" name="first_name" value={formValues.name || ""} />
         <input type="hidden" name="last_name" value={formValues.name || ""} />
         <input type="hidden" name="email" value={formValues.email || ""} />
         <input type="hidden" name="company" value={formValues.company || ""} />
         <input type="hidden" name="phone" value={formValues.phone || ""} />
         <input type="hidden" name="title" value={formValues.puesto || ""} />
         <input type="hidden" name="description" value={formValues.description || ""} />
-        
+
         {/* Custom fields - using exact Field IDs from your Salesforce org */}
         <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
         <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
         <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
         <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
-        
+
         {/* Hidden fields with default values - using exact Salesforce API Names */}
         <input type="hidden" name="rating" value="Hot" />
         <input type="hidden" name="lead_source" value="Web" />
       </form>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger asChild>
-          {children}
-        </DialogTrigger>
+        <DialogTrigger asChild>{children}</DialogTrigger>
         <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl">{title}</DialogTitle>
@@ -318,11 +299,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                   <FormItem>
                     <FormLabel>Mensaje</FormLabel>
                     <FormControl>
-                      <Textarea
-                        placeholder="Cuéntanos sobre tu proyecto..."
-                        className="min-h-[100px]"
-                        {...field}
-                      />
+                      <Textarea placeholder="Cuéntanos sobre tu proyecto..." className="min-h-[100px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -335,19 +312,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                     <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                      />
+                      <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
                       <FormLabel className="text-sm font-normal">
                         He leído y acepto la{" "}
-                        <Link
-                          to="/politica-privacidad"
-                          target="_blank"
-                          className="text-primary hover:underline"
-                        >
+                        <Link to="/politica-privacidad" target="_blank" className="text-primary hover:underline">
                           política de privacidad
                         </Link>{" "}
                         *
