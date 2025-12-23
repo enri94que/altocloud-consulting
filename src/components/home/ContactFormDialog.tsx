@@ -38,7 +38,7 @@ const contactSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
   email: z.string().email("Introduce un email válido"),
   phone: z.string().optional(),
-  company: z.string().optional(), // lo haremos obligatorio en el submit si falta
+  company: z.string().optional(),
   num_empleados: z.string().optional(),
   puesto: z.string().optional(),
   servicio: z.string().optional(),
@@ -98,13 +98,10 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
     },
   });
 
-  // Confirmación real si retURL es same-origin: el iframe "carga" tu URL de gracias.
   const onIframeLoad = () => {
     try {
-      // Solo funcionará si retURL apunta a tu propio dominio (same-origin)
       const href = (iframeRef.current?.contentWindow as Window)?.location?.href || "";
       if (href && href.includes("/gracias")) {
-        // Éxito confirmado por redirección del endpoint de Web-to-Lead
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current);
           timeoutRef.current = null;
@@ -118,19 +115,17 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         setIsOpen(false);
       }
     } catch {
-      // Si es cross-origin (Salesforce), no podemos inspeccionar el href y el fallback de timeout se encargará
+      // cross-origin: ignoramos, el timeout se encargará
     }
   };
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
-    // Split nombre -> first/last; last_name es obligatorio en SF
     const nameParts = (data.name || "").trim().split(/\s+/);
     const firstName = nameParts[0] || "";
     const lastName = nameParts.slice(1).join(" ") || firstName || "Desconocido";
 
-    // company es obligatorio en Web-to-Lead. Si falta, ponemos "Individual" por defecto
     const company = (data.company || "").trim() || "Individual";
 
     if (salesforceFormRef.current) {
@@ -139,7 +134,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         if (input) input.value = value;
       };
 
-      // Campos estándar
       setHidden("first_name", firstName);
       setHidden("last_name", lastName);
       setHidden("email", data.email || "");
@@ -148,20 +142,17 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
       setHidden("title", data.puesto || "");
       setHidden("description", data.description || "");
 
-      // Custom fields — deben ser los IDs de campo correctos en tu org
       setHidden("00NWV000008PzZy", data.num_empleados || "");
       setHidden("00NWV000008Pzzl", data.servicio || "");
       setHidden("00NWV000008Pzmr", data.privacidad ? "1" : "");
 
-      // Si tienes reCAPTCHA activado en Setup -> Web-to-Lead, aquí deberías obtener y setear el token:
+      // Si usas reCAPTCHA, obtén el token aquí y setéalo:
       // const token = await grecaptcha.execute('TU_SITE_KEY', { action: 'submit' });
       // setHidden("g-recaptcha-response", token);
 
-      // Enviar el form real a Salesforce (submit clásico => no CORS)
       salesforceFormRef.current.submit();
     }
 
-    // Fallback UX si no puedes confirmar con onLoad (cross-origin)
     timeoutRef.current = window.setTimeout(() => {
       setIsSubmitting(false);
       toast({
@@ -189,7 +180,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 
   return (
     <>
-      {/* Iframe oculto para el target del submit */}
       <iframe
         ref={iframeRef}
         name="salesforce_submit_frame"
@@ -198,7 +188,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         onLoad={onIframeLoad}
       />
 
-      {/* Formulario Web-to-Lead real (oculto) */}
       <form
         ref={salesforceFormRef}
         method="POST"
@@ -206,15 +195,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         target="salesforce_submit_frame"
         style={{ display: "none" }}
         acceptCharset="UTF-8"
-     n onLoad */}
-        {/* Por ejemplo: https://tu-dominio.com/gracias */}
+     //altocloud.es/gracias */}
         <input type="hidden" name="retURL" value={window.location.href} />
 
-        {/* Activa el debug para recibir email con el detalle del error si Salesforce rechaza el Lead */}
         <input type="hidden" name="debug" value="1" />
         <input type="hidden" name="debugEmail" value="tu@correo.com" />
 
-        {/* Standard Salesforce Lead fields — se rellenan en onSubmit */}
         <input type="hidden" name="first_name" defaultValue="" />
         <input type="hidden" name="last_name" defaultValue="" />
         <input type="hidden" name="email" defaultValue="" />
@@ -223,24 +209,19 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="title" defaultValue="" />
         <input type="hidden" name="description" defaultValue="" />
 
-        {/* Custom fields — IDs de campo en tu org */}
         <input type="hidden" name="00NWV000008PzZy" defaultValue="" />
         <input type="hidden" name="00NWV000008Pzzl" defaultValue="" />
         <input type="hidden" name="00NWV000008Pzmr" defaultValue="" />
         <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
 
-        {/* Picklists — asegúrate de que estos valores EXISTEN en tu org */}
         <input type="hidden" name="rating" value="Hot" />
         <input type="hidden" name="lead_source" value="Web" />
 
-        {/* Si usas reCAPTCHA en Setup -> Web-to-Lead, añade este hidden y setéalo en onSubmit */}
         {/* <input type="hidden" name="g-recaptcha-response" defaultValue="" /> */}
       </form>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger asChild>
-          {children}
-        </DialogTrigger>
+        <DialogTrigger asChild>{children}</DialogTrigger>
         <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl">{title}</DialogTitle>
@@ -307,7 +288,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                 />
               </div>
 
-              {/* Campos adicionales para Demo y Pricing */}
               {showExtraFields && (
                 <>
                   <div className="grid grid-cols-2 gap-4">
@@ -401,19 +381,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                     <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                      />
+                      <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
                       <FormLabel className="text-sm font-normal">
                         He leído y acepto la{" "}
-                        <Link
-                          to="/politica-privacidad"
-                          target="_blank"
-                          className="text-primary hover:underline"
-                        >
+                        <Link to="/politica-privacidad" target="_blank" className="text-primary hover:underline">
                           política de privacidad
                         </Link>{" "}
                         *
@@ -437,3 +410,4 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 };
 
 export default ContactFormDialog;
+``
