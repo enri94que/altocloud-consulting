@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,21 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import {
   Dialog,
   DialogContent,
@@ -78,10 +64,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
-
-  const salesforceFormRef = useRef<HTMLFormElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const timeoutRef = useRef<number | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -98,62 +81,17 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
     },
   });
 
-  const onIframeLoad = () => {
-    try {
-      const href = (iframeRef.current?.contentWindow as Window)?.location?.href || "";
-      if (href && href.includes("/gracias")) {
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
-        }
-        setIsSubmitting(false);
-        toast({
-          title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
-          description: "Nos pondremos en contacto contigo pronto.",
-        });
-        form.reset();
-        setIsOpen(false);
-      }
-    } catch {
-      // cross-origin: ignoramos, el timeout se encargará
-    }
-  };
-
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
-    const nameParts = (data.name || "").trim().split(/\s+/);
-    const firstName = nameParts[0] || "";
-    const lastName = nameParts.slice(1).join(" ") || firstName || "Desconocido";
-
-    const company = (data.company || "").trim() || "Individual";
-
-    if (salesforceFormRef.current) {
-      const setHidden = (name: string, value: string) => {
-        const input = salesforceFormRef.current!.querySelector<HTMLInputElement>(`input[name="${name}"]`);
-        if (input) input.value = value;
-      };
-
-      setHidden("first_name", firstName);
-      setHidden("last_name", lastName);
-      setHidden("email", data.email || "");
-      setHidden("company", company);
-      setHidden("phone", data.phone || "");
-      setHidden("title", data.puesto || "");
-      setHidden("description", data.description || "");
-
-      setHidden("00NWV000008PzZy", data.num_empleados || "");
-      setHidden("00NWV000008Pzzl", data.servicio || "");
-      setHidden("00NWV000008Pzmr", data.privacidad ? "1" : "");
-
-      // Si usas reCAPTCHA, obtén el token aquí y setéalo:
-      // const token = await grecaptcha.execute('TU_SITE_KEY', { action: 'submit' });
-      // setHidden("g-recaptcha-response", token);
-
-      salesforceFormRef.current.submit();
+    // Submit the hidden Salesforce form
+    if (formRef.current) {
+      formRef.current.submit();
     }
 
-    timeoutRef.current = window.setTimeout(() => {
+    // Since Salesforce doesn't support CORS, we use a timeout to show success
+    // The form submits to an iframe, so we can't detect actual completion
+    setTimeout(() => {
       setIsSubmitting(false);
       toast({
         title: variant === "demo" ? "¡Solicitud de demo recibida!" : "¡Mensaje enviado!",
@@ -161,63 +99,61 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
       });
       form.reset();
       setIsOpen(false);
-    }, 2000);
+    }, 1500);
   };
 
-  const title =
-    variant === "demo" ? "Solicitar Demo" :
-    variant === "pricing" ? "Solicitar Información" :
-    "Contactar";
-
+  const title = variant === "demo" ? "Solicitar Demo" : variant === "pricing" ? "Solicitar Información" : "Contactar";
   const description =
     variant === "demo"
       ? "Rellena el formulario y te contactaremos para programar una demostración personalizada."
       : variant === "pricing"
-      ? "Rellena el formulario y te enviaremos información detallada sobre precios y licencias."
-      : "Rellena el formulario y nos pondremos en contacto contigo.";
+        ? "Rellena el formulario y te enviaremos información detallada sobre precios y licencias."
+        : "Rellena el formulario y nos pondremos en contacto contigo.";
 
   const showExtraFields = variant === "demo" || variant === "pricing";
 
+  const formValues = form.watch();
+
+  // Split name into first and last
+  const nameParts = (formValues.name || "").split(" ");
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts.slice(1).join(" ") || firstName;
+
   return (
     <>
-      <iframe
-        ref={iframeRef}
-        name="salesforce_submit_frame"
-        style={{ display: "none" }}
-        title="Salesforce form target"
-        onLoad={onIframeLoad}
-      />
+      {/* Hidden iframe target for form submission */}
+      <iframe name="salesforce_submit_frame" style={{ display: "none" }} title="Salesforce form target" />
 
+      {/* Hidden Salesforce Web-to-Lead form - this is the actual form that submits */}
       <form
-        ref={salesforceFormRef}
+        ref={formRef}
         method="POST"
-        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP"
         target="salesforce_submit_frame"
         style={{ display: "none" }}
-        acceptCharset="UTF-8"
-     //altocloud.es/gracias */}
+      >
+        {/* Organization ID - REQUIRED */}
+        <input type="hidden" name="oid" value="00DWV00000GKmiP" />
         <input type="hidden" name="retURL" value={window.location.href} />
 
-        <input type="hidden" name="debug" value="1" />
-        <input type="hidden" name="debugEmail" value="tu@correo.com" />
+        {/* Standard Salesforce Lead fields - using exact API names */}
+        <input type="hidden" name="first_name" value={formValues.name || ""} />
+        <input type="hidden" name="last_name" value={formValues.name || ""} />
+        <input type="hidden" name="email" value={formValues.email || ""} />
+        <input type="hidden" name="company" value={formValues.company || ""} />
+        <input type="hidden" name="phone" value={formValues.phone || ""} />
+        <input type="hidden" name="title" value={formValues.puesto || ""} />
+        <input type="hidden" name="description" value={formValues.description || ""} />
 
-        <input type="hidden" name="first_name" defaultValue="" />
-        <input type="hidden" name="last_name" defaultValue="" />
-        <input type="hidden" name="email" defaultValue="" />
-        <input type="hidden" name="company" defaultValue="" />
-        <input type="hidden" name="phone" defaultValue="" />
-        <input type="hidden" name="title" defaultValue="" />
-        <input type="hidden" name="description" defaultValue="" />
-
-        <input type="hidden" name="00NWV000008PzZy" defaultValue="" />
-        <input type="hidden" name="00NWV000008Pzzl" defaultValue="" />
-        <input type="hidden" name="00NWV000008Pzmr" defaultValue="" />
+        {/* Custom fields - using exact Field IDs from your Salesforce org */}
+        <input type="hidden" name="00NWV000008PzZy" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="00NWV000008Pzzl" value={formValues.servicio || ""} />
+        <input type="hidden" name="00NWV000008Pzmr" value={formValues.privacidad ? "1" : ""} />
         <input type="hidden" name="00NWV0000088Qn7" value="Lovable" />
 
+        {/* Hidden fields with default values - using exact Salesforce API Names */}
         <input type="hidden" name="rating" value="Hot" />
         <input type="hidden" name="lead_source" value="Web" />
-
-        {/* <input type="hidden" name="g-recaptcha-response" defaultValue="" /> */}
       </form>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -227,7 +163,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
             <DialogTitle className="font-serif text-2xl">{title}</DialogTitle>
             <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
-
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
               <div className="grid grid-cols-2 gap-4">
@@ -288,6 +223,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                 />
               </div>
 
+              {/* Campos adicionales para Demo y Pricing */}
               {showExtraFields && (
                 <>
                   <div className="grid grid-cols-2 gap-4">
@@ -364,11 +300,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                   <FormItem>
                     <FormLabel>Mensaje</FormLabel>
                     <FormControl>
-                      <Textarea
-                        placeholder="Cuéntanos sobre tu proyecto..."
-                        className="min-h-[100px]"
-                        {...field}
-                      />
+                      <Textarea placeholder="Cuéntanos sobre tu proyecto..." className="min-h-[100px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -410,4 +342,3 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 };
 
 export default ContactFormDialog;
-``
