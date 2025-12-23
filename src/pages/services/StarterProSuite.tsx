@@ -63,10 +63,10 @@ const StarterProSuite = () => {
               Starter & Pro Suite
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-              La solución perfecta para pequeñas y medianas empresas. Toda la potencia 
-              de Salesforce con una implementación rápida y un precio accesible.
+              La solución perfecta para pequeñas y medianas empresas. Toda la potencia de Salesforce con una
+              implementación rápida y un precio accesible.
             </p>
-            <ContactFormDialog variant="contact" defaultService="Starter & Pro Suite">
+            <ContactFormDialog variant="contact" defaultService="Starter_and_Pro_Suite">
               <Button size="lg" variant="hero">
                 Contactar
               </Button>
@@ -79,9 +79,7 @@ const StarterProSuite = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-              Principales beneficios
-            </h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Principales beneficios</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
@@ -103,12 +101,10 @@ const StarterProSuite = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-serif text-3xl font-bold text-foreground mb-6">
-                Empieza tu transformación digital
-              </h2>
+              <h2 className="font-serif text-3xl font-bold text-foreground mb-6">Empieza tu transformación digital</h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Starter y Pro Suite ofrecen todo lo que necesitas para empezar 
-                a gestionar tu negocio de forma profesional sin complicaciones.
+                Starter y Pro Suite ofrecen todo lo que necesitas para empezar a gestionar tu negocio de forma
+                profesional sin complicaciones.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
@@ -120,12 +116,8 @@ const StarterProSuite = () => {
               </div>
             </div>
             <div className="bg-card p-8 rounded-2xl border border-border">
-              <h3 className="font-serif text-xl font-bold text-foreground mb-4">
-                ¿Es Starter & Pro Suite para ti?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Estas soluciones son ideales para empresas que buscan:
-              </p>
+              <h3 className="font-serif text-xl font-bold text-foreground mb-4">¿Es Starter & Pro Suite para ti?</h3>
+              <p className="text-muted-foreground mb-6">Estas soluciones son ideales para empresas que buscan:</p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />

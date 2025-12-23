@@ -59,14 +59,12 @@ const ServiceCloud = () => {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-6">
               <Headphones className="h-8 w-8 text-primary-foreground" />
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              Service Cloud
-            </h1>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Service Cloud</h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-              Ofrece un servicio al cliente excepcional con herramientas omnicanal. 
-              Resuelve casos más rápido y aumenta la satisfacción de tus clientes.
+              Ofrece un servicio al cliente excepcional con herramientas omnicanal. Resuelve casos más rápido y aumenta
+              la satisfacción de tus clientes.
             </p>
-            <ContactFormDialog variant="contact" defaultService="Service Cloud">
+            <ContactFormDialog variant="contact" defaultService="Service_Cloud">
               <Button size="lg" variant="hero">
                 Contactar
               </Button>
@@ -79,9 +77,7 @@ const ServiceCloud = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-              Principales beneficios
-            </h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Principales beneficios</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
@@ -103,12 +99,10 @@ const ServiceCloud = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-serif text-3xl font-bold text-foreground mb-6">
-                Transforma tu atención al cliente
-              </h2>
+              <h2 className="font-serif text-3xl font-bold text-foreground mb-6">Transforma tu atención al cliente</h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Service Cloud te proporciona todas las herramientas para ofrecer un 
-                servicio al cliente de primera clase que fideliza y genera valor.
+                Service Cloud te proporciona todas las herramientas para ofrecer un servicio al cliente de primera clase
+                que fideliza y genera valor.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
@@ -120,12 +114,8 @@ const ServiceCloud = () => {
               </div>
             </div>
             <div className="bg-card p-8 rounded-2xl border border-border">
-              <h3 className="font-serif text-xl font-bold text-foreground mb-4">
-                ¿Es Service Cloud para ti?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Service Cloud es ideal para empresas que buscan:
-              </p>
+              <h3 className="font-serif text-xl font-bold text-foreground mb-4">¿Es Service Cloud para ti?</h3>
+              <p className="text-muted-foreground mb-6">Service Cloud es ideal para empresas que buscan:</p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -155,9 +145,7 @@ const ServiceCloud = () => {
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
             ¿Listo para mejorar tu servicio al cliente?
           </h2>
-          <p className="text-primary-foreground/80 mb-8">
-            Agenda una demostración personalizada de Service Cloud.
-          </p>
+          <p className="text-primary-foreground/80 mb-8">Agenda una demostración personalizada de Service Cloud.</p>
           <ContactFormDialog variant="demo" defaultService="Service Cloud">
             <Button size="lg" variant="hero">
               Solicitar Demo Gratuita

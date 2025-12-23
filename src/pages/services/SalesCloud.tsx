@@ -59,14 +59,12 @@ const SalesCloud = () => {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6">
               <TrendingUp className="h-8 w-8 text-primary-foreground" />
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              Sales Cloud
-            </h1>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Sales Cloud</h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-              Acelera tus ventas con la plataforma CRM #1 del mundo. Sales Cloud te ayuda 
-              a gestionar leads, cerrar más negocios y hacer crecer tus ingresos.
+              Acelera tus ventas con la plataforma CRM #1 del mundo. Sales Cloud te ayuda a gestionar leads, cerrar más
+              negocios y hacer crecer tus ingresos.
             </p>
-            <ContactFormDialog variant="contact" defaultService="Sales Cloud">
+            <ContactFormDialog variant="contact" defaultService="Sales_Cloud">
               <Button size="lg" variant="hero">
                 Contactar
               </Button>
@@ -79,9 +77,7 @@ const SalesCloud = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-              Principales beneficios
-            </h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Principales beneficios</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
@@ -107,8 +103,8 @@ const SalesCloud = () => {
                 Todo lo que necesitas para vender más
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Sales Cloud ofrece un conjunto completo de herramientas diseñadas para 
-                ayudar a tu equipo de ventas a ser más productivo y cerrar más negocios.
+                Sales Cloud ofrece un conjunto completo de herramientas diseñadas para ayudar a tu equipo de ventas a
+                ser más productivo y cerrar más negocios.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
@@ -120,12 +116,8 @@ const SalesCloud = () => {
               </div>
             </div>
             <div className="bg-card p-8 rounded-2xl border border-border">
-              <h3 className="font-serif text-xl font-bold text-foreground mb-4">
-                ¿Es Sales Cloud para ti?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Sales Cloud es ideal para empresas que buscan:
-              </p>
+              <h3 className="font-serif text-xl font-bold text-foreground mb-4">¿Es Sales Cloud para ti?</h3>
+              <p className="text-muted-foreground mb-6">Sales Cloud es ideal para empresas que buscan:</p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -155,9 +147,7 @@ const SalesCloud = () => {
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
             ¿Listo para potenciar tus ventas?
           </h2>
-          <p className="text-primary-foreground/80 mb-8">
-            Agenda una demostración personalizada de Sales Cloud.
-          </p>
+          <p className="text-primary-foreground/80 mb-8">Agenda una demostración personalizada de Sales Cloud.</p>
           <ContactFormDialog variant="demo" defaultService="Sales Cloud">
             <Button size="lg" variant="hero">
               Solicitar Demo Gratuita
