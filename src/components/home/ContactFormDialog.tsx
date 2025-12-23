@@ -46,12 +46,12 @@ const services = [
 
 const numEmpleadosOptions = [
   { value: "1_10", label: "1-10" },
-  { value: "10-20", label: "10-20" },
-  { value: "20-50", label: "20-50" },
-  { value: "50-100", label: "50-100" },
-  { value: "100-200", label: "100-200" },
-  { value: "200-500", label: "200-500" },
-  { value: "+500", label: "+500" },
+  { value: "10_20", label: "10-20" },
+  { value: "20_50", label: "20-50" },
+  { value: "50_100", label: "50-100" },
+  { value: "100_200", label: "100-200" },
+  { value: "200_500", label: "200-500" },
+  { value: "_500", label: "+500" },
 ];
 
 interface ContactFormDialogProps {
