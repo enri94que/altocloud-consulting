@@ -37,10 +37,10 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const services = [
-  { value: "Sales Cloud", label: "Sales Cloud" },
-  { value: "Service Cloud", label: "Service Cloud" },
+  { value: "Sales_Cloud", label: "Sales Cloud" },
+  { value: "Service_Cloud", label: "Service Cloud" },
   { value: "Nonprofit_Cloud", label: "Nonprofit Cloud" },
-  { value: "Starter and Pro Suite", label: "Starter & Pro Suite" },
+  { value: "Starter_and_Pro_Suite", label: "Starter & Pro Suite" },
   { value: "Otro", label: "Otro" },
 ];
 
