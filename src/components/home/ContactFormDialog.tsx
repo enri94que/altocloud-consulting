@@ -137,7 +137,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         <input type="hidden" name="retURL" value={window.location.href} />
 
         {/* Standard Salesforce Lead fields - using exact API names */}
-        <input type="hidden" name="first_name" value={formValues.name || ""} />
         <input type="hidden" name="last_name" value={formValues.name || ""} />
         <input type="hidden" name="email" value={formValues.email || ""} />
         <input type="hidden" name="company" value={formValues.company || ""} />
