@@ -114,11 +114,6 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 
   const formValues = form.watch();
 
-  // Split name into first and last
-  const nameParts = (formValues.name || "").split(" ");
-  const firstName = nameParts[0] || "";
-  const lastName = nameParts.slice(1).join(" ") || firstName;
-
   return (
     <>
       {/* Hidden iframe target for form submission */}
