@@ -54,31 +54,50 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Create form data for Salesforce Web-to-Lead
-      const formData = new FormData();
-      
-      // Hidden fields - using correct org ID
-      formData.append("oid", "00DWV00000GKmiP");
-      formData.append("retURL", window.location.origin);
-      
-      // Form fields - using Salesforce API Names per Notion spec
-      formData.append("first_name", data.nombre);
-      formData.append("last_name", data.nombre);
-      formData.append("email", data.email);
-      formData.append("phone", data.telefono || "");
-      formData.append("company", data.empresa || "");
-      formData.append("description", data.mensaje || "");
-      formData.append("Acepta_la_P_de_Privacidad__c", data.privacyAccepted ? "1" : "");
-      formData.append("Plataforma__c", "Lovable");
-      formData.append("lead_source", "Web");
-      formData.append("rating", "Caliente");
+      // Create a hidden form and submit to iframe (same technique as ContactFormDialog)
+      const iframe = document.createElement('iframe');
+      iframe.name = 'contact_form_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
 
-      // Submit to Salesforce Web-to-Lead
-      await fetch("https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP", {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      });
+      const hiddenForm = document.createElement('form');
+      hiddenForm.method = 'POST';
+      hiddenForm.action = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP';
+      hiddenForm.target = 'contact_form_iframe';
+
+      // Helper to add hidden inputs
+      const addField = (name: string, value: string) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        hiddenForm.appendChild(input);
+      };
+
+      // Hidden fields
+      addField('oid', '00DWV00000GKmiP');
+      addField('retURL', window.location.origin);
+
+      // Form fields - using Salesforce API Names per Notion spec
+      addField('first_name', data.nombre);
+      addField('last_name', data.nombre);
+      addField('email', data.email);
+      addField('phone', data.telefono || '');
+      addField('company', data.empresa || '');
+      addField('description', data.mensaje || '');
+      addField('Acepta_la_P_de_Privacidad__c', data.privacyAccepted ? '1' : '');
+      addField('Plataforma__c', 'Lovable');
+      addField('lead_source', 'Web');
+      addField('rating', 'Caliente');
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+
+      // Cleanup after submission
+      setTimeout(() => {
+        document.body.removeChild(hiddenForm);
+        document.body.removeChild(iframe);
+      }, 1000);
 
       toast({
         title: "¡Mensaje enviado!",
