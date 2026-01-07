@@ -396,9 +396,9 @@ const Notarias = () => {
                 <img src={logoAltocloud} alt="Altocloud Consulting" className="h-8 object-contain" />
               </Link>
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                <a href="mailto:enrique_arrufat@altocloud-consulting.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <a href="mailto:enrique@altocloud-consulting.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Mail className="h-4 w-4" />
-                  <span className="hidden sm:inline">enrique_arrufat@altocloud-consulting.com</span>
+                  <span className="hidden sm:inline">enrique@altocloud-consulting.com</span>
                 </a>
                 <a href="tel:+34681229933" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Phone className="h-4 w-4" />

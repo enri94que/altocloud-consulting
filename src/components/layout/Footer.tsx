@@ -52,10 +52,10 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 <a
-                  href="mailto:enrique_arrufat@altocloud-consulting.com"
+                  href="mailto:enrique@altocloud-consulting.com"
                   className="hover:text-primary-foreground transition-colors"
                 >
-                  enrique_alto@altocloud-consulting.com
+                  enrique@altocloud-consulting.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
