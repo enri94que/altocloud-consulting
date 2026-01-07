@@ -275,8 +275,8 @@ const Precios = () => {
   return (
     <Layout>
       <SEO
-        title="Precios Salesforce | Licencias Sales Cloud, Service Cloud, Nonprofit"
-        description="Consulta los precios oficiales de las licencias de Salesforce. Sales Cloud, Service Cloud, Nonprofit Cloud y Starter/Pro Suite. Consultor certificado."
+        title="Precios Salesforce 2025"
+        description="Precios oficiales licencias Salesforce: Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Consultor certificado te asesora gratis."
         canonical="/precios"
       />
 

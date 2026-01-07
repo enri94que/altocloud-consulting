@@ -42,8 +42,8 @@ const ServiceCloud = () => {
   return (
     <Layout>
       <SEO
-        title="Service Cloud"
-        description="Mejora tu atención al cliente con Service Cloud. Soporte omnicanal, gestión de casos y automatización para aumentar la satisfacción."
+        title="Service Cloud - Atención Cliente"
+        description="Service Cloud: soporte omnicanal, gestión de casos y automatización. Mejora la satisfacción de tus clientes con consultoría Salesforce."
         canonical="/servicios/service-cloud"
       />
       <StructuredData

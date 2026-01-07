@@ -14,13 +14,15 @@ const SEO = ({
   description,
   canonical,
   type = 'website',
-  image = 'https://lovable.dev/opengraph-image-p98pqg.png',
+  image = 'https://altocloud.es/og-image.png',
   noindex = false,
 }: SEOProps) => {
   const siteTitle = 'AltoCloud - Consultor Salesforce';
-  const fullTitle = title === 'Inicio' ? siteTitle : `${title} | ${siteTitle}`;
+  // Keep titles under 60 characters
+  const fullTitle = title === 'Inicio' ? siteTitle : `${title} | AltoCloud`;
   const siteUrl = 'https://altocloud.es';
-  const canonicalUrl = canonical ? `${siteUrl}${canonical}` : undefined;
+  // Ensure every page has a canonical URL
+  const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
   return (
     <Helmet>

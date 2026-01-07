@@ -42,8 +42,8 @@ const StarterProSuite = () => {
   return (
     <Layout>
       <SEO
-        title="Starter & Pro Suite"
-        description="CRM para PYMEs con Starter y Pro Suite. Implementación rápida, precio accesible y toda la potencia de Salesforce."
+        title="Starter & Pro Suite - CRM PYMEs"
+        description="Starter y Pro Suite: CRM Salesforce para PYMEs. Implementación rápida, precio accesible. Consultor certificado en España."
         canonical="/servicios/starter-pro-suite"
       />
       <StructuredData

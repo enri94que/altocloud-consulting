@@ -65,8 +65,9 @@ const ServicesGrid = () => {
                 <Link
                   to={service.path}
                   className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all"
+                  aria-label={`Más información sobre ${service.title}`}
                 >
-                  Saber más
+                  Saber más sobre {service.title}
                   <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </CardContent>

@@ -119,8 +119,8 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title="Contacto"
-        description="Contacta con AltoCloud para consultoría Salesforce. Solicita información sobre Sales Cloud, Service Cloud, Nonprofit Cloud o Starter Suite."
+        title="Contacto - Consultoría Salesforce"
+        description="Contacta con AltoCloud para consultoría Salesforce en España. Información sobre Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite."
         canonical="/contacto"
       />
       <StructuredData
@@ -153,20 +153,32 @@ const Contact = () => {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-5 w-5 text-primary" />
+                    <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">enrique@altocloud-consulting.com</p>
+                    <a 
+                      href="mailto:enrique@altocloud-consulting.com" 
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label="Enviar email a AltoCloud Consulting"
+                    >
+                      enrique@altocloud-consulting.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-primary" />
+                    <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Teléfono</h3>
-                    <p className="text-muted-foreground">+34 681 22 99 33</p>
+                    <a 
+                      href="tel:+34681229933" 
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label="Llamar a AltoCloud Consulting"
+                    >
+                      +34 681 22 99 33
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
