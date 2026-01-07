@@ -2,43 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://altocloud.es/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://altocloud.es/contacto</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://altocloud.es/precios</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://altocloud.es/servicios/starter-pro-suite</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://altocloud.es/servicios/sales-cloud</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altocloud.es/servicios/service-cloud</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altocloud.es/servicios/nonprofit-cloud</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://altocloud.es/servicios/starter-pro-suite</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altocloud.es/politica-privacidad</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

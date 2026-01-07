@@ -42,8 +42,8 @@ const NonprofitCloud = () => {
   return (
     <Layout>
       <SEO
-        title="Nonprofit Cloud"
-        description="Potencia tu ONG con Nonprofit Cloud. Gestión de donantes, voluntarios y programas para maximizar tu impacto social."
+        title="Nonprofit Cloud - CRM ONGs"
+        description="Nonprofit Cloud para ONGs: gestión de donantes, voluntarios y programas. Maximiza tu impacto social con consultoría Salesforce certificada."
         canonical="/servicios/nonprofit-cloud"
       />
       <StructuredData

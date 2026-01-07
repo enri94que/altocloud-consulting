@@ -11,7 +11,7 @@ const Index = () => {
     <Layout>
       <SEO
         title="Inicio"
-        description="Consultor Salesforce certificado. Implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite para transformar tu empresa."
+        description="Consultor Salesforce certificado en España. Implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Transforma tu empresa."
         canonical="/"
       />
       <StructuredData type="organization" />

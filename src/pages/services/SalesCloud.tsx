@@ -42,8 +42,8 @@ const SalesCloud = () => {
   return (
     <Layout>
       <SEO
-        title="Sales Cloud"
-        description="Acelera tus ventas con Sales Cloud. Gestión de leads, automatización comercial y previsiones de ventas con la plataforma CRM #1 del mundo."
+        title="Sales Cloud - CRM Ventas"
+        description="Sales Cloud: gestión de leads, automatización comercial y previsiones de ventas. Consultor Salesforce certificado para impulsar tus ventas."
         canonical="/servicios/sales-cloud"
       />
       <StructuredData
