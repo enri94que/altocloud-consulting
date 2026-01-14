@@ -47,10 +47,10 @@ const WhySalesforce = () => {
               El CRM #1 del mundo por una razón
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Salesforce no es solo un CRM, es la plataforma líder en <strong>automatización de ventas Salesforce</strong> 
-              y <strong>gestión de clientes empresarial</strong>. Con más de 150.000 empresas confiando en Salesforce, 
-              es la elección preferida para la <strong>transformación digital España</strong>. Como <strong>consultor Salesforce España</strong>, 
-              te ayudo con la <strong>implementación CRM profesional</strong> que tu negocio necesita.
+              Salesforce no es solo un CRM, es la plataforma líder en automatización de ventas Salesforce 
+              y gestión de clientes empresarial. Con más de 150.000 empresas confiando en Salesforce, 
+              es la elección preferida para la transformación digital España. Como consultor Salesforce España, 
+              te ayudo con la implementación CRM profesional que tu negocio necesita.
             </p>
             <div className="flex items-center gap-8 text-center">
               <div>
