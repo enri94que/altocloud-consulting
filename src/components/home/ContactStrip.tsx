@@ -12,7 +12,7 @@ const ContactStrip = () => {
               ¿Listo para transformar tu negocio?
             </h2>
             <p className="text-primary-foreground/80">
-              Agenda una consulta gratuita y descubre cómo Salesforce puede ayudarte.
+              Agenda una <strong>consulta Salesforce gratuita</strong> y descubre cómo la <strong>implementación CRM profesional</strong> puede impulsar tu empresa.
             </p>
           </div>
           <ContactFormDialog variant="contact">
