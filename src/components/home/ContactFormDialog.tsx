@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -66,6 +66,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
+  const [retURL, setRetURL] = useState("");
+
+  useEffect(() => {
+    setRetURL(window.location.href);
+  }, []);
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -129,7 +135,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
       >
         {/* Organization ID - REQUIRED */}
         <input type="hidden" name="oid" value="00DWV00000GKmiP" />
-        <input type="hidden" name="retURL" value={window.location.href} />
+        <input type="hidden" name="retURL" value={retURL} />
 
         {/* Standard Salesforce Lead fields - using exact API names */}
         <input type="hidden" name="last_name" value={formValues.name || ""} />
