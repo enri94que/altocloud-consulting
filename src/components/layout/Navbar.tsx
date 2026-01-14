@@ -10,6 +10,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import logoAltocloud from "@/assets/logo-altocloud.png";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const services = [
   {
     name: "Starter & Pro Suite",
@@ -28,10 +31,14 @@ const services = [
     path: "/servicios/nonprofit-cloud",
   },
 ];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
+  
   const isActive = (path: string) => location.pathname === path;
+  
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
@@ -47,12 +54,12 @@ const Navbar = () => {
               to="/"
               className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/") ? "text-primary" : "text-muted-foreground"}`}
             >
-              Inicio
+              {t("nav.home")}
             </Link>
 
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                Servicios
+                {t("nav.services")}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-card border border-border shadow-lg z-50">
@@ -70,20 +77,22 @@ const Navbar = () => {
               to="/precios"
               className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/precios") ? "text-primary" : "text-muted-foreground"}`}
             >
-              Licencias
+              {t("nav.licenses")}
             </Link>
 
             <Link
               to="/contacto"
               className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contacto") ? "text-primary" : "text-muted-foreground"}`}
             >
-              Contacto
+              {t("nav.contact")}
             </Link>
+            
+            <LanguageSwitcher variant="navbar" />
           </div>
 
           {/* CTA Button */}
           <ContactFormDialog variant="demo">
-            <Button>Solicitar Demo</Button>
+            <Button>{t("nav.requestDemo")}</Button>
           </ContactFormDialog>
 
           {/* Mobile Menu Button */}
@@ -101,10 +110,10 @@ const Navbar = () => {
                 className="text-sm font-medium text-muted-foreground hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
-                Inicio
+                {t("nav.home")}
               </Link>
               <div className="flex flex-col gap-2">
-                <span className="text-sm font-semibold text-foreground">Servicios</span>
+                <span className="text-sm font-semibold text-foreground">{t("nav.services")}</span>
                 {services.map((service) => (
                   <Link
                     key={service.path}
@@ -121,17 +130,20 @@ const Navbar = () => {
                 className="text-sm font-medium text-muted-foreground hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
-                Precios
+                {t("nav.prices")}
               </Link>
               <Link
                 to="/contacto"
                 className="text-sm font-medium text-muted-foreground hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
-                Contacto
+                {t("nav.contact")}
               </Link>
+              <div className="pt-2 border-t border-border">
+                <LanguageSwitcher variant="navbar" />
+              </div>
               <ContactFormDialog variant="demo">
-                <Button className="mt-2 w-full">Solicitar Demo</Button>
+                <Button className="mt-2 w-full">{t("nav.requestDemo")}</Button>
               </ContactFormDialog>
             </div>
           </div>
@@ -140,4 +152,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

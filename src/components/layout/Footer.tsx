@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import logoAltocloud from "@/assets/logo-altocloud.png";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
@@ -13,14 +17,16 @@ const Footer = () => {
               <img src={logoAltocloud} alt="Altocloud" className="h-12 object-contain" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md">
-              Consultores especializados en Salesforce. Ayudamos a empresas a transformar sus procesos de negocio con
-              las mejores soluciones CRM del mercado.
+              {t("footer.description")}
             </p>
+            <div className="mt-4">
+              <LanguageSwitcher variant="footer" />
+            </div>
           </div>
 
           {/* Servicios */}
           <div>
-            <h4 className="font-semibold mb-4">Servicios</h4>
+            <h4 className="font-semibold mb-4">{t("footer.services")}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
                 <Link to="/servicios/sales-cloud" className="hover:text-primary-foreground transition-colors">
@@ -47,7 +53,7 @@ const Footer = () => {
 
           {/* Contacto */}
           <div>
-            <h4 className="font-semibold mb-4">Contacto</h4>
+            <h4 className="font-semibold mb-4">{t("footer.contact")}</h4>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
@@ -66,7 +72,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>España</span>
+                <span>{t("footer.location")}</span>
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
@@ -83,9 +89,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-8 pt-8 text-center text-sm text-primary-foreground/50">
-          <p className="mb-2">© {new Date().getFullYear()} Altocloud Consulting. Todos los derechos reservados.</p>
+          <p className="mb-2">© {new Date().getFullYear()} Altocloud Consulting. {t("footer.rights")}</p>
           <Link to="/politica-privacidad" className="hover:text-primary-foreground transition-colors">
-            Política de Privacidad
+            {t("footer.privacy")}
           </Link>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Precios from "./pages/Precios";
@@ -19,23 +20,25 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/contacto" element={<Contact />} />
-        <Route path="/precios" element={<Precios />} />
-        <Route path="/servicios/sales-cloud" element={<SalesCloud />} />
-        <Route path="/servicios/service-cloud" element={<ServiceCloud />} />
-        <Route path="/servicios/nonprofit-cloud" element={<NonprofitCloud />} />
-        <Route path="/servicios/starter-pro-suite" element={<StarterProSuite />} />
-        <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
-        <Route path="/notarias" element={<Notarias />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </TooltipProvider>
+    <LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="/precios" element={<Precios />} />
+          <Route path="/servicios/sales-cloud" element={<SalesCloud />} />
+          <Route path="/servicios/service-cloud" element={<ServiceCloud />} />
+          <Route path="/servicios/nonprofit-cloud" element={<NonprofitCloud />} />
+          <Route path="/servicios/starter-pro-suite" element={<StarterProSuite />} />
+          <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+          <Route path="/notarias" element={<Notarias />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TooltipProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 
