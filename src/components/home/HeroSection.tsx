@@ -23,8 +23,8 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            Impulsa tus ventas, mejora tu atención al cliente y optimiza tus procesos 
-            con las soluciones CRM líderes del mercado.
+            Consultor Salesforce en España. Impulsa tus ventas, mejora tu atención al cliente 
+            y optimiza tus procesos con implementación CRM profesional.
           </p>
 
           <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.3s" }}>

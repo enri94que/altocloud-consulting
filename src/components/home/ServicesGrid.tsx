@@ -9,6 +9,7 @@ const services = [
     description: "Acelera tus ventas con automatización inteligente y gestión completa del ciclo de ventas.",
     path: "/servicios/sales-cloud",
     color: "from-blue-500 to-blue-600",
+    linkText: "Implementar Sales Cloud",
   },
   {
     icon: Headphones,
@@ -16,6 +17,7 @@ const services = [
     description: "Ofrece un servicio al cliente excepcional con herramientas omnicanal y atención personalizada.",
     path: "/servicios/service-cloud",
     color: "from-green-500 to-green-600",
+    linkText: "Descubrir Service Cloud",
   },
   {
     icon: Heart,
@@ -23,6 +25,7 @@ const services = [
     description: "Gestiona donantes, voluntarios y programas con soluciones diseñadas para ONGs.",
     path: "/servicios/nonprofit-cloud",
     color: "from-purple-500 to-purple-600",
+    linkText: "Explorar Nonprofit Cloud",
   },
   {
     icon: Zap,
@@ -30,6 +33,7 @@ const services = [
     description: "La solución perfecta para pequeñas empresas que quieren empezar con Salesforce.",
     path: "/servicios/starter-pro-suite",
     color: "from-orange-500 to-orange-600",
+    linkText: "Ver Starter Suite",
   },
 ];
 
@@ -65,9 +69,9 @@ const ServicesGrid = () => {
                 <Link
                   to={service.path}
                   className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all"
-                  aria-label={`Más información sobre ${service.title}`}
+                  aria-label={`${service.linkText} - Consultor Salesforce España`}
                 >
-                  Saber más sobre {service.title}
+                  {service.linkText}
                   <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </CardContent>
