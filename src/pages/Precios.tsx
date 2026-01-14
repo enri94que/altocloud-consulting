@@ -6,72 +6,107 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Precios = () => {
+  const { t, language } = useLanguage();
+
   const salesCloudPlans = [
     {
       name: "Starter Suite",
       price: "25€",
-      period: "/usuario/mes",
-      billing: "Facturación mensual o anual",
-      description: "CRM inteligente con herramientas básicas de ventas",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.monthlyAnnual"),
+      descriptionEs: "CRM inteligente con herramientas básicas de ventas",
+      descriptionEn: "Smart CRM with basic sales tools",
+      featuresEs: [
         "Gestión de candidatos y oportunidades",
         "Flujos de ventas integrados",
         "Sincronización de emails y calendario",
         "Análisis básicos",
         "Usuarios ilimitados"
       ],
+      featuresEn: [
+        "Lead and opportunity management",
+        "Integrated sales flows",
+        "Email and calendar sync",
+        "Basic analytics",
+        "Unlimited users"
+      ],
       highlighted: false,
-      cta: "Ideal para empezar"
+      cta: t("pricing.idealStart")
     },
     {
       name: "Pro Suite",
       price: "100€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "CRM flexible con automatización avanzada",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "CRM flexible con automatización avanzada",
+      descriptionEn: "Flexible CRM with advanced automation",
+      featuresEs: [
         "Todo lo de Starter Suite",
         "Presupuestos y pronósticos",
         "Automatización avanzada",
         "Personalización completa",
         "Acceso a AppExchange"
       ],
+      featuresEn: [
+        "Everything in Starter Suite",
+        "Quotes and forecasting",
+        "Advanced automation",
+        "Full customization",
+        "AppExchange access"
+      ],
       highlighted: true,
-      cta: "Más popular"
+      cta: t("pricing.mostPopular")
     },
     {
       name: "Enterprise",
       price: "175€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "CRM para ventas con flexibilidad y API web",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "CRM para ventas con flexibilidad y API web",
+      descriptionEn: "Sales CRM with flexibility and web API",
+      featuresEs: [
         "Todo lo de Pro Suite",
         "Gestión avanzada del ciclo de ventas",
         "Inteligencia conversacional",
         "Agentforce incluido",
         "API web completa"
       ],
+      featuresEn: [
+        "Everything in Pro Suite",
+        "Advanced sales cycle management",
+        "Conversational intelligence",
+        "Agentforce included",
+        "Complete web API"
+      ],
       highlighted: false,
-      cta: "Para empresas en crecimiento"
+      cta: t("pricing.forGrowth")
     },
     {
       name: "Unlimited",
       price: "350€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "CRM con automatización inteligente y soporte premium",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "CRM con automatización inteligente y soporte premium",
+      descriptionEn: "CRM with intelligent automation and premium support",
+      featuresEs: [
         "Todo lo de Enterprise",
         "IA predictiva",
         "Participación de ventas",
         "Plan Premier Success",
         "Sandbox completo"
       ],
+      featuresEn: [
+        "Everything in Enterprise",
+        "Predictive AI",
+        "Sales engagement",
+        "Premier Success Plan",
+        "Full sandbox"
+      ],
       highlighted: false,
-      cta: "Máxima potencia"
+      cta: t("pricing.maxPower")
     }
   ];
 
@@ -79,66 +114,98 @@ const Precios = () => {
     {
       name: "Starter Suite",
       price: "25€",
-      period: "/usuario/mes",
-      billing: "Facturación mensual o anual",
-      description: "Gestión de casos de atención al cliente básica",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.monthlyAnnual"),
+      descriptionEs: "Gestión de casos de atención al cliente básica",
+      descriptionEn: "Basic customer service case management",
+      featuresEs: [
         "Gestión de casos desde email",
         "Base de conocimientos",
         "Consola de servicio",
         "Informes básicos",
         "Usuarios ilimitados"
       ],
+      featuresEn: [
+        "Email case management",
+        "Knowledge base",
+        "Service console",
+        "Basic reports",
+        "Unlimited users"
+      ],
       highlighted: false,
-      cta: "Ideal para empezar"
+      cta: t("pricing.idealStart")
     },
     {
       name: "Pro Suite",
       price: "100€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "Atención omnicanal con automatización",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "Atención omnicanal con automatización",
+      descriptionEn: "Omnichannel service with automation",
+      featuresEs: [
         "Todo lo de Starter Suite",
         "Chat en tiempo real",
         "Enrutamiento omnicanal",
         "Automatización de casos",
         "Acceso a AppExchange"
       ],
+      featuresEn: [
+        "Everything in Starter Suite",
+        "Real-time chat",
+        "Omnichannel routing",
+        "Case automation",
+        "AppExchange access"
+      ],
       highlighted: true,
-      cta: "Más popular"
+      cta: t("pricing.mostPopular")
     },
     {
       name: "Enterprise",
       price: "175€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "Servicio completo con IA y autoservicio",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "Servicio completo con IA y autoservicio",
+      descriptionEn: "Complete service with AI and self-service",
+      featuresEs: [
         "Todo lo de Pro Suite",
         "Portal de autoservicio",
         "Bots de Einstein",
         "Gestión de contratos",
         "API web completa"
       ],
+      featuresEn: [
+        "Everything in Pro Suite",
+        "Self-service portal",
+        "Einstein Bots",
+        "Contract management",
+        "Complete web API"
+      ],
       highlighted: false,
-      cta: "Para empresas en crecimiento"
+      cta: t("pricing.forGrowth")
     },
     {
       name: "Unlimited",
       price: "350€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "Servicio inteligente con soporte premium",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "Servicio inteligente con soporte premium",
+      descriptionEn: "Intelligent service with premium support",
+      featuresEs: [
         "Todo lo de Enterprise",
         "IA predictiva",
         "Chat de vídeo",
         "Plan Premier Success",
         "Sandbox completo"
       ],
+      featuresEn: [
+        "Everything in Enterprise",
+        "Predictive AI",
+        "Video chat",
+        "Premier Success Plan",
+        "Full sandbox"
+      ],
       highlighted: false,
-      cta: "Máxima potencia"
+      cta: t("pricing.maxPower")
     }
   ];
 
@@ -146,34 +213,50 @@ const Precios = () => {
     {
       name: "Enterprise",
       price: "60€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "CRM líder del mercado para organizaciones sin ánimo de lucro",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "CRM líder del mercado para organizaciones sin ánimo de lucro",
+      descriptionEn: "Market-leading CRM for nonprofit organizations",
+      featuresEs: [
         "Modelo de datos para ONGs",
         "Nonprofit Toolkit",
         "Gestión de recaudación",
         "Gestión de programas y resultados",
         "Gestión de voluntarios"
       ],
+      featuresEn: [
+        "NGO data model",
+        "Nonprofit Toolkit",
+        "Fundraising management",
+        "Program and outcome management",
+        "Volunteer management"
+      ],
       highlighted: true,
-      cta: "Más popular"
+      cta: t("pricing.mostPopular")
     },
     {
       name: "Unlimited",
       price: "100€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "Potencia y soporte ilimitado para ONGs",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "Potencia y soporte ilimitado para ONGs",
+      descriptionEn: "Unlimited power and support for NGOs",
+      featuresEs: [
         "Todo lo de Enterprise",
         "IA predictiva",
         "Automatización avanzada",
         "Plan Premier Success",
         "Sandbox completo"
       ],
+      featuresEn: [
+        "Everything in Enterprise",
+        "Predictive AI",
+        "Advanced automation",
+        "Premier Success Plan",
+        "Full sandbox"
+      ],
       highlighted: false,
-      cta: "Máxima potencia"
+      cta: t("pricing.maxPower")
     }
   ];
 
@@ -182,48 +265,71 @@ const Precios = () => {
       name: "Free Suite",
       price: "0€",
       period: "",
-      billing: "Máximo 2 usuarios",
-      description: "CRM básico gratuito para empezar",
-      features: [
+      billing: t("pricing.maxUsers"),
+      descriptionEs: "CRM básico gratuito para empezar",
+      descriptionEn: "Free basic CRM to get started",
+      featuresEs: [
         "Gestión de candidatos y contactos",
         "Gestión de casos de servicio",
         "Marketing por email básico",
         "Hasta 2 usuarios"
       ],
+      featuresEn: [
+        "Lead and contact management",
+        "Service case management",
+        "Basic email marketing",
+        "Up to 2 users"
+      ],
       highlighted: false,
-      cta: "Empezar gratis"
+      cta: t("pricing.startFree")
     },
     {
       name: "Starter Suite",
       price: "25€",
-      period: "/usuario/mes",
-      billing: "Facturación mensual o anual",
-      description: "Suite de CRM inteligente todo en uno",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.monthlyAnnual"),
+      descriptionEs: "Suite de CRM inteligente todo en uno",
+      descriptionEn: "All-in-one smart CRM suite",
+      featuresEs: [
         "Ventas, servicio y marketing",
         "Usuarios ilimitados",
         "Flujos de ventas integrados",
         "Marketing dinámico por email",
         "Escaparate e-commerce"
       ],
+      featuresEn: [
+        "Sales, service and marketing",
+        "Unlimited users",
+        "Integrated sales flows",
+        "Dynamic email marketing",
+        "E-commerce storefront"
+      ],
       highlighted: true,
-      cta: "Más popular"
+      cta: t("pricing.mostPopular")
     },
     {
       name: "Pro Suite",
       price: "100€",
-      period: "/usuario/mes",
-      billing: "Facturación anual",
-      description: "Suite flexible con automatización completa",
-      features: [
+      period: t("pricing.perUser"),
+      billing: t("pricing.annualBilling"),
+      descriptionEs: "Suite flexible con automatización completa",
+      descriptionEn: "Flexible suite with complete automation",
+      featuresEs: [
         "Todo lo de Starter Suite",
         "Chat en tiempo real mejorado",
         "Presupuestos y pronósticos",
         "Mayor personalización",
         "Acceso a AppExchange"
       ],
+      featuresEn: [
+        "Everything in Starter Suite",
+        "Enhanced real-time chat",
+        "Quotes and forecasting",
+        "Greater customization",
+        "AppExchange access"
+      ],
       highlighted: false,
-      cta: "Para crecer"
+      cta: t("pricing.toGrow")
     }
   ];
 
@@ -240,7 +346,9 @@ const Precios = () => {
       )}
       <CardHeader className="text-center pb-2">
         <CardTitle className="text-xl font-semibold">{plan.name}</CardTitle>
-        <CardDescription className="min-h-[40px]">{plan.description}</CardDescription>
+        <CardDescription className="min-h-[40px]">
+          {language === "es" ? plan.descriptionEs : plan.descriptionEn}
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col flex-1">
         <div className="text-center mb-6">
@@ -249,7 +357,7 @@ const Precios = () => {
           <p className="text-xs text-muted-foreground mt-1">{plan.billing}</p>
         </div>
         <ul className="space-y-3 flex-1">
-          {plan.features.map((feature, i) => (
+          {(language === "es" ? plan.featuresEs : plan.featuresEn).map((feature, i) => (
             <li key={i} className="flex items-start gap-2">
               <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
               <span className="text-sm">{feature}</span>
@@ -265,7 +373,7 @@ const Precios = () => {
             }`}
             variant={plan.highlighted ? "default" : "outline"}
           >
-            Solicitar información
+            {t("pricing.requestInfo")}
           </Button>
         </ContactFormDialog>
       </CardContent>
@@ -275,8 +383,8 @@ const Precios = () => {
   return (
     <Layout>
       <SEO
-        title="Precios Salesforce 2025"
-        description="Precios oficiales licencias Salesforce: Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Consultor certificado te asesora gratis."
+        title={language === "es" ? "Precios Salesforce 2025" : "Salesforce Pricing 2025"}
+        description={language === "es" ? "Precios oficiales licencias Salesforce: Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Consultor certificado te asesora gratis." : "Official Salesforce license pricing: Sales Cloud, Service Cloud, Nonprofit Cloud and Starter Suite. Certified consultant advises you for free."}
         canonical="/precios"
       />
 
@@ -286,14 +394,13 @@ const Precios = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <Badge variant="secondary" className="mb-4 bg-white/10 text-white border-white/20">
-              Precios oficiales Salesforce 2025
+              {t("pricing.badge")}
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Precios de Licencias <span className="text-orange-400">Salesforce</span>
+              {t("pricing.title")} <span className="text-orange-400">Salesforce</span>
             </h1>
             <p className="text-lg text-white/80 mb-8">
-              Conoce los precios oficiales de las licencias de Salesforce para los servicios que implanto. 
-              Como consultor certificado, te ayudo a elegir la mejor opción para tu negocio.
+              {t("pricing.subtitle")}
             </p>
           </div>
         </div>
@@ -306,30 +413,30 @@ const Precios = () => {
             <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 h-auto">
               <TabsTrigger value="starter" className="flex items-center gap-2 py-3">
                 <Building2 className="w-4 h-4" />
-                <span className="hidden sm:inline">Starter & Pro</span>
+                <span className="hidden sm:inline">{t("pricing.starterTab")}</span>
                 <span className="sm:hidden">Starter</span>
               </TabsTrigger>
               <TabsTrigger value="sales" className="flex items-center gap-2 py-3">
                 <Briefcase className="w-4 h-4" />
-                <span className="hidden sm:inline">Sales Cloud</span>
+                <span className="hidden sm:inline">{t("pricing.salesTab")}</span>
                 <span className="sm:hidden">Sales</span>
               </TabsTrigger>
               <TabsTrigger value="service" className="flex items-center gap-2 py-3">
                 <Users className="w-4 h-4" />
-                <span className="hidden sm:inline">Service Cloud</span>
+                <span className="hidden sm:inline">{t("pricing.serviceTab")}</span>
                 <span className="sm:hidden">Service</span>
               </TabsTrigger>
               <TabsTrigger value="nonprofit" className="flex items-center gap-2 py-3">
                 <Heart className="w-4 h-4" />
-                <span className="hidden sm:inline">Nonprofit</span>
+                <span className="hidden sm:inline">{t("pricing.nonprofitTab")}</span>
                 <span className="sm:hidden">Nonprofit</span>
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="starter" className="mt-0">
               <div className="text-center mb-10">
-                <h2 className="text-2xl font-bold mb-2">Starter & Pro Suite</h2>
-                <p className="text-muted-foreground">Soluciones todo en uno perfectas para pymes</p>
+                <h2 className="text-2xl font-bold mb-2">{t("pricing.starterTitle")}</h2>
+                <p className="text-muted-foreground">{t("pricing.starterSubtitle")}</p>
               </div>
               <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {starterProPlans.map((plan, i) => (
@@ -340,8 +447,8 @@ const Precios = () => {
 
             <TabsContent value="sales" className="mt-0">
               <div className="text-center mb-10">
-                <h2 className="text-2xl font-bold mb-2">Sales Cloud</h2>
-                <p className="text-muted-foreground">Potencia tu equipo de ventas con el CRM #1 del mundo</p>
+                <h2 className="text-2xl font-bold mb-2">{t("pricing.salesTitle")}</h2>
+                <p className="text-muted-foreground">{t("pricing.salesSubtitle")}</p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {salesCloudPlans.map((plan, i) => (
@@ -352,8 +459,8 @@ const Precios = () => {
 
             <TabsContent value="service" className="mt-0">
               <div className="text-center mb-10">
-                <h2 className="text-2xl font-bold mb-2">Service Cloud</h2>
-                <p className="text-muted-foreground">Ofrece un servicio al cliente excepcional en todos los canales</p>
+                <h2 className="text-2xl font-bold mb-2">{t("pricing.serviceTitle")}</h2>
+                <p className="text-muted-foreground">{t("pricing.serviceSubtitle")}</p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {serviceCloudPlans.map((plan, i) => (
@@ -364,8 +471,8 @@ const Precios = () => {
 
             <TabsContent value="nonprofit" className="mt-0">
               <div className="text-center mb-10">
-                <h2 className="text-2xl font-bold mb-2">Nonprofit Cloud</h2>
-                <p className="text-muted-foreground">CRM diseñado específicamente para organizaciones sin ánimo de lucro</p>
+                <h2 className="text-2xl font-bold mb-2">{t("pricing.nonprofitTitle")}</h2>
+                <p className="text-muted-foreground">{t("pricing.nonprofitSubtitle")}</p>
               </div>
               <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 {nonprofitCloudPlans.map((plan, i) => (
@@ -376,7 +483,7 @@ const Precios = () => {
                 <Card className="inline-block bg-green-50 border-green-200 dark:bg-green-950 dark:border-green-800">
                   <CardContent className="p-6">
                     <p className="text-green-700 dark:text-green-300 font-medium">
-                      💡 Las organizaciones sin ánimo de lucro pueden acceder a <strong>10 licencias gratuitas</strong> a través del programa Power of Us de Salesforce.org
+                      💡 {t("pricing.nonprofit.note")}
                     </p>
                   </CardContent>
                 </Card>
@@ -395,12 +502,12 @@ const Precios = () => {
               <div className="flex items-start gap-4">
                 <ExternalLink className="w-6 h-6 text-salesforce-blue shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold mb-2">Información importante sobre precios</h3>
+                  <h3 className="font-semibold mb-2">{t("pricing.disclaimer.title")}</h3>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Los precios mostrados son los precios de lista de Salesforce y pueden variar.</li>
-                    <li>• Todos los precios están en euros y no incluyen IVA.</li>
-                    <li>• La facturación es anual salvo que se indique lo contrario.</li>
-                    <li>• Consulta los precios actualizados en <a href="https://www.salesforce.com/es/editions-pricing/" target="_blank" rel="noopener noreferrer" className="text-salesforce-blue hover:underline">salesforce.com</a>.</li>
+                    <li>• {t("pricing.disclaimer.1")}</li>
+                    <li>• {t("pricing.disclaimer.2")}</li>
+                    <li>• {t("pricing.disclaimer.3")}</li>
+                    <li>• {t("pricing.disclaimer.4")} <a href="https://www.salesforce.com/es/editions-pricing/" target="_blank" rel="noopener noreferrer" className="text-salesforce-blue hover:underline">salesforce.com</a>.</li>
                   </ul>
                 </div>
               </div>
@@ -413,15 +520,14 @@ const Precios = () => {
       <section className="py-16 bg-gradient-to-r from-salesforce-blue to-navy-800">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            ¿No sabes qué edición elegir?
+            {t("pricing.cta.title")}
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Como consultor certificado de Salesforce, te ayudo a elegir la licencia que mejor se adapte 
-            a las necesidades de tu negocio y presupuesto.
+            {t("pricing.cta.subtitle")}
           </p>
           <ContactFormDialog variant="contact">
             <Button size="lg" variant="secondary">
-              Solicitar asesoramiento gratuito
+              {t("pricing.cta.button")}
             </Button>
           </ContactFormDialog>
         </div>

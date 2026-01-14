@@ -20,23 +20,25 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-
-const contactSchema = z.object({
-  nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
-  email: z.string().email("Introduce un email válido"),
-  telefono: z.string().optional(),
-  empresa: z.string().optional(),
-  mensaje: z.string().optional(),
-  privacyAccepted: z.boolean().refine((val) => val === true, {
-    message: "Debes aceptar la política de privacidad",
-  }),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t, language } = useLanguage();
+
+  const contactSchema = z.object({
+    nombre: z.string().min(2, language === "es" ? "El nombre debe tener al menos 2 caracteres" : "Name must have at least 2 characters"),
+    email: z.string().email(language === "es" ? "Introduce un email válido" : "Enter a valid email"),
+    telefono: z.string().optional(),
+    empresa: z.string().optional(),
+    mensaje: z.string().optional(),
+    privacyAccepted: z.boolean().refine((val) => val === true, {
+      message: language === "es" ? "Debes aceptar la política de privacidad" : "You must accept the privacy policy",
+    }),
+  });
+
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -54,7 +56,6 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Create a hidden form and submit to iframe (same technique as ContactFormDialog)
       const iframe = document.createElement('iframe');
       iframe.name = 'contact_form_iframe';
       iframe.style.display = 'none';
@@ -65,7 +66,6 @@ const Contact = () => {
       hiddenForm.action = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV00000GKmiP';
       hiddenForm.target = 'contact_form_iframe';
 
-      // Helper to add hidden inputs
       const addField = (name: string, value: string) => {
         const input = document.createElement('input');
         input.type = 'hidden';
@@ -74,11 +74,8 @@ const Contact = () => {
         hiddenForm.appendChild(input);
       };
 
-      // Hidden fields
       addField('oid', '00DWV00000GKmiP');
       addField('retURL', window.location.origin);
-
-      // Form fields - using Salesforce API Names per Notion spec
       addField('first_name', data.nombre);
       addField('last_name', data.nombre);
       addField('email', data.email);
@@ -93,22 +90,21 @@ const Contact = () => {
       document.body.appendChild(hiddenForm);
       hiddenForm.submit();
 
-      // Cleanup after submission
       setTimeout(() => {
         document.body.removeChild(hiddenForm);
         document.body.removeChild(iframe);
       }, 1000);
 
       toast({
-        title: "¡Mensaje enviado!",
-        description: "Nos pondremos en contacto contigo pronto.",
+        title: t("form.successContact"),
+        description: t("form.successDesc"),
       });
       
       form.reset();
     } catch (error) {
       toast({
         title: "Error",
-        description: "Hubo un error al enviar el formulario. Inténtalo de nuevo.",
+        description: language === "es" ? "Hubo un error al enviar el formulario. Inténtalo de nuevo." : "There was an error sending the form. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -119,24 +115,24 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title="Contacto - Consultoría Salesforce"
-        description="Contacta con AltoCloud para consultoría Salesforce en España. Información sobre Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite."
+        title={language === "es" ? "Contacto - Consultoría Salesforce" : "Contact - Salesforce Consulting"}
+        description={language === "es" ? "Contacta con AltoCloud para consultoría Salesforce en España. Información sobre Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite." : "Contact AltoCloud for Salesforce consulting in Spain. Information about Sales Cloud, Service Cloud, Nonprofit Cloud and Starter Suite."}
         canonical="/contacto"
       />
       <StructuredData
         type="webpage"
-        name="Contacto"
-        description="Formulario de contacto para consultoría Salesforce."
+        name={t("contact.title")}
+        description={language === "es" ? "Formulario de contacto para consultoría Salesforce." : "Contact form for Salesforce consulting."}
         url="/contacto"
       />
       {/* Hero */}
       <section className="py-20 bg-hero-gradient">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-            Contacto
+            {t("contact.title")}
           </h1>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-            ¿Tienes preguntas sobre nuestros servicios? Estamos aquí para ayudarte.
+            {t("contact.subtitle")}
           </p>
         </div>
       </section>
@@ -148,7 +144,7 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <h2 className="font-serif text-2xl font-bold text-foreground mb-6">
-                Información de contacto
+                {t("contact.info.title")}
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -156,11 +152,11 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Email</h3>
+                    <h3 className="font-semibold text-foreground">{t("contact.info.email")}</h3>
                     <a 
                       href="mailto:enrique@altocloud-consulting.com" 
                       className="text-muted-foreground hover:text-primary transition-colors"
-                      aria-label="Enviar email a AltoCloud Consulting"
+                      aria-label={language === "es" ? "Enviar email a AltoCloud Consulting" : "Send email to AltoCloud Consulting"}
                     >
                       enrique@altocloud-consulting.com
                     </a>
@@ -171,11 +167,11 @@ const Contact = () => {
                     <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Teléfono</h3>
+                    <h3 className="font-semibold text-foreground">{t("contact.info.phone")}</h3>
                     <a 
                       href="tel:+34681229933" 
                       className="text-muted-foreground hover:text-primary transition-colors"
-                      aria-label="Llamar a AltoCloud Consulting"
+                      aria-label={language === "es" ? "Llamar a AltoCloud Consulting" : "Call AltoCloud Consulting"}
                     >
                       +34 681 22 99 33
                     </a>
@@ -186,8 +182,8 @@ const Contact = () => {
                     <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Ubicación</h3>
-                    <p className="text-muted-foreground">España</p>
+                    <h3 className="font-semibold text-foreground">{t("contact.info.location")}</h3>
+                    <p className="text-muted-foreground">{t("footer.location")}</p>
                   </div>
                 </div>
               </div>
@@ -197,7 +193,7 @@ const Contact = () => {
             <div className="lg:col-span-2">
               <div className="bg-card p-8 rounded-2xl border border-border shadow-card">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-6">
-                  Envíanos un mensaje
+                  {t("contact.form.title")}
                 </h2>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -207,9 +203,9 @@ const Contact = () => {
                         name="nombre"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Nombre *</FormLabel>
+                            <FormLabel>{t("contact.form.name")} *</FormLabel>
                             <FormControl>
-                              <Input placeholder="Tu nombre" maxLength={40} {...field} />
+                              <Input placeholder={language === "es" ? "Tu nombre" : "Your name"} maxLength={40} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -220,9 +216,9 @@ const Contact = () => {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Email *</FormLabel>
+                            <FormLabel>{t("contact.form.email")} *</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="tu@email.com" maxLength={80} {...field} />
+                              <Input type="email" placeholder={language === "es" ? "tu@email.com" : "you@email.com"} maxLength={80} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -236,7 +232,7 @@ const Contact = () => {
                         name="telefono"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Teléfono</FormLabel>
+                            <FormLabel>{t("contact.form.phone")}</FormLabel>
                             <FormControl>
                               <Input placeholder="+34 600 000 000" maxLength={40} {...field} />
                             </FormControl>
@@ -249,9 +245,9 @@ const Contact = () => {
                         name="empresa"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Empresa</FormLabel>
+                            <FormLabel>{t("contact.form.company")}</FormLabel>
                             <FormControl>
-                              <Input placeholder="Nombre de tu empresa" maxLength={40} {...field} />
+                              <Input placeholder={language === "es" ? "Nombre de tu empresa" : "Your company name"} maxLength={40} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -264,10 +260,10 @@ const Contact = () => {
                       name="mensaje"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Mensaje</FormLabel>
+                          <FormLabel>{t("contact.form.message")}</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="Cuéntanos sobre tu proyecto..."
+                              placeholder={t("contact.form.messagePlaceholder")}
                               className="min-h-[120px]"
                               {...field}
                             />
@@ -290,13 +286,13 @@ const Contact = () => {
                           </FormControl>
                           <div className="space-y-1 leading-none">
                             <FormLabel className="text-sm font-normal cursor-pointer">
-                              He leído y acepto la{" "}
+                              {t("contact.form.privacy")}{" "}
                               <Link
                                 to="/politica-privacidad"
                                 target="_blank"
                                 className="text-primary hover:underline"
                               >
-                                Política de Privacidad
+                                {t("contact.form.privacyLink")}
                               </Link>{" "}
                               *
                             </FormLabel>
@@ -307,7 +303,7 @@ const Contact = () => {
                     />
 
                     <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto">
-                      {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                      {isSubmitting ? t("contact.form.sending") : t("contact.form.submit")}
                       <Send className="h-4 w-4 ml-2" />
                     </Button>
                   </form>
