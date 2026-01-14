@@ -1,39 +1,42 @@
 import { CheckCircle2, Cloud, Shield, BarChart3, Users, Sparkles } from "lucide-react";
-
-const benefits = [
-  {
-    icon: Cloud,
-    title: "100% en la nube",
-    description: "Accede a tus datos desde cualquier lugar y dispositivo.",
-  },
-  {
-    icon: Shield,
-    title: "Seguridad empresarial",
-    description: "Cumplimiento normativo y protección de datos de primer nivel.",
-  },
-  {
-    icon: BarChart3,
-    title: "Análisis avanzado",
-    description: "Dashboards e informes en tiempo real para tomar mejores decisiones.",
-  },
-  {
-    icon: Users,
-    title: "Visión 360° del cliente",
-    description: "Unifica toda la información de tus clientes en un solo lugar.",
-  },
-  {
-    icon: Sparkles,
-    title: "IA integrada",
-    description: "Aprovecha Einstein AI para predicciones y automatizaciones inteligentes.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Escalabilidad",
-    description: "Crece sin límites. Salesforce se adapta a empresas de cualquier tamaño.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhySalesforce = () => {
+  const { t } = useLanguage();
+
+  const benefits = [
+    {
+      icon: Cloud,
+      titleKey: "why.cloud",
+      descKey: "why.cloud.desc",
+    },
+    {
+      icon: Shield,
+      titleKey: "why.security",
+      descKey: "why.security.desc",
+    },
+    {
+      icon: BarChart3,
+      titleKey: "why.analytics",
+      descKey: "why.analytics.desc",
+    },
+    {
+      icon: Users,
+      titleKey: "why.vision",
+      descKey: "why.vision.desc",
+    },
+    {
+      icon: Sparkles,
+      titleKey: "why.ai",
+      descKey: "why.ai.desc",
+    },
+    {
+      icon: CheckCircle2,
+      titleKey: "why.scalability",
+      descKey: "why.scalability.desc",
+    },
+  ];
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -41,26 +44,23 @@ const WhySalesforce = () => {
           {/* Left content */}
           <div>
             <span className="text-primary font-medium text-sm uppercase tracking-wider">
-              ¿Por qué Salesforce?
+              {t("why.label")}
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
-              El CRM #1 del mundo por una razón
+              {t("why.title")}
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Salesforce no es solo un CRM, es la plataforma líder en automatización de ventas Salesforce 
-              y gestión de clientes empresarial. Con más de 150.000 empresas confiando en Salesforce, 
-              es la elección preferida para la transformación digital España. Como consultor Salesforce España, 
-              te ayudo con la implementación CRM profesional que tu negocio necesita.
+              {t("why.description")}
             </p>
             <div className="flex items-center gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-primary">150K+</div>
-                <div className="text-sm text-muted-foreground">Empresas</div>
+                <div className="text-sm text-muted-foreground">{t("why.companies")}</div>
               </div>
               <div className="w-px h-12 bg-border" />
               <div>
                 <div className="text-4xl font-bold text-primary">#1</div>
-                <div className="text-sm text-muted-foreground">CRM Global</div>
+                <div className="text-sm text-muted-foreground">{t("why.globalCRM")}</div>
               </div>
               <div className="w-px h-12 bg-border" />
               <div>
@@ -78,8 +78,8 @@ const WhySalesforce = () => {
                 className="p-5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300"
               >
                 <benefit.icon className="h-8 w-8 text-primary mb-3" />
-                <h3 className="font-semibold text-foreground mb-1">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                <h3 className="font-semibold text-foreground mb-1">{t(benefit.titleKey)}</h3>
+                <p className="text-sm text-muted-foreground">{t(benefit.descKey)}</p>
               </div>
             ))}
           </div>

@@ -1,52 +1,55 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Headphones, Heart, Zap } from "lucide-react";
-
-const services = [
-  {
-    icon: TrendingUp,
-    title: "Sales Cloud",
-    description: "Acelera tus ventas con automatización inteligente y gestión completa del ciclo de ventas.",
-    path: "/servicios/sales-cloud",
-    color: "from-blue-500 to-blue-600",
-    linkText: "Implementar Sales Cloud",
-  },
-  {
-    icon: Headphones,
-    title: "Service Cloud",
-    description: "Ofrece un servicio al cliente excepcional con herramientas omnicanal y atención personalizada.",
-    path: "/servicios/service-cloud",
-    color: "from-green-500 to-green-600",
-    linkText: "Descubrir Service Cloud",
-  },
-  {
-    icon: Heart,
-    title: "Nonprofit Cloud",
-    description: "Gestiona donantes, voluntarios y programas con soluciones diseñadas para ONGs.",
-    path: "/servicios/nonprofit-cloud",
-    color: "from-purple-500 to-purple-600",
-    linkText: "Explorar Nonprofit Cloud",
-  },
-  {
-    icon: Zap,
-    title: "Starter & Pro Suite",
-    description: "La solución perfecta para pequeñas empresas que quieren empezar con Salesforce.",
-    path: "/servicios/starter-pro-suite",
-    color: "from-orange-500 to-orange-600",
-    linkText: "Ver Starter Suite",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesGrid = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: TrendingUp,
+      title: "Sales Cloud",
+      descriptionKey: "services.salesCloud.description",
+      path: "/servicios/sales-cloud",
+      color: "from-blue-500 to-blue-600",
+      linkKey: "services.salesCloud.link",
+    },
+    {
+      icon: Headphones,
+      title: "Service Cloud",
+      descriptionKey: "services.serviceCloud.description",
+      path: "/servicios/service-cloud",
+      color: "from-green-500 to-green-600",
+      linkKey: "services.serviceCloud.link",
+    },
+    {
+      icon: Heart,
+      title: "Nonprofit Cloud",
+      descriptionKey: "services.nonprofitCloud.description",
+      path: "/servicios/nonprofit-cloud",
+      color: "from-purple-500 to-purple-600",
+      linkKey: "services.nonprofitCloud.link",
+    },
+    {
+      icon: Zap,
+      title: "Starter & Pro Suite",
+      descriptionKey: "services.starterSuite.description",
+      path: "/servicios/starter-pro-suite",
+      color: "from-orange-500 to-orange-600",
+      linkKey: "services.starterSuite.link",
+    },
+  ];
+
   return (
     <section className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            Nuestros Servicios
+            {t("services.label")}
           </span>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Soluciones Salesforce a tu medida
+            {t("services.title")}
           </h2>
         </div>
 
@@ -64,14 +67,14 @@ const ServicesGrid = () => {
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {service.description}
+                  {t(service.descriptionKey)}
                 </p>
                 <Link
                   to={service.path}
                   className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all"
-                  aria-label={`${service.linkText} - Consultor Salesforce España`}
+                  aria-label={`${t(service.linkKey)} - Consultor Salesforce España`}
                 >
-                  {service.linkText}
+                  {t(service.linkKey)}
                   <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </CardContent>
