@@ -21,11 +21,18 @@ const routesToPrerender = [
 ]
 
 ;(async () => {
-  for (const url of routesToPrerender) {
-    const appHtml = render(url);
-    const html = template.replace(`<!--app-html-->`, appHtml)
+  for (const routeUrl of routesToPrerender) {
+    const { html: appHtml, head } = render(routeUrl);
+    
+    let finalHtml = template
+      .replace(`<!--app-html-->`, appHtml)
+    
+    // Inject helmet head tags before </head>
+    if (head) {
+      finalHtml = finalHtml.replace('</head>', `${head}</head>`)
+    }
 
-    const filePath = `dist${url === '/' ? '/index' : url}.html`
+    const filePath = `dist${routeUrl === '/' ? '/index' : routeUrl}.html`
     
     // Create directory if it doesn't exist
     const dir = path.dirname(toAbsolute(filePath))
@@ -33,7 +40,7 @@ const routesToPrerender = [
       fs.mkdirSync(dir, { recursive: true })
     }
     
-    fs.writeFileSync(toAbsolute(filePath), html)
+    fs.writeFileSync(toAbsolute(filePath), finalHtml)
     console.log('pre-rendered:', filePath)
   }
 })()
