@@ -7,6 +7,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import PhoneInput from "@/components/ui/phone-input";
 import { Checkbox } from "@/components/ui/checkbox";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
@@ -234,7 +235,11 @@ const Contact = () => {
                           <FormItem>
                             <FormLabel>{t("contact.form.phone")}</FormLabel>
                             <FormControl>
-                              <Input placeholder="+34 600 000 000" maxLength={40} {...field} />
+                              <PhoneInput 
+                                value={field.value || ""} 
+                                onChange={field.onChange}
+                                placeholder="600 000 000"
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>

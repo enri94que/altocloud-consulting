@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import PhoneInput from "@/components/ui/phone-input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import {
   Dialog,
@@ -202,7 +203,11 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                     <FormItem>
                       <FormLabel>Teléfono</FormLabel>
                       <FormControl>
-                        <Input placeholder="+34 600 000 000" maxLength={40} {...field} />
+                        <PhoneInput 
+                          value={field.value || ""} 
+                          onChange={field.onChange}
+                          placeholder="600 000 000"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
