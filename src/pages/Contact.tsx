@@ -197,7 +197,12 @@ const Contact = () => {
                   {t("contact.form.title")}
                 </h2>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form 
+                  id="form-contact-page"
+                  data-form-type="contact-page"
+                  onSubmit={form.handleSubmit(onSubmit)} 
+                  className="space-y-6"
+                >
                     <div className="grid md:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
