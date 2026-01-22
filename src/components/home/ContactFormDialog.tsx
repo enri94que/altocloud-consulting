@@ -165,7 +165,12 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
             <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
+            <form 
+              id={`form-${variant}`}
+              data-form-type={variant}
+              onSubmit={form.handleSubmit(onSubmit)} 
+              className="space-y-4 mt-4"
+            >
               <div className="grid grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
