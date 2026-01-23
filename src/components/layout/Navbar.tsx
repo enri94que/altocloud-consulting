@@ -7,10 +7,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-  DropdownMenuPortal,
 } from "@/components/ui/dropdown-menu";
 import logoAltocloud from "@/assets/logo-altocloud.png";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
@@ -64,6 +60,7 @@ const consultingServices = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const { t } = useLanguage();
   
@@ -87,31 +84,30 @@ const Navbar = () => {
               {t("nav.home")}
             </Link>
 
+            {/* Soluciones Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                {t("nav.solutions")}
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-card border border-border shadow-lg z-50">
+                {solutions.map((solution) => (
+                  <DropdownMenuItem key={solution.path} asChild>
+                    <Link to={solution.path} className="cursor-pointer hover:bg-secondary">
+                      {solution.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Servicios Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 {t("nav.services")}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-card border border-border shadow-lg z-50">
-                {/* Submenú Soluciones */}
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="cursor-pointer">
-                    {t("nav.solutions")}
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="bg-card border border-border shadow-lg z-50">
-                      {solutions.map((solution) => (
-                        <DropdownMenuItem key={solution.path} asChild>
-                          <Link to={solution.path} className="cursor-pointer hover:bg-secondary">
-                            {solution.name}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
-                
-                {/* Servicios de consultoría */}
                 {consultingServices.map((service) => (
                   <DropdownMenuItem key={service.path} asChild>
                     <Link to={service.path} className="cursor-pointer hover:bg-secondary">
@@ -161,46 +157,57 @@ const Navbar = () => {
               >
                 {t("nav.home")}
               </Link>
+              
+              {/* Soluciones (mobile) */}
               <div className="flex flex-col gap-2">
-                <span className="text-sm font-semibold text-foreground">{t("nav.services")}</span>
-                
-                {/* Soluciones (mobile) */}
-                <div className="pl-4">
-                  <button 
-                    onClick={() => setSolutionsOpen(!solutionsOpen)}
-                    className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary"
-                  >
-                    {t("nav.solutions")}
-                    <ChevronRight className={`h-4 w-4 transition-transform ${solutionsOpen ? 'rotate-90' : ''}`} />
-                  </button>
-                  {solutionsOpen && (
-                    <div className="flex flex-col gap-2 mt-2 pl-4">
-                      {solutions.map((solution) => (
-                        <Link
-                          key={solution.path}
-                          to={solution.path}
-                          className="text-sm text-muted-foreground hover:text-primary"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {solution.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Servicios de consultoría (mobile) */}
-                {consultingServices.map((service) => (
-                  <Link
-                    key={service.path}
-                    to={service.path}
-                    className="text-sm text-muted-foreground hover:text-primary pl-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {service.nameKey ? t(service.nameKey) : service.name}
-                  </Link>
-                ))}
+                <button 
+                  onClick={() => setSolutionsOpen(!solutionsOpen)}
+                  className="flex items-center gap-1 text-sm font-semibold text-foreground"
+                >
+                  {t("nav.solutions")}
+                  <ChevronRight className={`h-4 w-4 transition-transform ${solutionsOpen ? 'rotate-90' : ''}`} />
+                </button>
+                {solutionsOpen && (
+                  <div className="flex flex-col gap-2 pl-4">
+                    {solutions.map((solution) => (
+                      <Link
+                        key={solution.path}
+                        to={solution.path}
+                        className="text-sm text-muted-foreground hover:text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {solution.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
+
+              {/* Servicios (mobile) */}
+              <div className="flex flex-col gap-2">
+                <button 
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="flex items-center gap-1 text-sm font-semibold text-foreground"
+                >
+                  {t("nav.services")}
+                  <ChevronRight className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-90' : ''}`} />
+                </button>
+                {servicesOpen && (
+                  <div className="flex flex-col gap-2 pl-4">
+                    {consultingServices.map((service) => (
+                      <Link
+                        key={service.path}
+                        to={service.path}
+                        className="text-sm text-muted-foreground hover:text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {service.nameKey ? t(service.nameKey) : service.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <Link
                 to="/precios"
                 className="text-sm font-medium text-muted-foreground hover:text-primary"
