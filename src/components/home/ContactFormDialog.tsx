@@ -28,6 +28,7 @@ const contactSchema = z.object({
   company: z.string().optional(),
   num_empleados: z.string().optional(),
   puesto: z.string().optional(),
+  solucion: z.string().optional(),
   servicio: z.string().optional(),
   description: z.string().optional(),
   privacidad: z.boolean().refine((val) => val === true, {
@@ -92,7 +93,8 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
       company: "",
       num_empleados: "",
       puesto: "",
-      servicio: defaultService || "",
+      solucion: defaultService || "",
+      servicio: "",
       description: "",
       privacidad: false,
     },
@@ -158,6 +160,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 
         {/* Custom fields - using exact API Names from Notion specification */}
         <input type="hidden" name="N_de_empleados__c" value={formValues.num_empleados || ""} />
+        <input type="hidden" name="Servicio__c" value={formValues.solucion || ""} />
         <input type="hidden" name="Servicio_de_inter_s__c" value={formValues.servicio || ""} />
         <input type="hidden" name="Acepta_la_P_de_Privacidad__c" value={formValues.privacidad ? "1" : ""} />
         <input type="hidden" name="Plataforma__c" value="Lovable" />
@@ -288,6 +291,36 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
 
                   <FormField
                     control={form.control}
+                    name="solucion"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Solución</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Selecciona una solución" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-card border border-border z-50">
+                            {soluciones.map((solucion) => (
+                              <SelectItem key={solucion.value} value={solucion.value}>
+                                {solucion.label}
+                              </SelectItem>
+                            ))}
+                            {otrosOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
                     name="servicio"
                     render={({ field }) => (
                       <FormItem>
@@ -299,29 +332,16 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent className="bg-card border border-border z-50">
-                            <SelectGroup>
-                              <SelectLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Soluciones</SelectLabel>
-                              {soluciones.map((service) => (
-                                <SelectItem key={service.value} value={service.value}>
-                                  {service.label}
-                                </SelectItem>
-                              ))}
-                            </SelectGroup>
-                            <SelectGroup>
-                              <SelectLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Servicios</SelectLabel>
-                              {servicios.map((service) => (
-                                <SelectItem key={service.value} value={service.value}>
-                                  {service.label}
-                                </SelectItem>
-                              ))}
-                            </SelectGroup>
-                            <SelectGroup>
-                              {otrosOptions.map((option) => (
-                                <SelectItem key={option.value} value={option.value}>
-                                  {option.label}
-                                </SelectItem>
-                              ))}
-                            </SelectGroup>
+                            {servicios.map((servicio) => (
+                              <SelectItem key={servicio.value} value={servicio.value}>
+                                {servicio.label}
+                              </SelectItem>
+                            ))}
+                            {otrosOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
                         <FormMessage />
