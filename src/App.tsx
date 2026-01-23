@@ -12,6 +12,7 @@ import SalesCloud from "./pages/services/SalesCloud";
 import ServiceCloud from "./pages/services/ServiceCloud";
 import NonprofitCloud from "./pages/services/NonprofitCloud";
 import StarterProSuite from "./pages/services/StarterProSuite";
+import ImplementacionSalesforce from "./pages/services/ImplementacionSalesforce";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Notarias from "./pages/landing/Notarias";
 import NotFound from "./pages/NotFound";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/servicios/service-cloud" element={<ServiceCloud />} />
           <Route path="/servicios/nonprofit-cloud" element={<NonprofitCloud />} />
           <Route path="/servicios/starter-pro-suite" element={<StarterProSuite />} />
+          <Route path="/servicios/implementacion-salesforce" element={<ImplementacionSalesforce />} />
           <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
           <Route path="/notarias" element={<Notarias />} />
           <Route path="*" element={<NotFound />} />

@@ -250,6 +250,71 @@ const translations: Record<Language, Record<string, string>> = {
     "starterSuite.cta.title": "¿Listo para empezar con Salesforce?",
     "starterSuite.cta.desc": "Agenda una demostración personalizada de Starter & Pro Suite.",
 
+    // Implementación Salesforce
+    "implementation.navName": "Implementación",
+    "implementation.title": "Implementación Salesforce",
+    "implementation.description": "Metodología ágil de implementación en 5 fases que garantiza el éxito de tu proyecto Salesforce. Desde el discovery hasta el go live, te acompaño en cada paso.",
+    "implementation.methodology.title": "Metodología de Implementación",
+    "implementation.methodology.desc": "El proyecto se divide en 5 fases claramente definidas, siguiendo una metodología ágil que permite adaptarse a los cambios y garantizar resultados.",
+    "implementation.phase": "Fase",
+    
+    // Phase 1
+    "implementation.phase1.title": "Definición del Alcance + Discovery",
+    "implementation.phase1.period": "Semana 1-2",
+    "implementation.phase1.step1": "Kick-off: comunicación del proyecto y su alcance a los Business Owners.",
+    "implementation.phase1.step2": "Identificación y definición de requerimientos a modo de User Stories a través de entrevistas y exploración del sistema.",
+    "implementation.phase1.step3": "Elaboración de User Stories con diseño de la solución a alto nivel, criterios de aceptación y tamaño medido en horas.",
+    "implementation.phase1.step4": "Revisión de los requerimientos y acuerdo para su desarrollo.",
+    "implementation.phase1.step5": "Planificación de User Stories en Sprints de 1-2 semanas y desarrollo evolutivo.",
+    
+    // Phase 2
+    "implementation.phase2.title": "Desarrollo",
+    "implementation.phase2.period": "Variable según alcance",
+    "implementation.phase2.step1": "Ejecución del diseño de la solución de las User Stories de cada Sprint.",
+    "implementation.phase2.step2": "Desarrollo conjunto con los Business Owners y Revisión del Sprint para confirmar el progreso.",
+    "implementation.phase2.step3": "En caso de haber un sandbox intermedio para UAT, se despliega la solución a este entorno.",
+    
+    // Phase 3
+    "implementation.phase3.title": "UAT Iterable",
+    "implementation.phase3.period": "Variable según alcance",
+    "implementation.phase3.step1": "Los Business Owners realizan tests de la solución y elevan errores, mejoras necesarias y mejoras evolutivas.",
+    "implementation.phase3.step2": "Reparación de errores detectados durante las pruebas.",
+    "implementation.phase3.step3": "Iteración del proceso para mejoras necesarias no consideradas, elaborando y planificando nuevas User Stories.",
+    "implementation.phase3.step4": "Las mejoras evolutivas se planifican para después del Go Live o se realiza una iteración adicional.",
+    
+    // Phase 4
+    "implementation.phase4.title": "Training",
+    "implementation.phase4.period": "Según número de roles",
+    "implementation.phase4.step1": "Realización de sesiones de Training por cada rol a los usuarios que utilizarán la plataforma.",
+    
+    // Phase 5
+    "implementation.phase5.title": "Go Live",
+    "implementation.phase5.period": "Semana final",
+    "implementation.phase5.step1": "Despliegue de la solución completa al entorno de Producción.",
+    "implementation.phase5.step2": "Seguimiento para asegurar el correcto funcionamiento.",
+    
+    // Benefits
+    "implementation.benefits.title": "Ventajas de nuestra metodología",
+    "implementation.benefits.desc": "Una implementación exitosa requiere un enfoque estructurado pero flexible que se adapte a las necesidades de tu negocio.",
+    "implementation.benefit1": "Entrega iterativa y transparente",
+    "implementation.benefit2": "Participación activa del cliente",
+    "implementation.benefit3": "Flexibilidad ante cambios",
+    "implementation.benefit4": "Reducción de riesgos",
+    "implementation.benefit5": "Training personalizado",
+    "implementation.benefit6": "Soporte post Go Live",
+    
+    // Agile
+    "implementation.agile.title": "¿Por qué metodología ágil?",
+    "implementation.agile.desc": "Trabajamos con Sprints cortos que permiten obtener feedback temprano y ajustar el rumbo según las necesidades reales del negocio.",
+    "implementation.agile1": "Sprints de 1-2 semanas con entregas parciales",
+    "implementation.agile2": "Revisiones frecuentes con el equipo",
+    "implementation.agile3": "Adaptación a cambios sin grandes impactos",
+    "implementation.agile4": "Visibilidad total del progreso del proyecto",
+    
+    // CTA
+    "implementation.cta.title": "¿Listo para implementar Salesforce?",
+    "implementation.cta.desc": "Agenda una consulta gratuita para analizar tu proyecto.",
+
     // Form Dialog
     "form.requestDemo": "Solicitar Demo",
     "form.requestInfo": "Solicitar Información",
@@ -531,6 +596,71 @@ const translations: Record<Language, Record<string, string>> = {
     "starterSuite.ideal4": "Ability to grow with the business",
     "starterSuite.cta.title": "Ready to get started with Salesforce?",
     "starterSuite.cta.desc": "Schedule a personalized Starter & Pro Suite demo.",
+
+    // Salesforce Implementation
+    "implementation.navName": "Implementation",
+    "implementation.title": "Salesforce Implementation",
+    "implementation.description": "Agile implementation methodology in 5 phases that guarantees the success of your Salesforce project. From discovery to go live, I accompany you every step of the way.",
+    "implementation.methodology.title": "Implementation Methodology",
+    "implementation.methodology.desc": "The project is divided into 5 clearly defined phases, following an agile methodology that adapts to changes and guarantees results.",
+    "implementation.phase": "Phase",
+    
+    // Phase 1
+    "implementation.phase1.title": "Scope Definition + Discovery",
+    "implementation.phase1.period": "Week 1-2",
+    "implementation.phase1.step1": "Kick-off: project communication and scope to Business Owners.",
+    "implementation.phase1.step2": "Identification and definition of requirements as User Stories through interviews and system exploration.",
+    "implementation.phase1.step3": "User Story elaboration with high-level solution design, acceptance criteria and size measured in hours.",
+    "implementation.phase1.step4": "Requirements review and development agreement.",
+    "implementation.phase1.step5": "User Story planning in 1-2 week Sprints and evolutionary development.",
+    
+    // Phase 2
+    "implementation.phase2.title": "Development",
+    "implementation.phase2.period": "Variable based on scope",
+    "implementation.phase2.step1": "Execution of the solution design for each Sprint's User Stories.",
+    "implementation.phase2.step2": "Joint development with Business Owners and Sprint Review to confirm progress.",
+    "implementation.phase2.step3": "If there's an intermediate sandbox for UAT, the solution is deployed to this environment.",
+    
+    // Phase 3
+    "implementation.phase3.title": "Iterable UAT",
+    "implementation.phase3.period": "Variable based on scope",
+    "implementation.phase3.step1": "Business Owners test the solution and raise bugs, necessary improvements and evolutionary improvements.",
+    "implementation.phase3.step2": "Bug fixes detected during testing.",
+    "implementation.phase3.step3": "Process iteration for necessary improvements not considered, creating and planning new User Stories.",
+    "implementation.phase3.step4": "Evolutionary improvements are planned for after Go Live or an additional iteration is performed.",
+    
+    // Phase 4
+    "implementation.phase4.title": "Training",
+    "implementation.phase4.period": "Based on number of roles",
+    "implementation.phase4.step1": "Training sessions for each role for users who will use the platform.",
+    
+    // Phase 5
+    "implementation.phase5.title": "Go Live",
+    "implementation.phase5.period": "Final week",
+    "implementation.phase5.step1": "Complete solution deployment to Production environment.",
+    "implementation.phase5.step2": "Follow-up to ensure proper operation.",
+    
+    // Benefits
+    "implementation.benefits.title": "Advantages of our methodology",
+    "implementation.benefits.desc": "A successful implementation requires a structured but flexible approach that adapts to your business needs.",
+    "implementation.benefit1": "Iterative and transparent delivery",
+    "implementation.benefit2": "Active client participation",
+    "implementation.benefit3": "Flexibility to changes",
+    "implementation.benefit4": "Risk reduction",
+    "implementation.benefit5": "Personalized training",
+    "implementation.benefit6": "Post Go Live support",
+    
+    // Agile
+    "implementation.agile.title": "Why agile methodology?",
+    "implementation.agile.desc": "We work with short Sprints that allow early feedback and adjust the course according to real business needs.",
+    "implementation.agile1": "1-2 week Sprints with partial deliveries",
+    "implementation.agile2": "Frequent reviews with the team",
+    "implementation.agile3": "Adaptation to changes without major impacts",
+    "implementation.agile4": "Full visibility of project progress",
+    
+    // CTA
+    "implementation.cta.title": "Ready to implement Salesforce?",
+    "implementation.cta.desc": "Schedule a free consultation to analyze your project.",
 
     // Form Dialog
     "form.requestDemo": "Request Demo",

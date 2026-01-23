@@ -30,6 +30,11 @@ const services = [
     name: "Nonprofit Cloud",
     path: "/servicios/nonprofit-cloud",
   },
+  {
+    nameKey: "implementation.navName",
+    name: "Implementación Salesforce",
+    path: "/servicios/implementacion-salesforce",
+  },
 ];
 
 const Navbar = () => {
@@ -66,7 +71,7 @@ const Navbar = () => {
                 {services.map((service) => (
                   <DropdownMenuItem key={service.path} asChild>
                     <Link to={service.path} className="cursor-pointer hover:bg-secondary">
-                      {service.name}
+                      {service.nameKey ? t(service.nameKey) : service.name}
                     </Link>
                   </DropdownMenuItem>
                 ))}
@@ -121,7 +126,7 @@ const Navbar = () => {
                     className="text-sm text-muted-foreground hover:text-primary pl-4"
                     onClick={() => setIsOpen(false)}
                   >
-                    {service.name}
+                    {service.nameKey ? t(service.nameKey) : service.name}
                   </Link>
                 ))}
               </div>
