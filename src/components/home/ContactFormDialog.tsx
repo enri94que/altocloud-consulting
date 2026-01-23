@@ -161,7 +161,7 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
         {/* Custom fields - using exact API Names from Notion specification */}
         <input type="hidden" name="N_de_empleados__c" value={formValues.num_empleados || ""} />
         <input type="hidden" name="Servicio__c" value={formValues.solucion || ""} />
-        <input type="hidden" name="Servicio_de_inter_s__c" value={formValues.servicio || ""} />
+        <input type="hidden" name="Solucion__c" value={formValues.servicio || ""} />
         <input type="hidden" name="Acepta_la_P_de_Privacidad__c" value={formValues.privacidad ? "1" : ""} />
         <input type="hidden" name="Plataforma__c" value="Lovable" />
 
