@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
@@ -24,10 +24,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Servicios */}
+          {/* Soluciones */}
           <div>
-            <h4 className="font-semibold mb-4">{t("footer.services")}</h4>
+            <h4 className="font-semibold mb-4">{t("nav.solutions")}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
+              <li>
+                <Link to="/servicios/starter-pro-suite" className="hover:text-primary-foreground transition-colors">
+                  Starter & Pro Suite
+                </Link>
+              </li>
               <li>
                 <Link to="/servicios/sales-cloud" className="hover:text-primary-foreground transition-colors">
                   Sales Cloud
@@ -43,9 +48,31 @@ const Footer = () => {
                   Nonprofit Cloud
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Servicios */}
+          <div>
+            <h4 className="font-semibold mb-4">{t("footer.services")}</h4>
+            <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
-                <Link to="/servicios/starter-pro-suite" className="hover:text-primary-foreground transition-colors">
-                  Starter & Pro Suite
+                <Link to="/servicios/implementacion-salesforce" className="hover:text-primary-foreground transition-colors">
+                  {t("nav.implementation")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/optimizacion-ajustes" className="hover:text-primary-foreground transition-colors">
+                  {t("nav.optimization")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/administracion-soporte" className="hover:text-primary-foreground transition-colors">
+                  {t("nav.administration")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/consultoria-estrategica" className="hover:text-primary-foreground transition-colors">
+                  {t("nav.consulting")}
                 </Link>
               </li>
             </ul>
