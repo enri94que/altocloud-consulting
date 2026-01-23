@@ -4,6 +4,7 @@ import { Settings, TrendingUp, Target, RefreshCw, BarChart3, CheckCircle2, Wrenc
 import ContactFormDialog from "@/components/home/ContactFormDialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/seo/SEO";
+import Layout from "@/components/layout/Layout";
 
 const OptimizacionAjustes = () => {
   const { t } = useLanguage();
@@ -79,7 +80,7 @@ const OptimizacionAjustes = () => {
   ];
 
   return (
-    <>
+    <Layout>
       <SEO 
         title={t('language') === 'es' 
           ? "Optimización y Ajustes Salesforce | Consultor Salesforce España" 
@@ -90,9 +91,8 @@ const OptimizacionAjustes = () => {
         canonical="/servicios/optimizacion-ajustes"
       />
       
-      <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-28 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-28 bg-hero-gradient overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
@@ -211,11 +211,10 @@ const OptimizacionAjustes = () => {
               <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
                 {t('language') === 'es' ? 'Solicitar Auditoría Gratuita' : 'Request Free Audit'}
               </Button>
-            </ContactFormDialog>
+          </ContactFormDialog>
           </div>
         </section>
-      </main>
-    </>
+    </Layout>
   );
 };
 
