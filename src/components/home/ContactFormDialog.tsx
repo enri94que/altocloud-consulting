@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import PhoneInput from "@/components/ui/phone-input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import {
@@ -37,11 +37,21 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-const services = [
+const soluciones = [
+  { value: "Starter_and_Pro_Suite", label: "Starter & Pro Suite" },
   { value: "Sales_Cloud", label: "Sales Cloud" },
   { value: "Service_Cloud", label: "Service Cloud" },
   { value: "Nonprofit_Cloud", label: "Nonprofit Cloud" },
-  { value: "Starter_and_Pro_Suite", label: "Starter & Pro Suite" },
+];
+
+const servicios = [
+  { value: "Implementacion", label: "Implementación" },
+  { value: "Optimizacion", label: "Optimización y Ajustes" },
+  { value: "Administracion", label: "Administración y Soporte" },
+  { value: "Consultoria", label: "Consultoría Estratégica" },
+];
+
+const otrosOptions = [
   { value: "Otro", label: "Otro" },
 ];
 
@@ -289,11 +299,29 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent className="bg-card border border-border z-50">
-                            {services.map((service) => (
-                              <SelectItem key={service.value} value={service.value}>
-                                {service.label}
-                              </SelectItem>
-                            ))}
+                            <SelectGroup>
+                              <SelectLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Soluciones</SelectLabel>
+                              {soluciones.map((service) => (
+                                <SelectItem key={service.value} value={service.value}>
+                                  {service.label}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                            <SelectGroup>
+                              <SelectLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Servicios</SelectLabel>
+                              {servicios.map((service) => (
+                                <SelectItem key={service.value} value={service.value}>
+                                  {service.label}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                            <SelectGroup>
+                              {otrosOptions.map((option) => (
+                                <SelectItem key={option.value} value={option.value}>
+                                  {option.label}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
                           </SelectContent>
                         </Select>
                         <FormMessage />
