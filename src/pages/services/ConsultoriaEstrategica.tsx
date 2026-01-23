@@ -4,6 +4,7 @@ import { Lightbulb, Target, Users, TrendingUp, CheckCircle2, Compass, GitBranch,
 import ContactFormDialog from "@/components/home/ContactFormDialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/seo/SEO";
+import Layout from "@/components/layout/Layout";
 
 const ConsultoriaEstrategica = () => {
   const { t } = useLanguage();
@@ -100,7 +101,7 @@ const ConsultoriaEstrategica = () => {
   ];
 
   return (
-    <>
+    <Layout>
       <SEO 
         title={t('language') === 'es' 
           ? "Consultoría Estratégica Salesforce | Asesoramiento CRM" 
@@ -111,9 +112,8 @@ const ConsultoriaEstrategica = () => {
         canonical="/servicios/consultoria-estrategica"
       />
       
-      <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-28 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-28 bg-hero-gradient overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
@@ -264,8 +264,7 @@ const ConsultoriaEstrategica = () => {
             </ContactFormDialog>
           </div>
         </section>
-      </main>
-    </>
+    </Layout>
   );
 };
 
