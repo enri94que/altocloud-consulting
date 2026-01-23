@@ -7,7 +7,7 @@ import SEO from "@/components/seo/SEO";
 import Layout from "@/components/layout/Layout";
 
 const ConsultoriaEstrategica = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const benefits = [
     {
@@ -103,10 +103,10 @@ const ConsultoriaEstrategica = () => {
   return (
     <Layout>
       <SEO 
-        title={t('language') === 'es' 
+        title={language === 'es' 
           ? "Consultoría Estratégica Salesforce | Asesoramiento CRM" 
           : "Strategic Salesforce Consulting | CRM Advisory"}
-        description={t('language') === 'es'
+        description={language === 'es'
           ? "Consultoría estratégica para optimizar procesos y maximizar la adopción de Salesforce. Asesoramiento experto para tu transformación digital."
           : "Strategic consulting to optimize processes and maximize Salesforce adoption. Expert advisory for your digital transformation."}
         canonical="/servicios/consultoria-estrategica"
@@ -120,137 +120,137 @@ const ConsultoriaEstrategica = () => {
               <Lightbulb className="h-8 w-8 text-primary-foreground" />
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              {t('language') === 'es' ? 'Consultoría Estratégica' : 'Strategic Consulting'}
+              {language === 'es' ? 'Consultoría Estratégica' : 'Strategic Consulting'}
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-              {t('language') === 'es' 
+              {language === 'es' 
                 ? "Asesoramiento experto para definir tu estrategia CRM, optimizar procesos y asegurar la adopción de Salesforce en tu organización."
                 : "Expert advisory to define your CRM strategy, optimize processes, and ensure Salesforce adoption in your organization."}
             </p>
             <ContactFormDialog variant="demo">
               <Button size="lg" variant="hero">
-                {t('language') === 'es' ? 'Solicitar Consulta' : 'Request Consultation'}
+                {language === 'es' ? 'Solicitar Consulta' : 'Request Consultation'}
               </Button>
             </ContactFormDialog>
           </div>
         </div>
       </section>
 
-        {/* Benefits Section */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t('language') === 'es' ? '¿Qué lograrás?' : 'What will you achieve?'}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {t('language') === 'es' 
-                  ? 'Claridad, dirección y resultados tangibles para tu inversión en Salesforce.'
-                  : 'Clarity, direction, and tangible results for your Salesforce investment.'}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((benefit, index) => (
-                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <benefit.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
-                      {t('language') === 'es' ? benefit.title : benefit.titleEn}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {t('language') === 'es' ? benefit.description : benefit.descriptionEn}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="py-16 md:py-24 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t('language') === 'es' ? 'Servicios de Consultoría' : 'Consulting Services'}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {services.map((service, index) => (
-                <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">
-                          {t('language') === 'es' ? service.title : service.titleEn}
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          {t('language') === 'es' ? service.description : service.descriptionEn}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Use Cases Section */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t('language') === 'es' ? '¿Cuándo necesitas consultoría?' : 'When do you need consulting?'}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {useCases.map((useCase, index) => (
-                <Card key={index} className="border-0 shadow-lg text-center">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Award className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-bold text-foreground mb-2">
-                      {t('language') === 'es' ? useCase.title : useCase.titleEn}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {t('language') === 'es' ? useCase.description : useCase.descriptionEn}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4 text-center">
-            <Compass className="w-12 h-12 mx-auto mb-6 opacity-80" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t('language') === 'es' 
-                ? '¿Listo para definir tu estrategia?' 
-                : 'Ready to define your strategy?'}
+      {/* Benefits Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              {language === 'es' ? '¿Qué lograrás?' : 'What will you achieve?'}
             </h2>
-            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              {t('language') === 'es'
-                ? 'Hablemos sobre tus objetivos y cómo Salesforce puede ayudarte a alcanzarlos.'
-                : "Let's talk about your objectives and how Salesforce can help you achieve them."}
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {language === 'es' 
+                ? 'Claridad, dirección y resultados tangibles para tu inversión en Salesforce.'
+                : 'Clarity, direction, and tangible results for your Salesforce investment.'}
             </p>
-            <ContactFormDialog variant="demo">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                {t('language') === 'es' ? 'Agendar Consulta' : 'Schedule Consultation'}
-              </Button>
-            </ContactFormDialog>
           </div>
-        </section>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {language === 'es' ? benefit.title : benefit.titleEn}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {language === 'es' ? benefit.description : benefit.descriptionEn}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 md:py-24 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              {language === 'es' ? 'Servicios de Consultoría' : 'Consulting Services'}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {services.map((service, index) => (
+              <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-2">
+                        {language === 'es' ? service.title : service.titleEn}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {language === 'es' ? service.description : service.descriptionEn}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              {language === 'es' ? '¿Cuándo necesitas consultoría?' : 'When do you need consulting?'}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {useCases.map((useCase, index) => (
+              <Card key={index} className="border-0 shadow-lg text-center">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2">
+                    {language === 'es' ? useCase.title : useCase.titleEn}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {language === 'es' ? useCase.description : useCase.descriptionEn}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
+          <Compass className="w-12 h-12 mx-auto mb-6 opacity-80" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {language === 'es' 
+              ? '¿Listo para definir tu estrategia?' 
+              : 'Ready to define your strategy?'}
+          </h2>
+          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+            {language === 'es'
+              ? 'Hablemos sobre tus objetivos y cómo Salesforce puede ayudarte a alcanzarlos.'
+              : "Let's talk about your objectives and how Salesforce can help you achieve them."}
+          </p>
+          <ContactFormDialog variant="demo">
+            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+              {language === 'es' ? 'Agendar Consulta' : 'Schedule Consultation'}
+            </Button>
+          </ContactFormDialog>
+        </div>
+      </section>
     </Layout>
   );
 };
