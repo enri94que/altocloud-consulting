@@ -35,6 +35,21 @@ const services = [
     name: "Implementación Salesforce",
     path: "/servicios/implementacion-salesforce",
   },
+  {
+    nameKey: "optimization.navName",
+    name: "Optimización y Ajustes",
+    path: "/servicios/optimizacion-ajustes",
+  },
+  {
+    nameKey: "administration.navName",
+    name: "Administración y Soporte",
+    path: "/servicios/administracion-soporte",
+  },
+  {
+    nameKey: "consulting.navName",
+    name: "Consultoría Estratégica",
+    path: "/servicios/consultoria-estrategica",
+  },
 ];
 
 const Navbar = () => {
