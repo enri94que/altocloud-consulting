@@ -315,6 +315,15 @@ const translations: Record<Language, Record<string, string>> = {
     "implementation.cta.title": "¿Listo para implementar Salesforce?",
     "implementation.cta.desc": "Agenda una consulta gratuita para analizar tu proyecto.",
 
+    // Optimización y Ajustes
+    "optimization.navName": "Optimización",
+
+    // Administración y Soporte
+    "administration.navName": "Administración",
+
+    // Consultoría Estratégica
+    "consulting.navName": "Consultoría",
+
     // Form Dialog
     "form.requestDemo": "Solicitar Demo",
     "form.requestInfo": "Solicitar Información",
@@ -661,6 +670,15 @@ const translations: Record<Language, Record<string, string>> = {
     // CTA
     "implementation.cta.title": "Ready to implement Salesforce?",
     "implementation.cta.desc": "Schedule a free consultation to analyze your project.",
+
+    // Optimization & Adjustments
+    "optimization.navName": "Optimization",
+
+    // Administration & Support
+    "administration.navName": "Administration",
+
+    // Strategic Consulting
+    "consulting.navName": "Consulting",
 
     // Form Dialog
     "form.requestDemo": "Request Demo",
