@@ -96,41 +96,28 @@ const AdministracionSoporte = () => {
       />
       
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-hero-gradient overflow-hidden">
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <HeadsetIcon className="w-4 h-4" />
-                {t('language') === 'es' ? 'System Admin como Servicio' : 'System Admin as a Service'}
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                {t('language') === 'es' ? (
-                  <>Administración y <span className="text-primary">Soporte</span> Continuo</>
-                ) : (
-                  <>Continuous <span className="text-primary">Administration</span> & Support</>
-                )}
-              </h1>
-              
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                {t('language') === 'es' 
-                  ? "Tu System Admin externo dedicado. Mantenimiento, soporte y gestión diaria de Salesforce sin contratar un recurso a tiempo completo."
-                  : "Your dedicated external System Admin. Salesforce maintenance, support, and daily management without hiring a full-time resource."}
-              </p>
-              
-              <ContactFormDialog variant="demo">
-                <Button size="lg" className="text-lg px-8 py-6">
-                  {t('language') === 'es' ? 'Solicitar Información' : 'Request Information'}
-                </Button>
-              </ContactFormDialog>
+      <section className="py-20 bg-hero-static">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mb-6">
+              <HeadsetIcon className="h-8 w-8 text-primary-foreground" />
             </div>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+              {t('language') === 'es' ? 'Administración y Soporte Continuo' : 'Continuous Administration & Support'}
+            </h1>
+            <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
+              {t('language') === 'es' 
+                ? "Tu System Admin externo dedicado. Mantenimiento, soporte y gestión diaria de Salesforce sin contratar un recurso a tiempo completo."
+                : "Your dedicated external System Admin. Salesforce maintenance, support, and daily management without hiring a full-time resource."}
+            </p>
+            <ContactFormDialog variant="demo">
+              <Button size="lg" variant="hero">
+                {t('language') === 'es' ? 'Solicitar Información' : 'Request Information'}
+              </Button>
+            </ContactFormDialog>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Benefits Section */}
         <section className="py-16 md:py-24 bg-background">
