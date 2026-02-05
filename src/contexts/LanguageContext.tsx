@@ -70,6 +70,11 @@ const translations: Record<Language, Record<string, string>> = {
     "contactStrip.description": "Agenda una consulta Salesforce gratuita y descubre cómo la implementación CRM profesional puede impulsar tu empresa.",
     "contactStrip.cta": "Contactar ahora",
 
+     // Licenses Banner
+     "licensesBanner.title": "¿Quieres saber cuánto cuestan las licencias de Salesforce?",
+     "licensesBanner.description": "Consulta los precios oficiales de las diferentes ediciones.",
+     "licensesBanner.cta": "Ver precios de licencias",
+
     // Footer
     "footer.description": "Consultores especializados en Salesforce. Ayudamos a empresas a transformar sus procesos de negocio con las mejores soluciones CRM del mercado.",
     "footer.services": "Servicios",
@@ -426,6 +431,11 @@ const translations: Record<Language, Record<string, string>> = {
     "contactStrip.title": "Ready to transform your business?",
     "contactStrip.description": "Schedule a free Salesforce consultation and discover how professional CRM implementation can boost your company.",
     "contactStrip.cta": "Contact now",
+
+     // Licenses Banner
+     "licensesBanner.title": "Want to know how much Salesforce licenses cost?",
+     "licensesBanner.description": "Check the official prices for the different editions.",
+     "licensesBanner.cta": "View license pricing",
 
     // Footer
     "footer.description": "Salesforce specialized consultants. We help companies transform their business processes with the best CRM solutions on the market.",

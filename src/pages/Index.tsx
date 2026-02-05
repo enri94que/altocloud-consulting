@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhySalesforce from "@/components/home/WhySalesforce";
 import ContactStrip from "@/components/home/ContactStrip";
+ import LicensesBanner from "@/components/home/LicensesBanner";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <HeroSection />
       <ServicesGrid />
       <WhySalesforce />
+       <LicensesBanner />
       <ContactStrip />
     </Layout>
   );
