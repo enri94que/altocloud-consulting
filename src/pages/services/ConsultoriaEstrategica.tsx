@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb, Target, Users, TrendingUp, CheckCircle2, Compass, GitBranch, Award } from "lucide-react";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
+ import LicensesBanner from "@/components/home/LicensesBanner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/seo/SEO";
 import Layout from "@/components/layout/Layout";
@@ -229,6 +230,8 @@ const ConsultoriaEstrategica = () => {
           </div>
         </div>
       </section>
+
+       <LicensesBanner />
 
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">

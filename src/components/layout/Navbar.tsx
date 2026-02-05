@@ -119,13 +119,6 @@ const Navbar = () => {
             </DropdownMenu>
 
             <Link
-              to="/precios"
-              className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/precios") ? "text-primary" : "text-muted-foreground"}`}
-            >
-              {t("nav.licenses")}
-            </Link>
-
-            <Link
               to="/contacto"
               className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contacto") ? "text-primary" : "text-muted-foreground"}`}
             >
@@ -208,13 +201,6 @@ const Navbar = () => {
                 )}
               </div>
               
-              <Link
-                to="/precios"
-                className="text-sm font-medium text-muted-foreground hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                {t("nav.prices")}
-              </Link>
               <Link
                 to="/contacto"
                 className="text-sm font-medium text-muted-foreground hover:text-primary"

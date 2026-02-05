@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Settings, Search, Code, TestTube, GraduationCap, Rocket, CheckCircle2 } from "lucide-react";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
+ import LicensesBanner from "@/components/home/LicensesBanner";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -214,6 +215,8 @@ const ImplementacionSalesforce = () => {
           </div>
         </div>
       </section>
+
+       <LicensesBanner />
 
       {/* CTA */}
       <section className="py-16 bg-hero-gradient">
