@@ -57,22 +57,22 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
                 <Link to="/servicios/implementacion-salesforce" className="hover:text-primary-foreground transition-colors">
-                  {t("nav.implementation")}
+                  {t("implementation.navName")}
                 </Link>
               </li>
               <li>
                 <Link to="/servicios/optimizacion-ajustes" className="hover:text-primary-foreground transition-colors">
-                  {t("nav.optimization")}
+                  {t("optimization.navName")}
                 </Link>
               </li>
               <li>
                 <Link to="/servicios/administracion-soporte" className="hover:text-primary-foreground transition-colors">
-                  {t("nav.administration")}
+                  {t("administration.navName")}
                 </Link>
               </li>
               <li>
                 <Link to="/servicios/consultoria-estrategica" className="hover:text-primary-foreground transition-colors">
-                  {t("nav.consulting")}
+                  {t("consulting.navName")}
                 </Link>
               </li>
             </ul>
