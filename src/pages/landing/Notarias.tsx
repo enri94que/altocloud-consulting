@@ -125,9 +125,9 @@ const Notarias = () => {
               <Link to="/">
                 <img src={logoAltocloud} alt="Altocloud Consulting" className="h-10 object-contain" />
               </Link>
-              <a href="tel:+34681229933" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+34912560299" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="h-4 w-4" />
-                <span className="hidden sm:inline">+34 681 22 99 33</span>
+                <span className="hidden sm:inline">+34 912 56 02 99</span>
               </a>
             </div>
           </div>
@@ -400,9 +400,9 @@ const Notarias = () => {
                   <Mail className="h-4 w-4" />
                   <span className="hidden sm:inline">enrique@altocloud-consulting.com</span>
                 </a>
-                <a href="tel:+34681229933" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <a href="tel:+34912560299" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Phone className="h-4 w-4" />
-                  <span>+34 681 22 99 33</span>
+                  <span>+34 912 56 02 99</span>
                 </a>
               </div>
               <Link to="/politica-privacidad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
