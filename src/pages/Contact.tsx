@@ -170,11 +170,11 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground">{t("contact.info.phone")}</h3>
                     <a 
-                      href="tel:+34681229933" 
+                      href="tel:+34912560299" 
                       className="text-muted-foreground hover:text-primary transition-colors"
                       aria-label={language === "es" ? "Llamar a AltoCloud Consulting" : "Call AltoCloud Consulting"}
                     >
-                      +34 681 22 99 33
+                      +34 912 56 02 99
                     </a>
                   </div>
                 </div>
