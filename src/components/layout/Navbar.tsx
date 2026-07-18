@@ -126,6 +126,13 @@ const Navbar = () => {
             </Link>
             
             <LanguageSwitcher variant="navbar" />
+
+            <a
+              href="https://app.altocloud-consulting.com/auth"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
+              {t("nav.login")}
+            </a>
           </div>
 
           {/* CTA Button */}
