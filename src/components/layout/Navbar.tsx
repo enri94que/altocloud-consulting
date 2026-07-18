@@ -215,6 +215,13 @@ const Navbar = () => {
               >
                 {t("nav.contact")}
               </Link>
+              <a
+                href="https://app.altocloud-consulting.com/auth"
+                className="text-sm font-medium text-muted-foreground hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("nav.login")}
+              </a>
               <div className="pt-2 border-t border-border">
                 <LanguageSwitcher variant="navbar" />
               </div>
