@@ -128,7 +128,7 @@ const Navbar = () => {
             <LanguageSwitcher variant="navbar" />
 
             <a
-              href="https://app.altocloud-consulting.com/auth"
+              href="https://app-altocloud-consulting-com.lovable.app/auth"
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {t("nav.login")}
@@ -216,7 +216,7 @@ const Navbar = () => {
                 {t("nav.contact")}
               </Link>
               <a
-                href="https://app.altocloud-consulting.com/auth"
+                href="https://app-altocloud-consulting-com.lovable.app/auth"
                 className="text-sm font-medium text-muted-foreground hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
