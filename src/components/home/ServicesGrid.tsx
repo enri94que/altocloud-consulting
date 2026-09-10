@@ -4,7 +4,7 @@ import { ArrowRight, TrendingUp, Headphones, Heart, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesGrid = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const services = [
     {
