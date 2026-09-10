@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import logoAltocloudAsset from "@/assets/logo-altocloud.png.asset.json";
 
 interface OrganizationSchemaProps {
   type: 'organization';
