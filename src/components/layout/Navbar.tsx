@@ -60,7 +60,6 @@ const consultingServices = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const { t } = useLanguage();
