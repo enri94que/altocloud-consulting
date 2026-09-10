@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import logoAltocloudAsset from "@/assets/logo-altocloud.png.asset.json";
 
 interface OrganizationSchemaProps {
   type: 'organization';
@@ -32,7 +33,7 @@ const StructuredData = (props: StructuredDataProps) => {
           name: 'AltoCloud',
           description: 'Consultor Salesforce certificado especializado en implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite.',
           url: siteUrl,
-          logo: `${siteUrl}/logo-altocloud.png`,
+          logo: `${siteUrl}${logoAltocloudAsset.url}`,
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'sales',

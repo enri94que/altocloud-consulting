@@ -8,7 +8,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoAltocloud from "@/assets/logo-altocloud.png";
+import logoAltocloudAsset from "@/assets/logo-altocloud.png.asset.json";
+const logoAltocloud = logoAltocloudAsset.url;
 import ContactFormDialog from "@/components/home/ContactFormDialog";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";

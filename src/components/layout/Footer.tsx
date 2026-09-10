@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import logoAltocloud from "@/assets/logo-altocloud.png";
+import logoAltocloudAsset from "@/assets/logo-altocloud.png.asset.json";
+const logoAltocloud = logoAltocloudAsset.url;
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 

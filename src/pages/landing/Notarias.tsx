@@ -21,7 +21,8 @@ import {
   BarChart3,
   Lock
 } from "lucide-react";
-import logoAltocloud from "@/assets/logo-altocloud.png";
+import logoAltocloudAsset from "@/assets/logo-altocloud.png.asset.json";
+const logoAltocloud = logoAltocloudAsset.url;
 import { Link } from "react-router-dom";
 
 const Notarias = () => {
