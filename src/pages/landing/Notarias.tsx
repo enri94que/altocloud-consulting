@@ -110,10 +110,10 @@ const Notarias = () => {
   return (
     <>
       <Helmet>
-        <title>Salesforce para Notarías | CRM Especializado | Altocloud</title>
+        <title>Salesforce® para Notarías | CRM Especializado | Altocloud</title>
         <meta 
           name="description" 
-          content="Optimiza la gestión de tu notaría con Salesforce. Gestión documental, relación con clientes, automatización de procesos y cumplimiento normativo. Consultor certificado." 
+          content="Optimiza la gestión de tu notaría con Salesforce®. Gestión documental, relación con clientes, automatización de procesos y cumplimiento normativo. Consultor certificado." 
         />
         <link rel="canonical" href="https://altocloud-consulting.com/notarias" />
       </Helmet>
@@ -141,10 +141,10 @@ const Notarias = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-center lg:text-left">
                 <Badge className="mb-6 bg-white/10 text-white border-white/20 hover:bg-white/20">
-                  Especialistas en Salesforce para Notarías
+                  Especialistas en Salesforce® para Notarías
                 </Badge>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                  Digitaliza tu <span className="text-orange-400">Notaría</span> con Salesforce
+                  Digitaliza tu <span className="text-orange-400">Notaría</span> con Salesforce®
                 </h1>
                 <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl">
                   Optimiza la gestión de clientes, documentos y procesos con el CRM líder mundial. 
@@ -263,7 +263,7 @@ const Notarias = () => {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <Badge variant="outline" className="mb-4">Beneficios</Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                ¿Por qué Salesforce para tu Notaría?
+                ¿Por qué Salesforce® para tu Notaría?
               </h2>
               <p className="text-lg text-muted-foreground">
                 Transforma la manera en que gestionas tu notaría con herramientas diseñadas 
@@ -365,7 +365,7 @@ const Notarias = () => {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <CheckCircle2 className="h-5 w-5" />
-                <span>Consultor Certificado Salesforce</span>
+                <span>Consultor Certificado en Salesforce®</span>
               </div>
             </div>
           </div>
@@ -378,7 +378,7 @@ const Notarias = () => {
               ¿Listo para transformar tu notaría?
             </h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-              Agenda una demostración personalizada y descubre cómo Salesforce 
+              Agenda una demostración personalizada y descubre cómo Salesforce® 
               puede ayudarte a optimizar tu práctica notarial.
             </p>
             <a href="#contacto">

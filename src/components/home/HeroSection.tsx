@@ -22,7 +22,7 @@ const HeroSection = () => {
           
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             {t("hero.title")}{" "}
-            <span className="text-accent">Salesforce</span>
+            <span className="text-accent">Salesforce®</span>
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed animate-fade-up" style={{ animationDelay: "0.2s" }}>

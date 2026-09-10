@@ -53,7 +53,7 @@ const StarterProSuite = () => {
     <Layout>
       <SEO
         title={language === "es" ? "Starter & Pro Suite - CRM PYMEs" : "Starter & Pro Suite - SMB CRM"}
-        description={language === "es" ? "Starter y Pro Suite: CRM Salesforce para PYMEs. Implementación rápida, precio accesible. Consultor certificado en España." : "Starter and Pro Suite: Salesforce CRM for SMBs. Quick implementation, affordable price. Certified consultant in Spain."}
+        description={language === "es" ? "Starter y Pro Suite: CRM de Salesforce para PYMEs. Implementación rápida, precio accesible. Consultor certificado en España." : "Starter and Pro Suite: Salesforce CRM for SMBs. Quick implementation, affordable price. Certified consultant in Spain."}
         canonical="/servicios/starter-pro-suite"
       />
       <StructuredData

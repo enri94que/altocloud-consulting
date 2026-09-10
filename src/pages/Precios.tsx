@@ -383,8 +383,8 @@ const Precios = () => {
   return (
     <Layout>
       <SEO
-        title={language === "es" ? "Precios Salesforce 2025" : "Salesforce Pricing 2025"}
-        description={language === "es" ? "Precios oficiales licencias Salesforce: Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Consultor certificado te asesora gratis." : "Official Salesforce license pricing: Sales Cloud, Service Cloud, Nonprofit Cloud and Starter Suite. Certified consultant advises you for free."}
+        title={language === "es" ? "Precios de Salesforce® 2025" : "Salesforce® Pricing 2025"}
+        description={language === "es" ? "Precios oficiales de licencias de Salesforce®: Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Consultor certificado te asesora gratis." : "Official Salesforce® license pricing: Sales Cloud, Service Cloud, Nonprofit Cloud and Starter Suite. Certified consultant advises you for free."}
         canonical="/precios"
       />
 
@@ -397,7 +397,7 @@ const Precios = () => {
               {t("pricing.badge")}
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {t("pricing.title")} <span className="text-orange-400">Salesforce</span>
+              {t("pricing.title")} <span className="text-orange-400">Salesforce®</span>
             </h1>
             <p className="text-lg text-white/80 mb-8">
               {t("pricing.subtitle")}

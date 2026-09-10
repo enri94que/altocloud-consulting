@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
     <Layout>
       <SEO
         title="Política de Privacidad"
-        description="Política de privacidad de AltoCloud. Tratamiento de datos personales conforme al RGPD. Consultoría Salesforce España."
+        description="Política de privacidad de Altocloud. Tratamiento de datos personales conforme al RGPD. Consultoría de Salesforce en España."
         canonical="/politica-privacidad"
         noindex={true}
       />

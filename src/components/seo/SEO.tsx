@@ -17,7 +17,7 @@ const SEO = ({
   image = 'https://altocloud.es/og-image.png',
   noindex = false,
 }: SEOProps) => {
-  const siteTitle = 'AltoCloud - Consultor Salesforce';
+  const siteTitle = 'Altocloud - Consultor de Salesforce®';
   // Keep titles under 60 characters
   const fullTitle = title === 'Inicio' ? siteTitle : `${title} | AltoCloud`;
   const siteUrl = 'https://altocloud.es';

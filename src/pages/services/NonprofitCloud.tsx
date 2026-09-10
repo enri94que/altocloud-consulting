@@ -53,7 +53,7 @@ const NonprofitCloud = () => {
     <Layout>
       <SEO
         title={language === "es" ? "Nonprofit Cloud - CRM ONGs" : "Nonprofit Cloud - NGO CRM"}
-        description={language === "es" ? "Nonprofit Cloud para ONGs: gestión de donantes, voluntarios y programas. Maximiza tu impacto social con consultoría Salesforce certificada." : "Nonprofit Cloud for NGOs: donor, volunteer and program management. Maximize your social impact with certified Salesforce consulting."}
+        description={language === "es" ? "Nonprofit Cloud para ONGs: gestión de donantes, voluntarios y programas. Maximiza tu impacto social con consultoría de Salesforce certificada." : "Nonprofit Cloud for NGOs: donor, volunteer and program management. Maximize your social impact with certified Salesforce consulting."}
         canonical="/servicios/nonprofit-cloud"
       />
       <StructuredData

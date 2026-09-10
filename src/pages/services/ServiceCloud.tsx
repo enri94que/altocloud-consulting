@@ -53,7 +53,7 @@ const ServiceCloud = () => {
     <Layout>
       <SEO
         title={language === "es" ? "Service Cloud - Atención Cliente" : "Service Cloud - Customer Service"}
-        description={language === "es" ? "Service Cloud: soporte omnicanal, gestión de casos y automatización. Mejora la satisfacción de tus clientes con consultoría Salesforce." : "Service Cloud: omnichannel support, case management and automation. Improve customer satisfaction with Salesforce consulting."}
+        description={language === "es" ? "Service Cloud: soporte omnicanal, gestión de casos y automatización. Mejora la satisfacción de tus clientes con consultoría de Salesforce." : "Service Cloud: omnichannel support, case management and automation. Improve customer satisfaction with Salesforce consulting."}
         canonical="/servicios/service-cloud"
       />
       <StructuredData
