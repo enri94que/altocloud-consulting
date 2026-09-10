@@ -84,23 +84,6 @@ const Navbar = () => {
               {t("nav.home")}
             </Link>
 
-            {/* Soluciones Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                {t("nav.solutions")}
-                <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card border border-border shadow-lg z-50">
-                {solutions.map((solution) => (
-                  <DropdownMenuItem key={solution.path} asChild>
-                    <Link to={solution.path} className="cursor-pointer hover:bg-secondary">
-                      {solution.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             {/* Servicios Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
