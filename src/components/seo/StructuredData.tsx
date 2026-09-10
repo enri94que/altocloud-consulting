@@ -32,7 +32,7 @@ const StructuredData = (props: StructuredDataProps) => {
           name: 'AltoCloud',
           description: 'Consultor Salesforce certificado especializado en implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite.',
           url: siteUrl,
-          logo: `${siteUrl}/logo-altocloud.png`,
+          logo: `${siteUrl}${logoAltocloudAsset.url}`,
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'sales',
