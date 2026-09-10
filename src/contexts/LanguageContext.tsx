@@ -24,20 +24,20 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.login": "Acceder",
 
     // Hero Section
-    "hero.badge": "Consultor Certificado Salesforce",
+    "hero.badge": "Consultor Certificado en Salesforce®",
     "hero.title": "Transforma tu empresa con el poder de",
-    "hero.description": "Consultor Salesforce España especializado en implementación CRM profesional. Impulsa tus ventas, mejora tu atención al cliente y optimiza tus procesos con automatización de ventas Salesforce.",
+    "hero.description": "Consultor de Salesforce® en España especializado en implementación CRM profesional. Impulsa tus ventas, mejora tu atención al cliente y optimiza tus procesos con automatización de ventas con Salesforce.",
     "hero.cta": "Contactar",
     "hero.intro": "Soy",
     "hero.name": "Enrique",
-    "hero.subtitle": "experto en soluciones empresariales Salesforce",
+    "hero.subtitle": "experto en soluciones empresariales con Salesforce",
     "hero.certified": "✓ Consultor Certificado",
     "hero.experience": "✓ +5 años de experiencia",
     "hero.projects": "✓ Proyectos exitosos",
 
     // Services Grid
     "services.label": "Nuestros Servicios",
-    "services.title": "Soluciones Salesforce a tu medida",
+    "services.title": "Soluciones con Salesforce a tu medida",
     "services.salesCloud.description": "Acelera tus ventas con automatización inteligente y gestión completa del ciclo de ventas.",
     "services.salesCloud.link": "Implementar Sales Cloud",
     "services.serviceCloud.description": "Ofrece un servicio al cliente excepcional con herramientas omnicanal y atención personalizada.",
@@ -48,9 +48,9 @@ const translations: Record<Language, Record<string, string>> = {
     "services.starterSuite.link": "Ver Starter Suite",
 
     // Why Salesforce
-    "why.label": "¿Por qué Salesforce?",
+    "why.label": "¿Por qué Salesforce®?",
     "why.title": "El CRM #1 del mundo por una razón",
-    "why.description": "Salesforce no es solo un CRM, es la plataforma líder en automatización de ventas Salesforce y gestión de clientes empresarial. Con más de 150.000 empresas confiando en Salesforce, es la elección preferida para la transformación digital España. Como consultor Salesforce España, te ayudo con la implementación CRM profesional que tu negocio necesita.",
+    "why.description": "Salesforce® no es solo un CRM, es la plataforma líder en automatización de ventas con Salesforce y gestión de clientes empresarial. Con más de 150.000 empresas confiando en Salesforce, es la elección preferida para la transformación digital España. Como consultor de Salesforce® en España, te ayudo con la implementación CRM profesional que tu negocio necesita.",
     "why.companies": "Empresas",
     "why.globalCRM": "CRM Global",
     "why.cloud": "100% en la nube",
@@ -68,22 +68,22 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Contact Strip
     "contactStrip.title": "¿Listo para transformar tu negocio?",
-    "contactStrip.description": "Agenda una consulta Salesforce gratuita y descubre cómo la implementación CRM profesional puede impulsar tu empresa.",
+    "contactStrip.description": "Agenda una consulta gratuita sobre Salesforce® y descubre cómo la implementación CRM profesional puede impulsar tu empresa.",
     "contactStrip.cta": "Contactar ahora",
 
      // Licenses Banner
-    "licensesBanner.title": "¿Necesitas ayuda para elegir tus licencias de Salesforce?",
+    "licensesBanner.title": "¿Necesitas ayuda para elegir tus licencias de Salesforce®?",
     "licensesBanner.description": "Te asesoro para seleccionar la edición que mejor se adapte a tu negocio.",
     "licensesBanner.cta": "Consultar licencias",
 
     // Footer
-    "footer.description": "Consultores especializados en Salesforce. Ayudamos a empresas a transformar sus procesos de negocio con las mejores soluciones CRM del mercado.",
+    "footer.description": "Consultores especializados en soluciones con Salesforce®. Ayudamos a empresas a transformar sus procesos de negocio con las mejores soluciones CRM del mercado.",
     "footer.services": "Servicios",
     "footer.contact": "Contacto",
     "footer.location": "España",
     "footer.rights": "Todos los derechos reservados.",
     "footer.privacy": "Política de Privacidad",
-    "footer.trademark": "Salesforce, Sales Cloud, Service Cloud, Nonprofit Cloud, Starter Suite y Pro Suite son marcas registradas de Salesforce, Inc. Altocloud Consulting es un consultor independiente y no forma parte de Salesforce, Inc.",
+    "footer.trademark": "Salesforce®, Sales Cloud, Service Cloud, Nonprofit Cloud, Starter Suite y Pro Suite son marcas registradas de Salesforce, Inc. Altocloud Consulting es un consultor independiente y no forma parte de Salesforce, Inc.",
 
     // Contact Page
     "contact.title": "Contacto",
@@ -105,9 +105,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.form.sending": "Enviando...",
 
     // Pricing Page
-    "pricing.badge": "Precios oficiales Salesforce 2025",
+    "pricing.badge": "Precios oficiales de Salesforce® 2025",
     "pricing.title": "Precios de Licencias",
-    "pricing.subtitle": "Conoce los precios oficiales de las licencias de Salesforce para los servicios que implanto. Como consultor certificado, te ayudo a elegir la mejor opción para tu negocio.",
+    "pricing.subtitle": "Conoce los precios oficiales de las licencias de Salesforce® para los servicios que implanto. Como consultor certificado, te ayudo a elegir la mejor opción para tu negocio.",
     "pricing.starterTab": "Starter & Pro",
     "pricing.salesTab": "Sales Cloud",
     "pricing.serviceTab": "Service Cloud",
