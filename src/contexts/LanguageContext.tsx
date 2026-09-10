@@ -83,6 +83,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.location": "España",
     "footer.rights": "Todos los derechos reservados.",
     "footer.privacy": "Política de Privacidad",
+    "footer.trademark": "Salesforce, Sales Cloud, Service Cloud, Nonprofit Cloud, Starter Suite y Pro Suite son marcas registradas de Salesforce, Inc. Altocloud Consulting es un consultor independiente y no forma parte de Salesforce, Inc.",
 
     // Contact Page
     "contact.title": "Contacto",
@@ -446,6 +447,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.location": "Spain",
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
+    "footer.trademark": "Salesforce, Sales Cloud, Service Cloud, Nonprofit Cloud, Starter Suite, and Pro Suite are trademarks of Salesforce, Inc. Altocloud Consulting is an independent consultant and is not part of Salesforce, Inc.",
 
     // Contact Page
     "contact.title": "Contact",
