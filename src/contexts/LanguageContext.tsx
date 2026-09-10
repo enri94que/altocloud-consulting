@@ -72,9 +72,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contactStrip.cta": "Contactar ahora",
 
      // Licenses Banner
-     "licensesBanner.title": "¿Quieres saber cuánto cuestan las licencias de Salesforce?",
-     "licensesBanner.description": "Consulta los precios oficiales de las diferentes ediciones.",
-     "licensesBanner.cta": "Ver precios de licencias",
+    "licensesBanner.title": "¿Necesitas ayuda para elegir tus licencias de Salesforce?",
+    "licensesBanner.description": "Te asesoro para seleccionar la edición que mejor se adapte a tu negocio.",
+    "licensesBanner.cta": "Consultar licencias",
 
     // Footer
     "footer.description": "Consultores especializados en Salesforce. Ayudamos a empresas a transformar sus procesos de negocio con las mejores soluciones CRM del mercado.",
@@ -122,8 +122,8 @@ const translations: Record<Language, Record<string, string>> = {
     "pricing.nonprofitSubtitle": "CRM diseñado específicamente para organizaciones sin ánimo de lucro",
     "pricing.requestInfo": "Solicitar información",
     "pricing.disclaimer.title": "Información importante sobre precios",
-    "pricing.disclaimer.1": "Los precios mostrados son los precios de lista de Salesforce y pueden variar.",
-    "pricing.disclaimer.2": "Todos los precios están en euros y no incluyen IVA.",
+    "pricing.disclaimer.1": "Los precios de licencias son orientativos y pueden variar según la edición y volumen.",
+    "pricing.disclaimer.2": "Te ayudo a elegir la mejor opción y a obtener una cotización oficial de Salesforce.",
     "pricing.disclaimer.3": "La facturación es anual salvo que se indique lo contrario.",
     "pricing.disclaimer.4": "Consulta los precios actualizados en",
     "pricing.cta.title": "¿No sabes qué edición elegir?",
@@ -436,9 +436,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contactStrip.cta": "Contact now",
 
      // Licenses Banner
-     "licensesBanner.title": "Want to know how much Salesforce licenses cost?",
-     "licensesBanner.description": "Check the official prices for the different editions.",
-     "licensesBanner.cta": "View license pricing",
+    "licensesBanner.title": "Need help choosing your Salesforce licenses?",
+    "licensesBanner.description": "I advise you on selecting the edition that best fits your business.",
+    "licensesBanner.cta": "Consult licenses",
 
     // Footer
     "footer.description": "Salesforce specialized consultants. We help companies transform their business processes with the best CRM solutions on the market.",
@@ -486,8 +486,8 @@ const translations: Record<Language, Record<string, string>> = {
     "pricing.nonprofitSubtitle": "CRM designed specifically for nonprofit organizations",
     "pricing.requestInfo": "Request information",
     "pricing.disclaimer.title": "Important pricing information",
-    "pricing.disclaimer.1": "Prices shown are Salesforce list prices and may vary.",
-    "pricing.disclaimer.2": "All prices are in euros and do not include VAT.",
+    "pricing.disclaimer.1": "License prices are indicative and may vary by edition and volume.",
+    "pricing.disclaimer.2": "I help you choose the best option and get an official Salesforce quote.",
     "pricing.disclaimer.3": "Billing is annual unless otherwise indicated.",
     "pricing.disclaimer.4": "Check updated prices at",
     "pricing.cta.title": "Not sure which edition to choose?",
