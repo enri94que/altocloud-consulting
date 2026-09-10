@@ -120,6 +120,9 @@ const Footer = () => {
           <Link to="/politica-privacidad" className="hover:text-primary-foreground transition-colors">
             {t("footer.privacy")}
           </Link>
+          <p className="mt-4 text-xs text-primary-foreground/40 max-w-2xl mx-auto">
+            {t("footer.trademark")}
+          </p>
         </div>
       </div>
     </footer>
