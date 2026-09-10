@@ -141,31 +141,6 @@ const Navbar = () => {
                 {t("nav.home")}
               </Link>
               
-              {/* Soluciones (mobile) */}
-              <div className="flex flex-col gap-2">
-                <button 
-                  onClick={() => setSolutionsOpen(!solutionsOpen)}
-                  className="flex items-center gap-1 text-sm font-semibold text-foreground"
-                >
-                  {t("nav.solutions")}
-                  <ChevronRight className={`h-4 w-4 transition-transform ${solutionsOpen ? 'rotate-90' : ''}`} />
-                </button>
-                {solutionsOpen && (
-                  <div className="flex flex-col gap-2 pl-4">
-                    {solutions.map((solution) => (
-                      <Link
-                        key={solution.path}
-                        to={solution.path}
-                        className="text-sm text-muted-foreground hover:text-primary"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {solution.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
               {/* Servicios (mobile) */}
               <div className="flex flex-col gap-2">
                 <button 
