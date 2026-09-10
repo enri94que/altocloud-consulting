@@ -72,7 +72,7 @@ const ServicesGrid = () => {
                 <Link
                   to={service.path}
                   className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all"
-                  aria-label={`${t(service.linkKey)} - Consultor Salesforce España`}
+                  aria-label={`${t(service.linkKey)} - ${language === "es" ? "Consultor de Salesforce en España" : "Salesforce consultant in Spain"}`}
                 >
                   {t(service.linkKey)}
                   <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
