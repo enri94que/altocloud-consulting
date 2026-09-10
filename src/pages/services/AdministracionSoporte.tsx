@@ -15,8 +15,8 @@ const AdministracionSoporte = () => {
       icon: Shield,
       title: "Sin Preocupaciones",
       titleEn: "Peace of Mind",
-      description: "Tu Salesforce® siempre funcionando correctamente, sin que tengas que preocuparte por nada.",
-      descriptionEn: "Your Salesforce® always working correctly, without you having to worry about anything."
+      description: "Tu Salesforce siempre funcionando correctamente, sin que tengas que preocuparte por nada.",
+      descriptionEn: "Your Salesforce always working correctly, without you having to worry about anything."
     },
     {
       icon: Clock,
@@ -88,8 +88,8 @@ const AdministracionSoporte = () => {
     <Layout>
       <SEO 
         title={language === 'es' 
-          ? "Administración y Soporte de Salesforce® | System Admin Externo" 
-          : "Salesforce® Administration & Support | External System Admin"}
+          ? "Administración y Soporte de Salesforce | System Admin Externo" 
+          : "Salesforce Administration & Support | External System Admin"}
         description={language === 'es'
           ? "Servicio de administración de Salesforce como System Admin externo. Mantenimiento, resolución de incidencias y gestión diaria de tu CRM."
           : "Salesforce administration service as external System Admin. Maintenance, incident resolution, and daily CRM management."}
@@ -108,8 +108,8 @@ const AdministracionSoporte = () => {
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
               {language === 'es' 
-                ? "Tu System Admin externo dedicado. Mantenimiento, soporte y gestión diaria de Salesforce® sin contratar un recurso a tiempo completo."
-                : "Your dedicated external System Admin. Salesforce® maintenance, support, and daily management without hiring a full-time resource."}
+                ? "Tu System Admin externo dedicado. Mantenimiento, soporte y gestión diaria de Salesforce sin contratar un recurso a tiempo completo."
+                : "Your dedicated external System Admin. Salesforce maintenance, support, and daily management without hiring a full-time resource."}
             </p>
             <ContactFormDialog variant="demo">
               <Button size="lg" variant="hero">
@@ -196,8 +196,8 @@ const AdministracionSoporte = () => {
           <HeadsetIcon className="w-12 h-12 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {language === 'es' 
-              ? '¿Necesitas un administrador de Salesforce®?' 
-              : 'Need a Salesforce® administrator?'}
+              ? '¿Necesitas un administrador de Salesforce?' 
+              : 'Need a Salesforce administrator?'}
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
             {language === 'es'

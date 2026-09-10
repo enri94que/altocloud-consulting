@@ -15,8 +15,8 @@ const OptimizacionAjustes = () => {
       icon: TrendingUp,
       title: "Mejora del Rendimiento",
       titleEn: "Performance Improvement",
-      description: "Optimiza la velocidad y eficiencia de tu instancia de Salesforce® para un mejor rendimiento.",
-      descriptionEn: "Optimize the speed and efficiency of your Salesforce® instance for better performance."
+      description: "Optimiza la velocidad y eficiencia de tu instancia de Salesforce para un mejor rendimiento.",
+      descriptionEn: "Optimize the speed and efficiency of your Salesforce instance for better performance."
     },
     {
       icon: Target,
@@ -84,10 +84,10 @@ const OptimizacionAjustes = () => {
     <Layout>
       <SEO 
         title={language === 'es' 
-          ? "Optimización y Ajustes de Salesforce® | Consultor de Salesforce en España" 
-          : "Salesforce® Optimization & Adjustments | Salesforce Consultant Spain"}
+          ? "Optimización y Ajustes de Salesforce | Consultor de Salesforce en España" 
+          : "Salesforce Optimization & Adjustments | Salesforce Consultant Spain"}
         description={language === 'es'
-          ? "Mejora el rendimiento de tu Salesforce® existente. Optimización, ajustes y mejoras para organizaciones que ya tienen su CRM implementado."
+          ? "Mejora el rendimiento de tu Salesforce existente. Optimización, ajustes y mejoras para organizaciones que ya tienen su CRM implementado."
           : "Improve the performance of your existing Salesforce. Optimization, adjustments, and improvements for organizations that already have their CRM implemented."}
         canonical="/servicios/optimizacion-ajustes"
       />
@@ -100,12 +100,12 @@ const OptimizacionAjustes = () => {
               <Settings className="h-8 w-8 text-primary-foreground" />
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              {language === 'es' ? 'Optimización y Ajustes de Salesforce®' : 'Salesforce® Optimization & Adjustments'}
+              {language === 'es' ? 'Optimización y Ajustes de Salesforce' : 'Salesforce Optimization & Adjustments'}
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
               {language === 'es' 
-                ? "¿Ya tienes Salesforce® pero no está funcionando como esperabas? Te ayudo a optimizar, ajustar y mejorar tu configuración actual."
-                : "Already have Salesforce® but it's not working as expected? I help you optimize, adjust, and improve your current setup."}
+                ? "¿Ya tienes Salesforce pero no está funcionando como esperabas? Te ayudo a optimizar, ajustar y mejorar tu configuración actual."
+                : "Already have Salesforce but it's not working as expected? I help you optimize, adjust, and improve your current setup."}
             </p>
             <ContactFormDialog variant="demo">
               <Button size="lg" variant="hero">
@@ -189,8 +189,8 @@ const OptimizacionAjustes = () => {
           <Wrench className="w-12 h-12 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {language === 'es' 
-              ? '¿Tu Salesforce® necesita mejoras?' 
-              : 'Does your Salesforce® need improvements?'}
+              ? '¿Tu Salesforce necesita mejoras?' 
+              : 'Does your Salesforce need improvements?'}
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
             {language === 'es'

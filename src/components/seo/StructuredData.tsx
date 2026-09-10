@@ -31,7 +31,7 @@ const StructuredData = (props: StructuredDataProps) => {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           name: 'Altocloud',
-          description: 'Consultor de Salesforce® certificado especializado en implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite.',
+          description: 'Consultor de Salesforce certificado especializado en implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite.',
           url: siteUrl,
           logo: `${siteUrl}${logoAltocloudAsset.url}`,
           contactPoint: {
