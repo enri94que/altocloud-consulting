@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
@@ -23,33 +23,6 @@ const Footer = () => {
             <div className="mt-4">
               <LanguageSwitcher variant="footer" />
             </div>
-          </div>
-
-          {/* Soluciones */}
-          <div>
-            <h4 className="font-semibold mb-4">{t("nav.solutions")}</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li>
-                <Link to="/servicios/starter-pro-suite" className="hover:text-primary-foreground transition-colors">
-                  Starter & Pro Suite
-                </Link>
-              </li>
-              <li>
-                <Link to="/servicios/sales-cloud" className="hover:text-primary-foreground transition-colors">
-                  Sales Cloud
-                </Link>
-              </li>
-              <li>
-                <Link to="/servicios/service-cloud" className="hover:text-primary-foreground transition-colors">
-                  Service Cloud
-                </Link>
-              </li>
-              <li>
-                <Link to="/servicios/nonprofit-cloud" className="hover:text-primary-foreground transition-colors">
-                  Nonprofit Cloud
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Servicios */}
