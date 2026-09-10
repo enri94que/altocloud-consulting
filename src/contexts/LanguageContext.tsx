@@ -388,20 +388,20 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.login": "Login",
 
     // Hero Section
-    "hero.badge": "Certified Salesforce Consultant",
+    "hero.badge": "Certified Consultant in Salesforce®",
     "hero.title": "Transform your business with the power of",
-    "hero.description": "Salesforce Consultant in Spain specialized in professional CRM implementation. Boost your sales, improve your customer service and optimize your processes with Salesforce sales automation.",
+    "hero.description": "Consultant in Salesforce® in Spain specialized in professional CRM implementation. Boost your sales, improve your customer service and optimize your processes with sales automation with Salesforce.",
     "hero.cta": "Contact",
     "hero.intro": "I'm",
     "hero.name": "Enrique",
-    "hero.subtitle": "expert in Salesforce enterprise solutions",
+    "hero.subtitle": "expert in enterprise solutions with Salesforce",
     "hero.certified": "✓ Certified Consultant",
     "hero.experience": "✓ +5 years of experience",
     "hero.projects": "✓ Successful projects",
 
     // Services Grid
     "services.label": "Our Services",
-    "services.title": "Custom Salesforce Solutions",
+    "services.title": "Custom Solutions with Salesforce",
     "services.salesCloud.description": "Accelerate your sales with intelligent automation and complete sales cycle management.",
     "services.salesCloud.link": "Implement Sales Cloud",
     "services.serviceCloud.description": "Deliver exceptional customer service with omnichannel tools and personalized attention.",
@@ -412,9 +412,9 @@ const translations: Record<Language, Record<string, string>> = {
     "services.starterSuite.link": "See Starter Suite",
 
     // Why Salesforce
-    "why.label": "Why Salesforce?",
+    "why.label": "Why Salesforce®?",
     "why.title": "The #1 CRM in the world for a reason",
-    "why.description": "Salesforce is not just a CRM, it's the leading platform for Salesforce sales automation and enterprise customer management. With over 150,000 companies trusting Salesforce, it's the preferred choice for digital transformation. As a Salesforce consultant in Spain, I help you with the professional CRM implementation your business needs.",
+    "why.description": "Salesforce® is not just a CRM, it's the leading platform for sales automation with Salesforce and enterprise customer management. With over 150,000 companies trusting Salesforce, it's the preferred choice for digital transformation. As a consultant in Salesforce® in Spain, I help you with the professional CRM implementation your business needs.",
     "why.companies": "Companies",
     "why.globalCRM": "Global CRM",
     "why.cloud": "100% cloud-based",
@@ -432,22 +432,22 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Contact Strip
     "contactStrip.title": "Ready to transform your business?",
-    "contactStrip.description": "Schedule a free Salesforce consultation and discover how professional CRM implementation can boost your company.",
+    "contactStrip.description": "Schedule a free consultation about Salesforce® and discover how professional CRM implementation can boost your company.",
     "contactStrip.cta": "Contact now",
 
      // Licenses Banner
-    "licensesBanner.title": "Need help choosing your Salesforce licenses?",
+    "licensesBanner.title": "Need help choosing your Salesforce® licenses?",
     "licensesBanner.description": "I advise you on selecting the edition that best fits your business.",
     "licensesBanner.cta": "Consult licenses",
 
     // Footer
-    "footer.description": "Salesforce specialized consultants. We help companies transform their business processes with the best CRM solutions on the market.",
+    "footer.description": "Consultants specialized in Salesforce® solutions. We help companies transform their business processes with the best CRM solutions on the market.",
     "footer.services": "Services",
     "footer.contact": "Contact",
     "footer.location": "Spain",
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
-    "footer.trademark": "Salesforce, Sales Cloud, Service Cloud, Nonprofit Cloud, Starter Suite, and Pro Suite are trademarks of Salesforce, Inc. Altocloud Consulting is an independent consultant and is not part of Salesforce, Inc.",
+    "footer.trademark": "Salesforce®, Sales Cloud, Service Cloud, Nonprofit Cloud, Starter Suite, and Pro Suite are trademarks of Salesforce, Inc. Altocloud Consulting is an independent consultant and is not part of Salesforce, Inc.",
 
     // Contact Page
     "contact.title": "Contact",
@@ -469,9 +469,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.form.sending": "Sending...",
 
     // Pricing Page
-    "pricing.badge": "Official Salesforce pricing 2025",
+    "pricing.badge": "Official Salesforce® Pricing 2025",
     "pricing.title": "License Pricing",
-    "pricing.subtitle": "Discover the official Salesforce license prices for the services I implement. As a certified consultant, I help you choose the best option for your business.",
+    "pricing.subtitle": "Discover the official Salesforce® license prices for the services I implement. As a certified consultant, I help you choose the best option for your business.",
     "pricing.starterTab": "Starter & Pro",
     "pricing.salesTab": "Sales Cloud",
     "pricing.serviceTab": "Service Cloud",
