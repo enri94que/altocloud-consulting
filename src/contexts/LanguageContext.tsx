@@ -436,9 +436,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contactStrip.cta": "Contact now",
 
      // Licenses Banner
-     "licensesBanner.title": "Want to know how much Salesforce licenses cost?",
-     "licensesBanner.description": "Check the official prices for the different editions.",
-     "licensesBanner.cta": "View license pricing",
+    "licensesBanner.title": "Need help choosing your Salesforce licenses?",
+    "licensesBanner.description": "I advise you on selecting the edition that best fits your business.",
+    "licensesBanner.cta": "Consult licenses",
 
     // Footer
     "footer.description": "Salesforce specialized consultants. We help companies transform their business processes with the best CRM solutions on the market.",
