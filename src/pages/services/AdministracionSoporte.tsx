@@ -15,8 +15,8 @@ const AdministracionSoporte = () => {
       icon: Shield,
       title: "Sin Preocupaciones",
       titleEn: "Peace of Mind",
-      description: "Tu Salesforce siempre funcionando correctamente, sin que tengas que preocuparte por nada.",
-      descriptionEn: "Your Salesforce always working correctly, without you having to worry about anything."
+      description: "Tu Salesforce® siempre funcionando correctamente, sin que tengas que preocuparte por nada.",
+      descriptionEn: "Your Salesforce® always working correctly, without you having to worry about anything."
     },
     {
       icon: Clock,
