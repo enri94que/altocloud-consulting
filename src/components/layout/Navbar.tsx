@@ -14,26 +14,6 @@ import ContactFormDialog from "@/components/home/ContactFormDialog";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Soluciones (productos cloud)
-const solutions = [
-  {
-    name: "Starter & Pro Suite",
-    path: "/servicios/starter-pro-suite",
-  },
-  {
-    name: "Sales Cloud",
-    path: "/servicios/sales-cloud",
-  },
-  {
-    name: "Service Cloud",
-    path: "/servicios/service-cloud",
-  },
-  {
-    name: "Nonprofit Cloud",
-    path: "/servicios/nonprofit-cloud",
-  },
-];
-
 // Servicios de consultoría
 const consultingServices = [
   {
