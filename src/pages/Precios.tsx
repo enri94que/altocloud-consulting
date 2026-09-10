@@ -352,9 +352,9 @@ const Precios = () => {
       </CardHeader>
       <CardContent className="flex flex-col flex-1">
         <div className="text-center mb-6">
-          <span className="text-4xl font-bold text-salesforce-blue">{plan.price}</span>
-          <span className="text-muted-foreground">{plan.period}</span>
-          <p className="text-xs text-muted-foreground mt-1">{plan.billing}</p>
+          <p className="text-sm text-muted-foreground font-medium">
+            {language === "es" ? "Precio a consultar" : "Price on request"}
+          </p>
         </div>
         <ul className="space-y-3 flex-1">
           {(language === "es" ? plan.featuresEs : plan.featuresEn).map((feature, i) => (
