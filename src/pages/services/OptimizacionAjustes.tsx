@@ -84,10 +84,10 @@ const OptimizacionAjustes = () => {
     <Layout>
       <SEO 
         title={language === 'es' 
-          ? "Optimización y Ajustes Salesforce | Consultor Salesforce España" 
-          : "Salesforce Optimization & Adjustments | Salesforce Consultant Spain"}
+          ? "Optimización y Ajustes de Salesforce® | Consultor de Salesforce en España" 
+          : "Salesforce® Optimization & Adjustments | Salesforce Consultant Spain"}
         description={language === 'es'
-          ? "Mejora el rendimiento de tu Salesforce existente. Optimización, ajustes y mejoras para organizaciones que ya tienen su CRM implementado."
+          ? "Mejora el rendimiento de tu Salesforce® existente. Optimización, ajustes y mejoras para organizaciones que ya tienen su CRM implementado."
           : "Improve the performance of your existing Salesforce. Optimization, adjustments, and improvements for organizations that already have their CRM implemented."}
         canonical="/servicios/optimizacion-ajustes"
       />
@@ -100,12 +100,12 @@ const OptimizacionAjustes = () => {
               <Settings className="h-8 w-8 text-primary-foreground" />
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              {language === 'es' ? 'Optimización y Ajustes Salesforce' : 'Salesforce Optimization & Adjustments'}
+              {language === 'es' ? 'Optimización y Ajustes de Salesforce®' : 'Salesforce® Optimization & Adjustments'}
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
               {language === 'es' 
-                ? "¿Ya tienes Salesforce pero no está funcionando como esperabas? Te ayudo a optimizar, ajustar y mejorar tu configuración actual."
-                : "Already have Salesforce but it's not working as expected? I help you optimize, adjust, and improve your current setup."}
+                ? "¿Ya tienes Salesforce® pero no está funcionando como esperabas? Te ayudo a optimizar, ajustar y mejorar tu configuración actual."
+                : "Already have Salesforce® but it's not working as expected? I help you optimize, adjust, and improve your current setup."}
             </p>
             <ContactFormDialog variant="demo">
               <Button size="lg" variant="hero">

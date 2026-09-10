@@ -116,14 +116,14 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title={language === "es" ? "Contacto - Consultoría Salesforce" : "Contact - Salesforce Consulting"}
-        description={language === "es" ? "Contacta con AltoCloud para consultoría Salesforce en España. Información sobre Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite." : "Contact AltoCloud for Salesforce consulting in Spain. Information about Sales Cloud, Service Cloud, Nonprofit Cloud and Starter Suite."}
+        title={language === "es" ? "Contacto - Consultoría de Salesforce" : "Contact - Salesforce Consulting"}
+        description={language === "es" ? "Contacta con Altocloud para consultoría de Salesforce en España. Información sobre Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite." : "Contact Altocloud for Salesforce consulting in Spain. Information about Sales Cloud, Service Cloud, Nonprofit Cloud and Starter Suite."}
         canonical="/contacto"
       />
       <StructuredData
         type="webpage"
         name={t("contact.title")}
-        description={language === "es" ? "Formulario de contacto para consultoría Salesforce." : "Contact form for Salesforce consulting."}
+        description={language === "es" ? "Formulario de contacto para consultoría de Salesforce." : "Contact form for Salesforce consulting."}
         url="/contacto"
       />
       {/* Hero */}

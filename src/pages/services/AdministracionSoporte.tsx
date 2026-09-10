@@ -88,10 +88,10 @@ const AdministracionSoporte = () => {
     <Layout>
       <SEO 
         title={language === 'es' 
-          ? "Administración y Soporte Salesforce | System Admin Externo" 
-          : "Salesforce Administration & Support | External System Admin"}
+          ? "Administración y Soporte de Salesforce® | System Admin Externo" 
+          : "Salesforce® Administration & Support | External System Admin"}
         description={language === 'es'
-          ? "Servicio de administración Salesforce como System Admin externo. Mantenimiento, resolución de incidencias y gestión diaria de tu CRM."
+          ? "Servicio de administración de Salesforce como System Admin externo. Mantenimiento, resolución de incidencias y gestión diaria de tu CRM."
           : "Salesforce administration service as external System Admin. Maintenance, incident resolution, and daily CRM management."}
         canonical="/servicios/administracion-soporte"
       />
@@ -108,8 +108,8 @@ const AdministracionSoporte = () => {
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
               {language === 'es' 
-                ? "Tu System Admin externo dedicado. Mantenimiento, soporte y gestión diaria de Salesforce sin contratar un recurso a tiempo completo."
-                : "Your dedicated external System Admin. Salesforce maintenance, support, and daily management without hiring a full-time resource."}
+                ? "Tu System Admin externo dedicado. Mantenimiento, soporte y gestión diaria de Salesforce® sin contratar un recurso a tiempo completo."
+                : "Your dedicated external System Admin. Salesforce® maintenance, support, and daily management without hiring a full-time resource."}
             </p>
             <ContactFormDialog variant="demo">
               <Button size="lg" variant="hero">

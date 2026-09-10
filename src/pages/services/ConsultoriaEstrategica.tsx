@@ -105,10 +105,10 @@ const ConsultoriaEstrategica = () => {
     <Layout>
       <SEO 
         title={language === 'es' 
-          ? "Consultoría Estratégica Salesforce | Asesoramiento CRM" 
-          : "Strategic Salesforce Consulting | CRM Advisory"}
+          ? "Consultoría Estratégica de Salesforce® | Asesoramiento CRM" 
+          : "Strategic Salesforce® Consulting | CRM Advisory"}
         description={language === 'es'
-          ? "Consultoría estratégica para optimizar procesos y maximizar la adopción de Salesforce. Asesoramiento experto para tu transformación digital."
+          ? "Consultoría estratégica para optimizar procesos y maximizar la adopción de Salesforce®. Asesoramiento experto para tu transformación digital."
           : "Strategic consulting to optimize processes and maximize Salesforce adoption. Expert advisory for your digital transformation."}
         canonical="/servicios/consultoria-estrategica"
       />
@@ -125,8 +125,8 @@ const ConsultoriaEstrategica = () => {
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
               {language === 'es' 
-                ? "Asesoramiento experto para definir tu estrategia CRM, optimizar procesos y asegurar la adopción de Salesforce en tu organización."
-                : "Expert advisory to define your CRM strategy, optimize processes, and ensure Salesforce adoption in your organization."}
+                ? "Asesoramiento experto para definir tu estrategia CRM, optimizar procesos y asegurar la adopción de Salesforce® en tu organización."
+                : "Expert advisory to define your CRM strategy, optimize processes, and ensure Salesforce® adoption in your organization."}
             </p>
             <ContactFormDialog variant="demo">
               <Button size="lg" variant="hero">
