@@ -15,8 +15,8 @@ const OptimizacionAjustes = () => {
       icon: TrendingUp,
       title: "Mejora del Rendimiento",
       titleEn: "Performance Improvement",
-      description: "Optimiza la velocidad y eficiencia de tu instancia Salesforce para un mejor rendimiento.",
-      descriptionEn: "Optimize the speed and efficiency of your Salesforce instance for better performance."
+      description: "Optimiza la velocidad y eficiencia de tu instancia de Salesforce® para un mejor rendimiento.",
+      descriptionEn: "Optimize the speed and efficiency of your Salesforce® instance for better performance."
     },
     {
       icon: Target,
@@ -189,8 +189,8 @@ const OptimizacionAjustes = () => {
           <Wrench className="w-12 h-12 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {language === 'es' 
-              ? '¿Tu Salesforce necesita mejoras?' 
-              : 'Does your Salesforce need improvements?'}
+              ? '¿Tu Salesforce® necesita mejoras?' 
+              : 'Does your Salesforce® need improvements?'}
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
             {language === 'es'

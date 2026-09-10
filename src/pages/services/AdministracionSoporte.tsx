@@ -196,8 +196,8 @@ const AdministracionSoporte = () => {
           <HeadsetIcon className="w-12 h-12 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {language === 'es' 
-              ? '¿Necesitas un administrador de Salesforce?' 
-              : 'Need a Salesforce administrator?'}
+              ? '¿Necesitas un administrador de Salesforce®?' 
+              : 'Need a Salesforce® administrator?'}
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
             {language === 'es'
