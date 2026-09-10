@@ -260,8 +260,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Implementación Salesforce
     "implementation.navName": "Implementación",
-    "implementation.title": "Implementación Salesforce",
-    "implementation.description": "Metodología ágil de implementación en 5 fases que garantiza el éxito de tu proyecto Salesforce. Desde el discovery hasta el go live, te acompaño en cada paso.",
+    "implementation.title": "Implementación de Salesforce®",
+    "implementation.description": "Metodología ágil de implementación en 5 fases que garantiza el éxito de tu proyecto de Salesforce®. Desde el discovery hasta el go live, te acompaño en cada paso.",
     "implementation.methodology.title": "Metodología de Implementación",
     "implementation.methodology.desc": "El proyecto se divide en 5 fases claramente definidas, siguiendo una metodología ágil que permite adaptarse a los cambios y garantizar resultados.",
     "implementation.phase": "Fase",
@@ -320,7 +320,7 @@ const translations: Record<Language, Record<string, string>> = {
     "implementation.agile4": "Visibilidad total del progreso del proyecto",
     
     // CTA
-    "implementation.cta.title": "¿Listo para implementar Salesforce?",
+    "implementation.cta.title": "¿Listo para implementar Salesforce®?",
     "implementation.cta.desc": "Agenda una consulta gratuita para analizar tu proyecto.",
 
     // Optimización y Ajustes
@@ -624,8 +624,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Salesforce Implementation
     "implementation.navName": "Implementation",
-    "implementation.title": "Salesforce Implementation",
-    "implementation.description": "Agile implementation methodology in 5 phases that guarantees the success of your Salesforce project. From discovery to go live, I accompany you every step of the way.",
+    "implementation.title": "Implementation of Salesforce®",
+    "implementation.description": "Agile implementation methodology in 5 phases that guarantees the success of your Salesforce® project. From discovery to go live, I accompany you every step of the way.",
     "implementation.methodology.title": "Implementation Methodology",
     "implementation.methodology.desc": "The project is divided into 5 clearly defined phases, following an agile methodology that adapts to changes and guarantees results.",
     "implementation.phase": "Phase",
@@ -684,7 +684,7 @@ const translations: Record<Language, Record<string, string>> = {
     "implementation.agile4": "Full visibility of project progress",
     
     // CTA
-    "implementation.cta.title": "Ready to implement Salesforce?",
+    "implementation.cta.title": "Ready to implement Salesforce®?",
     "implementation.cta.desc": "Schedule a free consultation to analyze your project.",
 
     // Optimization & Adjustments

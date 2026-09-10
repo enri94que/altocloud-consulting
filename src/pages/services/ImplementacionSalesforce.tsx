@@ -71,14 +71,14 @@ const ImplementacionSalesforce = () => {
   return (
     <Layout>
       <SEO
-        title={language === "es" ? "Implementación Salesforce - Metodología" : "Salesforce Implementation - Methodology"}
-        description={language === "es" ? "Metodología de implementación Salesforce en 5 fases: Discovery, Desarrollo, UAT, Training y Go Live. Consultor certificado en España." : "Salesforce implementation methodology in 5 phases: Discovery, Development, UAT, Training and Go Live. Certified consultant in Spain."}
+        title={language === "es" ? "Implementación de Salesforce® - Metodología" : "Salesforce® Implementation - Methodology"}
+        description={language === "es" ? "Metodología de implementación de Salesforce® en 5 fases: Discovery, Desarrollo, UAT, Training y Go Live. Consultor certificado en España." : "Salesforce® implementation methodology in 5 phases: Discovery, Development, UAT, Training and Go Live. Certified consultant in Spain."}
         canonical="/servicios/implementacion-salesforce"
       />
       <StructuredData
         type="service"
-        name={language === "es" ? "Implementación Salesforce" : "Salesforce Implementation"}
-        description={language === "es" ? "Servicio de implementación profesional de Salesforce con metodología ágil en 5 fases." : "Professional Salesforce implementation service with agile methodology in 5 phases."}
+        name={language === "es" ? "Implementación de Salesforce®" : "Salesforce® Implementation"}
+        description={language === "es" ? "Servicio de implementación profesional de Salesforce® con metodología ágil en 5 fases." : "Professional Salesforce® implementation service with agile methodology in 5 phases."}
         url="/servicios/implementacion-salesforce"
       />
       
