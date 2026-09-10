@@ -72,9 +72,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contactStrip.cta": "Contactar ahora",
 
      // Licenses Banner
-     "licensesBanner.title": "¿Quieres saber cuánto cuestan las licencias de Salesforce?",
-     "licensesBanner.description": "Consulta los precios oficiales de las diferentes ediciones.",
-     "licensesBanner.cta": "Ver precios de licencias",
+    "licensesBanner.title": "¿Necesitas ayuda para elegir tus licencias de Salesforce?",
+    "licensesBanner.description": "Te asesoro para seleccionar la edición que mejor se adapte a tu negocio.",
+    "licensesBanner.cta": "Consultar licencias",
 
     // Footer
     "footer.description": "Consultores especializados en Salesforce. Ayudamos a empresas a transformar sus procesos de negocio con las mejores soluciones CRM del mercado.",
