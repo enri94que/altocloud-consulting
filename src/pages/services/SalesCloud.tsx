@@ -53,7 +53,7 @@ const SalesCloud = () => {
     <Layout>
       <SEO
         title={language === "es" ? "Sales Cloud - CRM Ventas" : "Sales Cloud - Sales CRM"}
-        description={language === "es" ? "Sales Cloud: gestión de leads, automatización comercial y previsiones de ventas. Consultor de Salesforce® certificado para impulsar tus ventas." : "Sales Cloud: lead management, sales automation and forecasting. Certified Salesforce® consultant to boost your sales."}
+        description={language === "es" ? "Sales Cloud: gestión de leads, automatización comercial y previsiones de ventas. Consultor de Salesforce certificado para impulsar tus ventas." : "Sales Cloud: lead management, sales automation and forecasting. Certified Salesforce consultant to boost your sales."}
         canonical="/servicios/sales-cloud"
       />
       <StructuredData

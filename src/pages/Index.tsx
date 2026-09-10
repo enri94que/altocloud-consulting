@@ -12,7 +12,7 @@ const Index = () => {
     <Layout>
       <SEO
         title="Inicio"
-        description="Consultor de Salesforce® certificado en España. Implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Transforma tu empresa."
+        description="Consultor de Salesforce certificado en España. Implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite. Transforma tu empresa."
         canonical="/"
       />
       <StructuredData type="organization" />
