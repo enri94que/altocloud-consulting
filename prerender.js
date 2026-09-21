@@ -11,14 +11,14 @@ const { render } = await import('./dist/server/entry-server.js')
 const routesToPrerender = [
   '/',
   '/contacto',
-  '/precios',
-  '/servicios/sales-cloud',
-  '/servicios/service-cloud',
-  '/servicios/nonprofit-cloud',
-  '/servicios/starter-pro-suite',
+  '/servicios/implementacion-salesforce',
+  '/servicios/optimizacion-ajustes',
+  '/servicios/administracion-soporte',
+  '/servicios/consultoria-estrategica',
   '/politica-privacidad',
   '/notarias'
 ]
+
 
 ;(async () => {
   for (const routeUrl of routesToPrerender) {
