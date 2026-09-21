@@ -630,7 +630,6 @@ const translations: Record<Language, Record<string, string>> = {
     "form.requestInfo": "Request Information",
     "form.contact": "Contact",
     "form.demoDesc": "Fill out the form and we'll contact you to schedule a personalized demo.",
-    "form.pricingDesc": "Fill out the form and we'll send you detailed pricing and licensing information.",
     "form.contactDesc": "Fill out the form and we'll get in touch with you.",
     "form.name": "Name",
     "form.email": "Email",

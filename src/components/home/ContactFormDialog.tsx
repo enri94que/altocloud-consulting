@@ -67,7 +67,7 @@ const numEmpleadosOptions = [
 ];
 
 interface ContactFormDialogProps {
-  variant: "demo" | "contact" | "pricing";
+  variant: "demo" | "contact";
   children: React.ReactNode;
   defaultService?: string;
 }
@@ -121,15 +121,13 @@ const ContactFormDialog = ({ variant, children, defaultService }: ContactFormDia
     }, 1500);
   };
 
-  const title = variant === "demo" ? "Solicitar Demo" : variant === "pricing" ? "Solicitar Información" : "Contactar";
+  const title = variant === "demo" ? "Solicitar Demo" : "Contactar";
   const description =
     variant === "demo"
       ? "Rellena el formulario y te contactaremos para programar una demostración personalizada."
-      : variant === "pricing"
-        ? "Rellena el formulario y te enviaremos información detallada sobre precios y licencias."
-        : "Rellena el formulario y nos pondremos en contacto contigo.";
+      : "Rellena el formulario y nos pondremos en contacto contigo.";
 
-  const showExtraFields = variant === "demo" || variant === "pricing";
+  const showExtraFields = variant === "demo";
 
   const formValues = form.watch();
 
