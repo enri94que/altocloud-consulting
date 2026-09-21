@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, TrendingUp, Headphones, Heart, Zap } from "lucide-react";
+import { ArrowRight, Rocket, Settings, Headset, Lightbulb } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesGrid = () => {
@@ -8,36 +8,36 @@ const ServicesGrid = () => {
 
   const services = [
     {
-      icon: TrendingUp,
-      title: "Sales Cloud",
-      descriptionKey: "services.salesCloud.description",
-      path: "/servicios/sales-cloud",
+      icon: Rocket,
+      titleKey: "services.implementation.title",
+      descriptionKey: "services.implementation.description",
+      path: "/servicios/implementacion-salesforce",
       color: "from-blue-500 to-blue-600",
-      linkKey: "services.salesCloud.link",
+      linkKey: "services.implementation.link",
     },
     {
-      icon: Headphones,
-      title: "Service Cloud",
-      descriptionKey: "services.serviceCloud.description",
-      path: "/servicios/service-cloud",
+      icon: Settings,
+      titleKey: "services.optimization.title",
+      descriptionKey: "services.optimization.description",
+      path: "/servicios/optimizacion-ajustes",
       color: "from-green-500 to-green-600",
-      linkKey: "services.serviceCloud.link",
+      linkKey: "services.optimization.link",
     },
     {
-      icon: Heart,
-      title: "Nonprofit Cloud",
-      descriptionKey: "services.nonprofitCloud.description",
-      path: "/servicios/nonprofit-cloud",
+      icon: Headset,
+      titleKey: "services.administration.title",
+      descriptionKey: "services.administration.description",
+      path: "/servicios/administracion-soporte",
       color: "from-purple-500 to-purple-600",
-      linkKey: "services.nonprofitCloud.link",
+      linkKey: "services.administration.link",
     },
     {
-      icon: Zap,
-      title: "Starter & Pro Suite",
-      descriptionKey: "services.starterSuite.description",
-      path: "/servicios/starter-pro-suite",
+      icon: Lightbulb,
+      titleKey: "services.consulting.title",
+      descriptionKey: "services.consulting.description",
+      path: "/servicios/consultoria-estrategica",
       color: "from-orange-500 to-orange-600",
-      linkKey: "services.starterSuite.link",
+      linkKey: "services.consulting.link",
     },
   ];
 
@@ -64,7 +64,7 @@ const ServicesGrid = () => {
                   <service.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {t(service.descriptionKey)}
