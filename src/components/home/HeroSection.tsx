@@ -41,7 +41,7 @@ const HeroSection = () => {
           {/* Trust badges */}
           <div className="mt-16 pt-8 border-t border-primary-foreground/10 animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <p className="text-primary-foreground/80 text-base mb-4">
-              {t("hero.intro")} <span className="font-semibold">{t("hero.name")}</span>, {t("hero.subtitle")}
+              {t("hero.intro")}
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-primary-foreground/40">
               <span className="text-sm font-medium">{t("hero.certified")}</span>
