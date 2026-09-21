@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { HeadsetIcon, Shield, Clock, Users, CheckCircle2, FileText, Zap } from "lucide-react";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
- import LicensesBanner from "@/components/home/LicensesBanner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/seo/SEO";
 import Layout from "@/components/layout/Layout";
@@ -188,7 +187,6 @@ const AdministracionSoporte = () => {
         </div>
       </section>
 
-       <LicensesBanner />
 
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
