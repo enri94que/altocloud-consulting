@@ -64,7 +64,7 @@ const ServicesGrid = () => {
                   <service.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {t(service.descriptionKey)}
