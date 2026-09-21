@@ -7,10 +7,6 @@ import ScrollToTop from "@/components/layout/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
-import SalesCloud from "./pages/services/SalesCloud";
-import ServiceCloud from "./pages/services/ServiceCloud";
-import NonprofitCloud from "./pages/services/NonprofitCloud";
-import StarterProSuite from "./pages/services/StarterProSuite";
 import ImplementacionSalesforce from "./pages/services/ImplementacionSalesforce";
 import OptimizacionAjustes from "./pages/services/OptimizacionAjustes";
 import AdministracionSoporte from "./pages/services/AdministracionSoporte";
@@ -31,10 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contacto" element={<Contact />} />
-          <Route path="/servicios/sales-cloud" element={<SalesCloud />} />
-          <Route path="/servicios/service-cloud" element={<ServiceCloud />} />
-          <Route path="/servicios/nonprofit-cloud" element={<NonprofitCloud />} />
-          <Route path="/servicios/starter-pro-suite" element={<StarterProSuite />} />
+
           <Route path="/servicios/implementacion-salesforce" element={<ImplementacionSalesforce />} />
           <Route path="/servicios/optimizacion-ajustes" element={<OptimizacionAjustes />} />
           <Route path="/servicios/administracion-soporte" element={<AdministracionSoporte />} />
