@@ -2,7 +2,6 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Target, BarChart3, Users, Zap, CheckCircle2, ArrowRight } from "lucide-react";
 import ContactFormDialog from "@/components/home/ContactFormDialog";
- import LicensesBanner from "@/components/home/LicensesBanner";
 import SEO from "@/components/seo/SEO";
 import StructuredData from "@/components/seo/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -139,7 +138,6 @@ const SalesCloud = () => {
         </div>
       </section>
 
-       <LicensesBanner />
 
       {/* CTA */}
       <section className="py-16 bg-hero-gradient">
