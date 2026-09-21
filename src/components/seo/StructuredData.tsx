@@ -33,6 +33,12 @@ const StructuredData = (props: StructuredDataProps) => {
           name: 'Altocloud',
           description: 'Consultor de Salesforce certificado especializado en implementación de Sales Cloud, Service Cloud, Nonprofit Cloud y Starter Suite.',
           url: siteUrl,
+          founder: {
+            '@type': 'Person',
+            name: 'Enrique Arrufat',
+            jobTitle: 'Consultor de Salesforce certificado',
+            url: siteUrl,
+          },
           logo: `${siteUrl}${logoAltocloudAsset.url}`,
           contactPoint: {
             '@type': 'ContactPoint',
@@ -62,8 +68,14 @@ const StructuredData = (props: StructuredDataProps) => {
           url: `${siteUrl}${props.url}`,
           provider: {
             '@type': 'Organization',
-            name: 'AltoCloud',
+            name: 'Altocloud',
             url: siteUrl,
+            founder: {
+              '@type': 'Person',
+              name: 'Enrique Arrufat',
+              jobTitle: 'Consultor de Salesforce certificado',
+              url: siteUrl,
+            },
           },
           areaServed: {
             '@type': 'Country',
