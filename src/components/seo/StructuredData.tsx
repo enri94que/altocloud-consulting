@@ -92,8 +92,13 @@ const StructuredData = (props: StructuredDataProps) => {
           url: `${siteUrl}${props.url}`,
           isPartOf: {
             '@type': 'WebSite',
-            name: 'AltoCloud',
+            name: 'Altocloud',
             url: siteUrl,
+            author: {
+              '@type': 'Person',
+              name: 'Enrique Arrufat',
+              url: siteUrl,
+            },
           },
         };
       default:
