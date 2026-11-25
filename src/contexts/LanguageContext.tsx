@@ -20,7 +20,6 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.licenses": "Licencias",
     "nav.contact": "Contacto",
     "nav.requestDemo": "Solicitar Demo",
-    "nav.login": "Acceder",
 
     // Hero Section
     "hero.badge": "Consultor Certificado en Salesforce",
@@ -348,7 +347,6 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.licenses": "Licenses",
     "nav.contact": "Contact",
     "nav.requestDemo": "Request Demo",
-    "nav.login": "Login",
 
     // Hero Section
     "hero.badge": "Certified Consultant in Salesforce",
